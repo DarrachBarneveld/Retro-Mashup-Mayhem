@@ -15,5 +15,8 @@
   },
   "alias": {
     "kaboom": "/node_modules/kaboom/dist/kaboom.mjs"
+  },
+  "devDependencies": {
+    "@parcel/transformer-raw": "^2.9.3"
   }
 }

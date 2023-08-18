@@ -1,4 +1,17 @@
 import K from "../kaboom";
+import dinoSpriteTest from "../../assets/images/sprites/dino.png";
+import bulletAudio from "../../assets/audio/effects/bullet.mp3";
+
+K.loadSprite("dino", dinoSpriteTest, {
+  sliceX: 24,
+  sliceY: 1,
+  anims: {
+    idle: { from: 1, to: 9, loop: true },
+    run: { from: 17, to: 23, loop: true },
+  },
+});
+
+K.loadSound("shoot", bulletAudio);
 
 export class Player {
   constructor(spriteName, position, moveSpeed, scale) {
@@ -38,6 +51,7 @@ export class Player {
 
     K.onKeyPress("space", () => {
       const direction = this.sprite.flipX ? -5 : 5;
+      K.play("shoot");
 
       K.add([
         K.sprite("dino"),

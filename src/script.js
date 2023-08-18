@@ -15,4 +15,3 @@ K.scene("demo", () => {
 
 K.go("demo");
 
-// BULLET UPDATE FRAME

@@ -1,0 +1,7 @@
+.menu-canvas{
+    background-color: blue;
+    width:670px;
+    height:500px;
+    position: absolute;
+    transform: translate(-12.2%);
+}

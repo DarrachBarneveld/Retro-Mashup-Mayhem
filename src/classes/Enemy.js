@@ -6,17 +6,9 @@ K.loadSprite("enemy", enemySprite);
 
 export class Enemy {
   constructor(position, spriteName, moveSpeed, scale) {
-    const posX = getRandomNumber(
-      position.top - K.height("enemy"),
-      position.bottom + K.height("enemy")
-    );
-    const posY = K.width("demo") + 10;
-
-    console.log(posY);
-    this.health = 100;
     this.sprite = K.add([
       K.sprite("enemy"),
-      K.pos(posY, posX),
+      K.pos(),
       K.area(),
       K.scale(1),
       K.body(),
@@ -24,6 +16,17 @@ export class Enemy {
       enemyMovement(this),
       "enemy",
     ]);
+
+    const value1 = K.height() - this.sprite.height - 10;
+
+    const posY = getRandomNumber(value1, 10);
+
+    const posX = K.width() + 10;
+
+    this.sprite.pos.x = posX;
+    this.sprite.pos.y = posY;
+
+    this.health = 100;
 
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }

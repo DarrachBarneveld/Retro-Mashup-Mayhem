@@ -1,13 +1,11 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
 import { Enemy } from "./classes/Enemy";
-import Level from "./classes/Level";
-import { level1Layout, level1Objects } from "./levels/level1Data";
-import marioTileset from "../assets/images/tileset/mario_tileset.png";
+import { Level } from "./classes/Level";
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 1);
-  level1();
+  const level = new Level();
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());
   K.onKeyDown("up", () => player.moveUp());
@@ -15,48 +13,8 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  K.loop(2, () => new Enemy(player));
+  K.loop(1, () => new Enemy(player));
 });
-
-const test = [
-  "=================================================================================",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=                                                                               ",
-  "=================================================================================",
-];
-
-function level1() {
-  K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-  K.addLevel(test, {
-    tileWidth: 16,
-    tileHeight: 16,
-    tiles: {
-      "=": () => [
-        K.sprite("tiles", { frame: 2 }),
-        K.area(),
-        K.body({ isStatic: true }),
-        "tiles",
-      ],
-      "^": () => [
-        K.sprite("tiles", { frame: 4 }),
-        area(),
-        K.body({ isStatic: true }),
-        "tiles",
-      ],
-    },
-  });
-}
 
 K.go("demo");
 

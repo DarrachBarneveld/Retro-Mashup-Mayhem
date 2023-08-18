@@ -1,16 +1,27 @@
 import K from "../kaboom";
+import marioTileset from "../../assets/images/tileset/mario_tileset.png";
+import { testLevel } from "../levels/level1Data";
 
-export default class Level {
-    constructor(data, objectsMapping) {
-        this.data = data;
-        this.objectsMapping = objectsMapping;
-    }
-
-    loadLevel() {
-        K.addLevel(this.data, {
-          tileWidth: 32,
-          tileHeight: 32, 
-            ...this.objectsMapping
-        });
-    }
+export class Level {
+  constructor() {
+    K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
+    K.addLevel(testLevel, {
+      tileWidth: 16,
+      tileHeight: 16,
+      tiles: {
+        "=": () => [
+          K.sprite("tiles", { frame: 2 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        "^": () => [
+          K.sprite("tiles", { frame: 4 }),
+          area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+      },
+    });
+  }
 }

@@ -1,9 +1,13 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
 import { Enemy } from "./classes/Enemy";
+import Level from "./classes/Level";
+import { level1Layout, level1Objects } from "./levels/level1Data";
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 2);
+  const levelInstance = new Level(level1Layout, level1Objects);
+  levelInstance.loadLevel();
 
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());

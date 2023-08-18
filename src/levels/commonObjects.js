@@ -1,16 +1,10 @@
-import Player from "../classes/Player";
+import K from "../kaboom"
+
 
 export const commonObjects = {
-  P: () => {
-    const player = new Player(
-      "dino",
-      { x: K.width() / 2, y: K.height() / 2 },
-      100,
-      2
-    );
-    return player.sprite;
-  },
-  ".": () => {
-    return null;
-  },
+  "O": () => [
+    K.sprite("obstacle"),
+    K.area(),
+    K.solid(),
+  ]
 };

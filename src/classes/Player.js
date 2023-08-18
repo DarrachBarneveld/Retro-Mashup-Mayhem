@@ -30,6 +30,10 @@ export class Player {
     this.sprite.onCollide("wall", () => {
       this.sprite.destroy();
     });
+
+    this.sprite.onUpdate(() => {
+      K.camPos(this.sprite.pos);
+    });
   }
 
   moveUp() {
@@ -73,13 +77,13 @@ export class Player {
   }
 
   shoot() {
-    const direction = this.sprite.flipX ? -5 : 5;
+    const direction = this.sprite.flipX ? -10 : 10;
     K.play("shoot");
 
     const bullet = K.add([
       K.sprite("dino"),
       K.pos(this.sprite.pos.x + 40, this.sprite.pos.y + 15),
-      K.scale(1),
+      K.scale(0.5),
       K.body(),
       K.area(),
       bulletMovement(direction, 0),
@@ -89,6 +93,9 @@ export class Player {
     bullet.damage = 50;
 
     bullet.onCollide("enemy", (enemy) => {
+      bullet.destroy();
+    });
+    bullet.onCollide("tiles", (enemy) => {
       bullet.destroy();
     });
   }

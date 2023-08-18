@@ -10,7 +10,7 @@ export class Enemy {
       K.sprite("enemy"),
       K.pos(),
       K.area(),
-      K.scale(1),
+      K.scale(0.5),
       K.body(),
       K.color(),
       enemyMovement(this),

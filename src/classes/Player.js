@@ -16,16 +16,20 @@ K.loadSound("shoot", bulletAudio);
 export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
     this.sprite = K.add([
-      K.sprite(spriteName, { animSpeed: 0.6, flipX: false }), // Use the provided sprite name
-      K.pos(0, 0),
+      K.sprite(spriteName, { animSpeed: 0.6, flipX: false }),
+      K.pos(30, K.height() / 2),
       K.area(),
-      K.scale(scale), // Use the provided scale
+      K.scale(scale),
       K.body(),
     ]);
     this.running = false;
     this.position = position;
     this.moveSpeed = moveSpeed;
     this.sprite.play("idle");
+
+    this.sprite.onCollide("wall", () => {
+      this.sprite.destroy();
+    });
   }
 
   moveUp() {

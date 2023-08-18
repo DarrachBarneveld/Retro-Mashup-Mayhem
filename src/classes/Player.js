@@ -29,6 +29,23 @@ export class Player {
     this.sprite.play("idle");
   }
 
+  moveUp() {
+    if (!this.running) {
+      this.sprite.play("run");
+      this.running = true;
+    }
+    this.sprite.move(0, -this.moveSpeed);
+  }
+
+  moveDown() {
+    if (!this.running) {
+      this.sprite.play("run");
+      this.running = true;
+    }
+    console.log("fire");
+    this.sprite.move(0, this.moveSpeed);
+  }
+
   moveLeft() {
     if (!this.running) {
       this.sprite.play("run");

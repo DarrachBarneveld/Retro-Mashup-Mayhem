@@ -17,7 +17,7 @@ export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
     this.sprite = K.add([
       K.sprite(spriteName, { animSpeed: 0.6, flipX: false }),
-      K.pos(30, K.height() / 2),
+      K.pos(175, K.height() / 2),
       K.area(),
       K.scale(scale),
       K.body(),

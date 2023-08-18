@@ -5,7 +5,7 @@ import { getRandomNumber } from "../helpers/math";
 K.loadSprite("enemy", enemySprite);
 
 export class Enemy {
-  constructor(position, spriteName, moveSpeed, scale) {
+  constructor(player) {
     this.sprite = K.add([
       K.sprite("enemy"),
       K.pos(),
@@ -21,7 +21,7 @@ export class Enemy {
 
     const posY = getRandomNumber(value1, 10);
 
-    const posX = K.width() + 10;
+    const posX = player.sprite.pos.x + 300;
 
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;

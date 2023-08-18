@@ -66,9 +66,10 @@ Welcome to Retroverse-Odyssey game!
 ## Wireframes
 
 
-![Start Game](docs-READMEimages/start-game.png)
+![Start Game](READMEimages/start-game.png)
 
-![Game Stage](docs-READMEimages/game-stage.png)
+
+![Game Stage](READMEimages/game-stage.png)
 
 
 

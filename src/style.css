@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 95vh;
     position: relative;
     width: auto;
     background-color: red;
@@ -29,7 +29,7 @@ body {
     z-index: 2;
     display: block;
     width: auto;
-    height: 85vh;
+    height: 95vh;
     object-fit: contain;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -38,6 +38,10 @@ body {
     position: absolute;
     background-color: blue;
     z-index: 1;
-    margin: -62px 0 0 -543px;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 80%;
     border: none;
 }

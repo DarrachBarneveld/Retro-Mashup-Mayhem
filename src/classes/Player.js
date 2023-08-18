@@ -16,7 +16,7 @@ K.loadSound("shoot", bulletAudio);
 export class Player {
   constructor(spriteName, position, moveSpeed, scale) {
     this.sprite = K.add([
-      K.sprite("dino", { animSpeed: 0.6, flipX: false }), // Use the provided sprite name
+      K.sprite(spriteName, { animSpeed: 0.6, flipX: false }), // Use the provided sprite name
       K.pos(0, 0),
       K.area(),
       K.scale(scale), // Use the provided scale
@@ -24,47 +24,43 @@ export class Player {
       "walking",
     ]);
     this.running = false;
-
+    this.position = position;
+    this.moveSpeed = moveSpeed;
     this.sprite.play("idle");
+  }
 
-    K.onKeyDown("left", () => {
-      if (!this.running) {
-        this.sprite.play("run");
-        this.running = true;
-      }
-      this.sprite.move(-moveSpeed, 0);
-      this.sprite.flipX = true;
-    });
+  moveLeft() {
+    if (!this.running) {
+      this.sprite.play("run");
+      this.running = true;
+    }
+    this.sprite.move(-this.moveSpeed, 0);
+    this.sprite.flipX = true;
+  }
 
-    K.onKeyDown("right", () => {
-      if (!this.running) {
-        this.sprite.play("run");
-        this.running = true;
-      }
-      this.sprite.flipX = false;
-      this.sprite.move(moveSpeed, 0);
-    });
+  moveRight() {
+    if (!this.running) {
+      this.sprite.play("run");
+      this.running = true;
+    }
+    this.sprite.flipX = false;
+    this.sprite.move(this.moveSpeed, 0);
+  }
+  idle() {
+    this.running = false;
+    this.sprite.play("idle");
+  }
 
-    K.onKeyRelease("left", () => {
-      this.running = false;
-      this.sprite.play("idle");
-    });
-    K.onKeyRelease("right", () => {
-      this.running = false;
-      this.sprite.play("idle");
-    });
+  shoot() {
+    const direction = this.sprite.flipX ? -5 : 5;
+    K.play("shoot");
 
-    K.onKeyPress("space", () => {
-      const direction = this.sprite.flipX ? -5 : 5;
-      K.play("shoot");
-
-      K.add([
-        K.sprite("dino"),
-        K.pos(this.sprite.pos.x + 40, this.sprite.pos.y + 15),
-        K.scale(1),
-        bulletMovement(direction, 0),
-      ]);
-    });
+    K.add([
+      K.sprite("dino"),
+      K.pos(this.sprite.pos.x + 40, this.sprite.pos.y + 15),
+      K.scale(1),
+      bulletMovement(direction, 0),
+    ]);
   }
 }
 

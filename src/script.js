@@ -1,14 +1,6 @@
-import kaboom from "kaboom";
+import K from "./kaboom";
 import DinoSpriteTest from "../assets/images/sprites/dino.png";
-
-const speed = 150;
-const K = kaboom({
-  width: 900,
-  height: 600,
-  scale: 1,
-  background: [0, 0, 0],
-  canvas: document.querySelector("#mycanvas"),
-});
+import { Player } from "./classes/Player";
 
 K.loadSprite("dino", DinoSpriteTest, {
   sliceX: 24,
@@ -20,58 +12,9 @@ K.loadSprite("dino", DinoSpriteTest, {
 });
 
 K.scene("demo", () => {
-  const player = K.add([
-    K.sprite("dino", { animSpeed: 0.6, flipX: false }),
-    K.scale(2),
-    K.pos(0, 0),
-  ]);
-
-  player.play("idle");
-
-  K.onKeyPress("left", () => {
-    player.play("run");
-    player.flipX = true;
-  });
-
-  K.onKeyDown("left", () => {
-    player.move(-speed, 0);
-    player.flipX = true;
-  });
-
-  K.onKeyPress("right", () => {
-    player.play("run");
-    player.flipX = false;
-  });
-
-  K.onKeyDown("right", () => {
-    player.flipX = false;
-    player.move(speed, 0);
-  });
-
-  K.onKeyRelease("left", () => player.play("idle"));
-  K.onKeyRelease("right", () => player.play("idle"));
-
-  K.onKeyPress("space", () => {
-    const direction = player.flipX ? -5 : 5;
-
-    K.add([
-      K.sprite("dino"),
-      K.pos(player.pos.x + 40, player.pos.y + 15),
-      K.scale(1),
-      bulletMovement(direction, 0),
-    ]);
-  });
+  const player = new Player("dino", 0, 150, 2);
 });
 
 K.go("demo");
 
 // BULLET UPDATE FRAME
-function bulletMovement(x, y) {
-  return {
-    add() {},
-    update() {
-      this.pos.x += x;
-      this.pos.y += y;
-    },
-  };
-}

@@ -14,7 +14,7 @@ K.loadSprite("dino", dinoSpriteTest, {
 K.loadSound("shoot", bulletAudio);
 
 export class Player {
-  constructor(spriteName, position, moveSpeed, scale) {
+  constructor(spriteName, position = 0, moveSpeed, scale) {
     this.sprite = K.add([
       K.sprite(spriteName, { animSpeed: 0.6, flipX: false }), // Use the provided sprite name
       K.pos(0, 0),

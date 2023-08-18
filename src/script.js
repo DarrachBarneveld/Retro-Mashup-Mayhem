@@ -4,7 +4,6 @@ import { Enemy } from "./classes/Enemy";
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 2);
-  const enemy = new Enemy();
 
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());
@@ -13,6 +12,8 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
+
+  K.loop(1, () => new Enemy({ top: K.height(), bottom: 0 }));
 });
 
 K.go("demo");

@@ -22,37 +22,42 @@ body {
 }
 
 #tv-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 95vh;
-    position: relative;
-    width: auto;
-    background-color: red;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  position: relative;
+  width: auto;
+  /* background-color: red; */
 }
+
+#tv-frame {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #tv-frame img {
-    position: relative;
-    z-index: 2;
-    display: block;
-    width: auto;
-    height: 95vh;
-    object-fit: contain;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  height: 600;
+  width: 700;
+  object-fit: contain;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2),
+    -10px -10px 30px rgba(0, 0, 0, 0.2);
 }
-
 #mycanvas {
-    position: absolute;
-    background-color: blue;
-    z-index: 1;
-    top: 50%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    height: 80%;
-    border: none;
-}
-#game {
-  border: 5px solid goldenrod;
-  border-radius: 2px;
+  position: absolute;
+  /* background-color: blue; */
+  z-index: 1;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 80%;
+  border: none;
 }

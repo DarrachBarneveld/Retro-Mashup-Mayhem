@@ -23,31 +23,36 @@ export class Player {
       K.body(),
       "walking",
     ]);
+    this.running = false;
 
     this.sprite.play("idle");
 
-    K.onKeyPress("left", () => {
-      this.sprite.play("run");
-      this.sprite.flipX = true;
-    });
-
     K.onKeyDown("left", () => {
+      if (!this.running) {
+        this.sprite.play("run");
+        this.running = true;
+      }
       this.sprite.move(-moveSpeed, 0);
       this.sprite.flipX = true;
     });
 
-    K.onKeyPress("right", () => {
-      this.sprite.play("run");
-      this.sprite.flipX = false;
-    });
-
     K.onKeyDown("right", () => {
+      if (!this.running) {
+        this.sprite.play("run");
+        this.running = true;
+      }
       this.sprite.flipX = false;
       this.sprite.move(moveSpeed, 0);
     });
 
-    K.onKeyRelease("left", () => this.sprite.play("idle"));
-    K.onKeyRelease("right", () => this.sprite.play("idle"));
+    K.onKeyRelease("left", () => {
+      this.running = false;
+      this.sprite.play("idle");
+    });
+    K.onKeyRelease("right", () => {
+      this.running = false;
+      this.sprite.play("idle");
+    });
 
     K.onKeyPress("space", () => {
       const direction = this.sprite.flipX ? -5 : 5;

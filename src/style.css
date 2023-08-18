@@ -1,12 +1,14 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(../assets/images/background.jpg);
-  background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../assets/images/bg_neon.png);
+    background-size: cover;
 }
 
+.tv-frame
+
 #mycanvas {
-  border: 5px solid gold;
-  border-radius: 10px;
+    border: 5px solid gold;
+    border-radius: 10px;
 }

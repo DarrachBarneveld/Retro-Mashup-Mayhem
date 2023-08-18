@@ -17,6 +17,7 @@ export class Enemy {
       K.area(),
       K.scale(1),
       K.body(),
+      K.color(),
       enemyMovement(this),
       "enemy",
     ]);
@@ -26,6 +27,9 @@ export class Enemy {
 
   takeDamage(damage) {
     this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 0, b: 0 };
+    }
 
     if (this.health <= 0) {
       this.sprite.destroy();

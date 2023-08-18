@@ -79,11 +79,13 @@ export class Player {
       K.body(),
       K.area(),
       bulletMovement(direction, 0),
+      "bullet",
     ]);
+
+    bullet.damage = 50;
 
     bullet.onCollide("enemy", (enemy) => {
       bullet.destroy();
-      enemy.destroy();
     });
   }
 }

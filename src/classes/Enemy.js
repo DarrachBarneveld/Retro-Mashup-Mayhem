@@ -10,6 +10,7 @@ export class Enemy {
       position.top - K.height("enemy"),
       position.bottom + K.height("enemy")
     );
+    this.health = 100;
     this.sprite = K.add([
       K.sprite("enemy"),
       K.pos(500, posX),
@@ -19,6 +20,16 @@ export class Enemy {
       enemyMovement(this),
       "enemy",
     ]);
+
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+
+    if (this.health <= 0) {
+      this.sprite.destroy();
+    }
   }
 }
 

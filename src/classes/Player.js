@@ -21,7 +21,6 @@ export class Player {
       K.area(),
       K.scale(scale), // Use the provided scale
       K.body(),
-      "walking",
     ]);
     this.running = false;
     this.position = position;
@@ -42,7 +41,7 @@ export class Player {
       this.sprite.play("run");
       this.running = true;
     }
-    console.log("fire");
+
     this.sprite.move(0, this.moveSpeed);
   }
 
@@ -63,6 +62,7 @@ export class Player {
     this.sprite.flipX = false;
     this.sprite.move(this.moveSpeed, 0);
   }
+
   idle() {
     this.running = false;
     this.sprite.play("idle");
@@ -72,12 +72,19 @@ export class Player {
     const direction = this.sprite.flipX ? -5 : 5;
     K.play("shoot");
 
-    K.add([
+    const bullet = K.add([
       K.sprite("dino"),
       K.pos(this.sprite.pos.x + 40, this.sprite.pos.y + 15),
       K.scale(1),
+      K.body(),
+      K.area(),
       bulletMovement(direction, 0),
     ]);
+
+    bullet.onCollide("enemy", (enemy) => {
+      bullet.destroy();
+      enemy.destroy();
+    });
   }
 }
 

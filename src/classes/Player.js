@@ -81,8 +81,8 @@ export class Player {
     K.play("shoot");
 
     const bullet = K.add([
-      K.sprite("dino"),
-      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 5),
+      K.circle(4),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
       K.scale(0.5),
       K.body(),
       K.area(),

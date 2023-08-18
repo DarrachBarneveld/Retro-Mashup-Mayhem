@@ -11,14 +11,45 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(../assets/images/background.jpg);
-  background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../assets/images/bg_neon.png);
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#tv-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    position: relative;
+    width: auto;
+    background-color: red;
+}
+
+#tv-frame {
+    position: relative;
+    height: 100%;
+}
+
+#tv-frame img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: auto;
+    height: 85vh;
+    object-fit: contain;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(0, 0, 0, 0.2);
 }
 
 #mycanvas {
-  border: 5px solid gold;
-  border-radius: 10px;
+    position: absolute;
+    background-color: blue;
+    z-index: 1;
+    margin: -62px 0 0 -543px;
+    border: none;
 }

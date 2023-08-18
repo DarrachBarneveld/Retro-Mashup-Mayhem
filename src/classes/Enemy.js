@@ -10,10 +10,13 @@ export class Enemy {
       position.top - K.height("enemy"),
       position.bottom + K.height("enemy")
     );
+    const posY = K.width("demo") + 10;
+
+    console.log(posY);
     this.health = 100;
     this.sprite = K.add([
       K.sprite("enemy"),
-      K.pos(500, posX),
+      K.pos(posY, posX),
       K.area(),
       K.scale(1),
       K.body(),

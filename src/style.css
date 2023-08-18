@@ -59,5 +59,6 @@ body {
   transform: translate(-50%, -50%);
   width: 70%;
   height: 80%;
-  border: none;
+  border: 10px solid black;
+  border-radius: 20px;
 }

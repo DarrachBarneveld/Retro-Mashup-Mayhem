@@ -1,24 +1,20 @@
-import kaboom from "kaboom";
+import K from "./kaboom";
+import DinoSpriteTest from "../assets/images/sprites/dino.png";
+import { Player } from "./classes/Player";
 
-const kaboomInstance = kaboom({
-  width: 300,
-  height: 300,
-  scale: 2.5,
-  background: [0, 0, 0, 0.4],
-  canvas: document.querySelector("#mycanvas"),
+K.loadSprite("dino", DinoSpriteTest, {
+  sliceX: 24,
+  sliceY: 1,
+  anims: {
+    idle: { from: 1, to: 9, loop: true },
+    run: { from: 17, to: 23, loop: true },
+  },
 });
 
-kaboomInstance.scene("demo", () => {
-  add([
-    text("Go Team 4!", {
-      size: 24,
-      font: "sans-serif",
-      width: 300,
-      align: "center",
-    }),
-    pos(0, 136),
-    color(255, 215, 0),
-  ]);
+K.scene("demo", () => {
+  const player = new Player("dino", 0, 150, 2);
 });
 
-kaboomInstance.go("demo");
+K.go("demo");
+
+// BULLET UPDATE FRAME

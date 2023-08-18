@@ -1,12 +1,24 @@
+:root {
+  /* Colors */
+  --clr-primary-light: rgb(245, 245, 245);
+  --clr-primary-dark: rgb(14, 12, 5);
+
+  --clr-neon-red: rgb(238, 27, 20);
+  --clr-neon-pink: rgb(255, 0, 212);
+  --clr-neon-yellow: rgb(243, 253, 9);
+  --clr-neon-green: rgb(39, 239, 16);
+  --clr-neon-purple: rgb(136, 1, 243);
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(../assets/images/bg_neon.png);
-    background-size: cover;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../assets/images/bg_neon.png);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #tv-container {
@@ -17,13 +29,8 @@ body {
     position: relative;
     width: auto;
     background-color: red;
-}
 
-#tv-frame {
-    position: relative;
-    height: 100%;
 }
-
 #tv-frame img {
     position: relative;
     z-index: 2;
@@ -44,4 +51,8 @@ body {
     width: 70%;
     height: 80%;
     border: none;
+}
+#game {
+  border: 5px solid goldenrod;
+  border-radius: 2px;
 }

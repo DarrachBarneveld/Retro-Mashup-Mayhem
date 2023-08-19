@@ -1,6 +1,7 @@
 import K from "../kaboom";
 import dinoSpriteTest from "../../assets/images/sprites/dino.png";
 import bulletAudio from "../../assets/audio/effects/bullet.mp3";
+import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
 
 K.loadSprite("dino", dinoSpriteTest, {
   sliceX: 24,
@@ -12,20 +13,34 @@ K.loadSprite("dino", dinoSpriteTest, {
 });
 
 K.loadSound("shoot", bulletAudio);
+K.loadSound("pikachu", pikachuAudio);
 
 export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
     this.sprite = K.add([
-      K.sprite(spriteName, { animSpeed: 0.6, flipX: false }), // Use the provided sprite name
-      K.pos(0, 0),
+      K.sprite(spriteName, { animSpeed: 0.6, flipX: false }),
+      K.pos(175, K.height() / 2),
       K.area(),
-      K.scale(scale), // Use the provided scale
+      K.scale(scale),
       K.body(),
     ]);
     this.running = false;
     this.position = position;
     this.moveSpeed = moveSpeed;
     this.sprite.play("idle");
+
+    this.sprite.onCollide("wall", () => {
+      this.sprite.destroy();
+    });
+
+    this.sprite.onUpdate(() => {
+      K.camPos(this.sprite.pos);
+    });
+
+    this.sprite.onCollide("pika", () => {
+      K.play("pikachu");
+      console.log("Game win");
+    });
   }
 
   moveUp() {
@@ -69,13 +84,13 @@ export class Player {
   }
 
   shoot() {
-    const direction = this.sprite.flipX ? -5 : 5;
+    const direction = this.sprite.flipX ? -10 : 10;
     K.play("shoot");
 
     const bullet = K.add([
-      K.sprite("dino"),
-      K.pos(this.sprite.pos.x + 40, this.sprite.pos.y + 15),
-      K.scale(1),
+      K.circle(4),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
+      K.scale(0.5),
       K.body(),
       K.area(),
       bulletMovement(direction, 0),
@@ -85,6 +100,9 @@ export class Player {
     bullet.damage = 50;
 
     bullet.onCollide("enemy", (enemy) => {
+      bullet.destroy();
+    });
+    bullet.onCollide("tiles", (enemy) => {
       bullet.destroy();
     });
   }

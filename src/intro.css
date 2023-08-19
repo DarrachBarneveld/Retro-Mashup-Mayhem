@@ -1,0 +1,191 @@
+body {
+    background-color: #000;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 0;
+    z-index: 1;
+    font-family: "Press Start 2P", cursive;
+    font-weight: 700;
+    color: rgba(255, 0, 170, 0.938);
+    overflow: hidden;
+}
+
+.title {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    margin: auto;
+    top: 25%;
+    opacity: 0;
+    z-index: 1;
+    -webkit-animation: logo 5s ease-out 5s;
+    -moz-animation: logo 5s ease-out 5s;
+    -ms-animation: logo 5s ease-out 5s;
+    -o-animation: logo 5s ease-out 5s;
+    animation: logo 5s ease-out 5s;
+}
+
+@-webkit-keyframes logo {
+    0% { -webkit-transform: scale(1); opacity: 1; }
+    50% { opacity: 1; }
+    100% { -webkit-transform: scale(0.1); opacity: 0; }
+}
+
+@-moz-keyframes logo {
+    0% { -moz-transform: scale(1); opacity: 1; }
+    50% { opacity: 1; }
+    100% { -moz-transform: scale(0.1); opacity: 0; }
+}
+
+@-ms-keyframes logo {
+    0% { -ms-transform: scale(1); opacity: 1; }
+    50% { opacity: 1; }
+    100% { -ms-transform: scale(0.1); opacity: 0; }
+}
+
+@-o-keyframes logo {
+    0% { -o-transform: scale(1); opacity: 1; }
+    50% { opacity: 1; }
+    100% { -o-transform: scale(0.1); opacity: 0; }
+}
+
+@keyframes logo {
+    0% { transform: scale(1); opacity: 1; }
+    50% { opacity: 1; }
+    100% { transform: scale(0.1); opacity: 0; }
+}
+/* END - Intro Title */
+
+/* Intro Title */
+.game-header {
+    position: relative;
+    z-index: 5;
+    perspective: 800px;
+}
+
+.game-title {
+    position: relative;
+    z-index: 10;
+    margin-top: 20px;
+    transform: rotateX(21deg);
+    margin-bottom: 40px;
+    color: #a101fe;
+    /* text-shadow: -2px -2px 0 #ba7fee, 2px -2px 0 #e0a7f1, -2px 2px 0 #9c2294, 2px 2px 0 #8e1c5bd1; */
+    font-size: 8vh;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -4px;
+    text-align: center
+}
+
+.game-title .line-1 {
+    font-size: 8vh;
+    letter-spacing: -2px;
+    color:#d33a3a;
+    text-shadow: 2px 1px 0px #a31212, 4px 2px 0px #a9193d, 3px 1px 6px #d40d0d;
+    margin-top: 1em;
+}
+
+.game-title .line-2 {
+    font-size: 3vh;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color:#d33a3a;
+    text-shadow: 2px 1px 0px #a31212, 4px 2px 0px #a9193d, 3px 1px 6px #d40d0d;
+    margin-top: 10px;
+}
+
+/* Intro Story Block */
+#titles {
+    font-family: 'VT323', monospace;
+    letter-spacing: .5vw;
+    position: absolute;
+    width: 18em;
+    height: 50em;
+    bottom: 0;
+    left: 50%;
+    margin-left: -9em;
+    font-size: 8vh;
+    text-align: justify;
+    overflow: hidden;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    /* transform-origin: 50% 100%; */
+    transform-origin: 60% 90%; 
+    -webkit-transform: perspective(200px) rotateX(10deg);
+    -moz-transform: perspective(200px) rotateX(10deg);
+    -ms-transform: perspective(200px) rotateX(10deg);
+    -o-transform: perspective(200px) rotateX(10deg);
+    transform: perspective(200px) rotateX(10deg);
+}
+
+#titles:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 60%;
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+#titles p {
+    text-align: justify;
+    margin: 0.8em 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff, 1px 2px 1px #000, 1px 3px 1px #fff, 1px 4px 1px #000;
+    color: #FF00d4;
+}
+
+#titles p.center {
+    text-align: center;
+    color: #FF00d4;
+    font-family: "Press Start 2P", cursive;
+}
+
+
+#titlecontent {
+    position: absolute;
+    top: 100%;
+    -webkit-animation: scroll 60s linear 5s infinite;
+    -moz-animation: scroll 60s linear 5s infinite;
+    -ms-animation: scroll 60s linear 5s infinite;
+    -o-animation: scroll 60s linear 5s infinite;
+    animation: scroll 60s linear 5s infinite;
+}
+
+/* animation */
+@-webkit-keyframes scroll {
+    0% { top: 100%; }
+    100% { top: -170%; }
+}
+
+@-moz-keyframes scroll {
+    0% { top: 100%; }
+    100% { top: -170%; }
+}
+
+@-ms-keyframes scroll {
+    0% { top: 100%; }
+    100% { top: -170%; }
+}
+
+@-o-keyframes scroll {
+    0% { top: 100%; }
+    100% { top: -170%; }
+}
+
+@keyframes scroll {
+    0% { top: 100%; }
+    100% { top: -170%; }
+}
+/* END - Intro Story Block */

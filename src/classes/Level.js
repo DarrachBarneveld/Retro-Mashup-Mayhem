@@ -2,6 +2,7 @@ import K from "../kaboom";
 import marioTileset from "../../assets/images/tileset/mario_tileset.png";
 import { testLevel, level2 } from "../levels/layouts";
 import pika from "../../assets/images/sprites/pika.png";
+import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 
 export class Level {
   constructor() {
@@ -39,7 +40,7 @@ export class Level {
 export class Level2 {
   constructor() {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-    K.loadSprite("pika", pika);
+    K.loadSprite("mario", mario);
 
     K.addLevel(level2, {
       tileWidth: 16,
@@ -58,11 +59,11 @@ export class Level2 {
           "tiles",
         ],
         "<": () => [
-          K.sprite("pika"),
-          K.scale(0.25),
+          K.sprite("mario"),
+          K.scale(1),
           K.area(),
           K.body({ isStatic: true }),
-          "pika",
+          "mario",
         ],
       },
     });

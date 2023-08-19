@@ -41,6 +41,11 @@ export class Player {
       K.play("pikachu");
       console.log("Game win");
     });
+
+    this.sprite.onCollide("mario", () => {
+      K.play("mario");
+      console.log("Game win");
+    });
   }
 
   moveUp() {

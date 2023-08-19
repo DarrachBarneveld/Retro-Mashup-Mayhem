@@ -107,11 +107,18 @@ body {
   flex-direction: column;
   gap: 1rem;
   border-radius: 5px;
+  margin-top: 10px;
+  align-items: center;
 }
 
 .nav-background li {
-  background-color: green;
-  padding: 0.5rem;
+  padding: 1rem;
+}
+
+.nav-background li a {
+  color: var(--clr-neon-pink);
+  text-decoration: none;
+  text-align: center;
 }
 
 .nav-background a {

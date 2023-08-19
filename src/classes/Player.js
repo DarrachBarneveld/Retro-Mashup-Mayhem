@@ -24,6 +24,7 @@ export class Player {
       K.scale(scale),
       K.body(),
       // logPlayerPosition(),
+      "player",
     ]);
     this.running = false;
     this.position = position;
@@ -129,7 +130,7 @@ export class Player {
 //   };
 // }
 
-function bulletMovement(x, y) {
+export function bulletMovement(x, y) {
   return {
     add() {},
     update() {

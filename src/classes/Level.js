@@ -46,7 +46,7 @@ export class Level2 {
       tileHeight: 16,
       tiles: {
         "=": () => [
-          K.sprite("tiles", { frame: 2 }),
+          K.sprite("tiles", { frame: 0 }),
           K.area(),
           K.body({ isStatic: true }),
           "tiles",

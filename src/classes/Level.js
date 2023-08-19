@@ -69,6 +69,7 @@ export class Level2 {
     K.loadSprite("cloud", cloud);
     K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
     K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
+    K.loadSprite("hill", hill, { sliceX: 4, sliceY: 2 });
 
     K.addLevel(level2, {
       tileWidth: 16,
@@ -150,6 +151,17 @@ export class Level2 {
         N: () => [K.sprite("castle", { frame: 13 })], // Bottom row - second from left
         O: () => [K.sprite("castle", { frame: 14 })], // Bottom row - third from left
         P: () => [K.sprite("castle", { frame: 15 })], // Bottom row - right
+
+        // Hill
+        Q: () => [K.sprite("hill", { frame: 0 })],  // Top-left corner
+        R: () => [K.sprite("hill", { frame: 1 })],  // Top-second from left
+        S: () => [K.sprite("hill", { frame: 2 })],  // Top-third from left
+        T: () => [K.sprite("hill", { frame: 3 })],  // Top-right corner
+
+        U: () => [K.sprite("hill", { frame: 4 })],  // Bottom row - left
+        V: () => [K.sprite("hill", { frame: 5 })],  // Bottom row - second from left
+        W: () => [K.sprite("hill", { frame: 6 })],  // Bottom row - third from left
+        X: () => [K.sprite("hill", { frame: 7 })],  // Bottom row - right
       },
     });
   }

@@ -60,7 +60,7 @@ Welcome to Retroverse-Odyssey game!
 
 ## Typography and Color Scheme
 
-
+![Font](READMEimages/google-font.png)
 
 
 ## Wireframes

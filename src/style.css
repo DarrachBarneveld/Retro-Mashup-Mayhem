@@ -1,5 +1,5 @@
 /* Font */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 :root {
   /* Colors */
@@ -30,7 +30,7 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
 }
 
 #tv-container {
@@ -69,6 +69,7 @@ body {
   top: 50%;
   left: 42%;
   transform: translate(-50%, -50%);
+  background: url("../assets/images/backgrounds/space-background.png");
   width: 70%;
   height: 80%;
   border: 10px solid black;

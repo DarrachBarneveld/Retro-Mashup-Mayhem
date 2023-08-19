@@ -34,7 +34,7 @@ Welcome to Retroverse-Odyssey game!
 8. [Citation of Sources](#citation-of-sources) 
    + [Content]()
    + [Media]()
-9. [Acknowledgements]#acknowledgment) 
+9. [Acknowledgements](#acknowledgment) 
 
 ***
 # 1. Overview
@@ -64,8 +64,6 @@ Level Progression: As players defeat enemies and traverse through levels, the ga
 
 Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that each encounter remains fresh and demanding. This randomness adds an element of surprise, making it necessary for players to stay alert and adaptive.
 
-
-
 ## User Stories
 
 - I can intuitively navigate around the site so that I can find content.
@@ -79,11 +77,20 @@ Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that 
 
 ## Design Structure
 
+The game was designed with 
+
 
 
 ## Typography and Color Scheme
 
+- Google Fonts was used for the following:
+
+ - Press Start 2P was used for the body.
+ - VT323 was used for the intro.
+
 ![Font](READMEimages/google-font.png)
+
+- Color used are #EE1B14, #FF00D4, #F3FD09, #27EF10 and #8801F3
 
 
 ## Wireframes
@@ -97,7 +104,30 @@ Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that 
 ![About Us](READMEimages/about-us-wireframe.png)
 
 
+
 [Back to the Top](#contents)
 
 
 ------
+
+# 4. Technologies
+
+## Language and Programs used is as follow:
+- Html
+- Css
+- JavaScript
+   - Kaboom: A JavaScript Library
+- Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
+- GitHub - Was used to store the project code in a repository.
+
+
+# 8. Citation of Sources
+
+## Content
+- [Kaboom](https://kaboomjs.com/) - Used for  general knowldege and idea.
+- [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
+- All content have been by Team4 - Retro Riders.
+
+
+# 9. Acknowledgements
+- 

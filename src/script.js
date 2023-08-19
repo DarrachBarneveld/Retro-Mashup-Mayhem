@@ -15,9 +15,9 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  const newBaseEnemy = K.loop(1, () => new Enemy(player));
-  const newHomingEnemy = K.loop(3, () => new HomingEnemy(player));
-  const level = new Level(player, newBaseEnemy, newHomingEnemy);
+  // const newBaseEnemy = K.loop(1, () => new Enemy(player));
+  // const newHomingEnemy = K.loop(3, () => new HomingEnemy(player));
+  const level2 = new Level2();
 
   console.log(player);
 });

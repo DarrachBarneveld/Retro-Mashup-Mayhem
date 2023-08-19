@@ -7,8 +7,9 @@ import { Level, Level2 } from "./classes/Level";
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 1);
-  // const level = new Level();
-  const level2 = new Level2();
+  const level = new Level();
+  // const enemy = new Enemy(player);
+  // const level2 = new Level2();
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());
   K.onKeyDown("up", () => player.moveUp());
@@ -16,7 +17,7 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  K.loop(1, () => new Enemy(player));
+  const newLocal = K.loop(1, () => new Enemy(player));
 });
 
 K.go("demo");

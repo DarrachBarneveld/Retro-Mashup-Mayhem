@@ -1,15 +1,13 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
-import { Enemy } from "./classes/Enemy";
+import { Enemy, HomingEnemy } from "./classes/Enemy";
 import { Level, Level2 } from "./classes/Level";
 
 // When pages loads change background url
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 1);
-  const level = new Level();
-  // const enemy = new Enemy(player);
-  // const level2 = new Level2();
+
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());
   K.onKeyDown("up", () => player.moveUp());
@@ -17,7 +15,11 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  // const newLocal = K.loop(1, () => new Enemy(player));
+  const newBaseEnemy = K.loop(1, () => new Enemy(player));
+  const newHomingEnemy = K.loop(3, () => new HomingEnemy(player));
+  const level = new Level(player, newBaseEnemy, newHomingEnemy);
+
+  console.log(player);
 });
 
 K.go("demo");

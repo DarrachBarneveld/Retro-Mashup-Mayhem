@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="./src/style.css" /> -->
-    <link rel="stylesheet" type="text/css" href="./src/intro.css" />
-    <title>Retro Mashup Mayhem</title>
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="./src/style.css" />
+        <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+        <title>Retro Mashup Mayhem</title>
+    </head>
+    <body>
+        <div id="tv-container">
+            <div id="tv-frame">
+                <img src="assets/images/tv_frame.png" alt="TV Frame" />
+                <div class="nav-background tv-screen"></div>
+            </div>
+        </div>
 
-  <!-- Video background -->
-  <video id="background-video" autoplay loop muted poster="assets/images/backgrounds/intro-background.png">    
-  <source src="assets/videos/intro-video-background.mp4" type="video/mp4">
-  </video>
+        <div class="sound-button">
+            <!-- <audio id="track" autoplay>
+          <source src="./src/music/Retro Theme -- " type="audio/mpeg"/>
+      </audio> -->
 
-  <!-- skip intro -->
-  <div class="skip-intro">
-    <a href="index.html">skip intro >>></a>
-  </div>
+            <div id="player-container">
+                <!-- <div id="play-pause" class="play"><img id="muteIcon" src="./sr/sprites/" alt="unmuted"></div> -->
+            </div>
+        </div>
 
-  <!-- Title -->
-  <p id="start">Retro Mashup Mayhem<br>Battle Against<Br>The foes of the past</p>
+        <p id="start">Retroverse-Odessy<br />Battle Against<br />the relentless enemies</p>
 
-  <!-- Scrolling text -->
-  <div id="intro-text">
-      <div id="titlecontent">
-          <p>Our beloved retro heroes have been captured by the cunning Space Invaders.</p>
-          <p>Threatened to be cast into an infinite black hole. As the galaxy's last hope, you must traverse treacherous worlds, overcome menacing foes, and face the formidable Bowser in a cosmic showdown.</p>
-          <p>It will be mayhem, it will be chaos, but time is ticking...</p>
-          <p>Save the legends of the retro realm!</p>   
-      </div>
-  </div>
-  <script src="./src/intro.js"></script>
-  </body>
+        <header class="title game-header">
+            <h1 class="game-title">
+                <!-- <div class="line-1">Retroverse-Odessy</div> -->
+                <div class="line-2">The Battle Against <br /><br />the relentless enemies</div>
+            </h1>
+        </header>
+
+        <div id="intro-text">
+            <div id="titlecontent">
+                <p class="center">The Battle in space</p>
+                <br />
+                <p>
+                    Welcome to the adrenaline-pumping world of space shooter combat, where the cosmos becomes your
+                    battlefield and the fate of the universe rests in your hands.
+                </p>
+                <p>
+                    In this electrifying genre of video games, players are thrust into the cockpit of futuristic
+                    starships, armed to the teeth with advanced weaponry, and tasked with defending humanity and the
+                    galaxy from an onslaught of relentless enemies.
+                </p>
+                <p>
+                    But it's not just about raw firepower, customization plays a crucial role. You'll have the
+                    opportunity to unlock powers, to enhance your weapons, unlock powerful abilities that can turn the
+                    tide of battle.
+                </p>
+                <p>
+                    The enemies are relentless, the stakes are high, and the fate of the universe rests squarely on your
+                    shoulders. Will you rise to the challenge and emerge victorious in the ultimate space shooter fight?
+                </p>
+                <p>Space War is an endless, side scrolling spaceship shooter.</p>
+                <p>The stars await your command.</p>
+                <p>Keep your ship alive, blow up the enemies and try and beat your highscore!.</p>
+            </div>
+        </div>
+        <script src="./src/intro.js"></script>
+    </body>
 </html>

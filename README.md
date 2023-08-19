@@ -2,45 +2,42 @@
 
 Welcome to Retroverse-Odyssey game!
 
+![Retroverse-Odyssey](./READMEimages/imiresponsive-image.png)
 
- ![Retroverse-Odyssey](./READMEimages/imiresponsive-image.png)     
-
-
- ***                                    
-
+---
 
 # Table of Contents
 
-1. [Overview](#overview) 
+1. [Overview](#overview)
 2. [User Experience](#user-experience)
-   + [Game Goals](#game-goals)  
-   + [User Stories](#user-stories) 
-   + [Design Structure](#design-structure) 
-   + [Typography and Color Scheme](#typography-and-color-scheme) 
-   + [Wireframes](#wireframes)
+    - [Game Goals](#game-goals)
+    - [User Stories](#user-stories)
+    - [Design Structure](#design-structure)
+    - [Typography and Color Scheme](#typography-and-color-scheme)
+    - [Wireframes](#wireframes)
 3. [Features](#features)
-   + [Existing Features](#existing-features)  
-   + [Future Features](#future-features)  
+    - [Existing Features](#existing-features)
+    - [Future Features](#future-features)
 4. [Technologies](#technologies)
-5. [Testing](#testing) 
-   + [Code validation](#code-validation)
-   + [Lighthouse](#lighthouse)
-   + [Test case](#test-case)
+5. [Testing](#testing)
+    - [Code validation](#code-validation)
+    - [Lighthouse](#lighthouse)
+    - [Test case](#test-case)
 6. [Bugs](#bugs)
-   + [Manual Testing](#manual-testing)
-   + [Fixed bugs](#fixed-bugs)
-   + [Unknown bugs](#unknown-bugs)
-7. [Deployment](#deployment) 
-8. [Citation of Sources](#citation-of-sources) 
-   + [Content](#content)
-   + [Media]()
-9. [Acknowledgements](#acknowledgment) 
+    - [Manual Testing](#manual-testing)
+    - [Fixed bugs](#fixed-bugs)
+    - [Unknown bugs](#unknown-bugs)
+7. [Deployment](#deployment)
+8. [Citation of Sources](#citation-of-sources)
+    - [Content](#content)
+    - [Media]()
+9. [Acknowledgements](#acknowledgment)
 
-***
+---
+
 # Overview
 
 "Retro Odyssey - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
-
 
 # User Experience
 
@@ -62,33 +59,30 @@ Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that 
 
 ## User Stories
 
-- I can intuitively navigate around the site so that I can find content.
-- I can see an intro animation so I can feel immersed in the retro experience.
-- I want to easily access information about the game and have a seamless level selection experience so that I can understand the game's mechanics and progress through levels efficiently.
-- I can move and shoot so that I can avoid and kill enemies
-- I can press shoot so that I can fire projectiles at oncoming enemies.
-- I can see a victory or defeat screen so that I know when the level is over.
-- I want to find information about the developers so that I can request connections or give feedback.
-
+-   I can intuitively navigate around the site so that I can find content.
+-   I can see an intro animation so I can feel immersed in the retro experience.
+-   I want to be greeted with a Homepage that displays a menu of options to easily access information about the game and have a seamless level selection experience so that I can understand the game's mechanics and progress through levels efficiently.
+-   I can move and shoot so that I can avoid and kill enemies
+-   I can press shoot so that I can fire projectiles at oncoming enemies.
+-   I can see a victory or defeat screen so that I know when the level is over.
+-   I want to find information about the developers so that I can request connections or give feedback.
 
 ## Design Structure
 
-The game was designed with 
-
-
+The game was designed with
 
 ## Typography and Color Scheme
 
-- Google Fonts was used for the following:
+-   Google Fonts was used for the following:
 
- - Press Start 2P was used for the body.
- - VT323 was used for the intro.
+-   Press Start 2P was used for the body.
+-   VT323 was used for the intro.
 
 ![Font](READMEimages/google-font.png)
 
 ![Color Palate](READMEimages/color-palate.png)
-- Color used are #EE1B14, #FF00D4, #F3FD09, #27EF10 and #8801F3
 
+-   Color used are #EE1B14, #FF00D4, #F3FD09, #27EF10 and #8801F3
 
 ## Wireframes
 
@@ -100,17 +94,12 @@ The game was designed with
 
 ![Start Game](READMEimages/start-game.png)
 
-
 ![Game Stage](READMEimages/game-stage.png)
-
-
-
-
 
 [Back to the Top](#contents)
 
+---
 
-------
 # Features
 
 ## Existing Features
@@ -120,14 +109,15 @@ The game was designed with
 # Technologies
 
 ## Language and Programs used is as follow:
-- Html
-- Css
-- JavaScript
-   - Kaboom: A JavaScript Library
-- Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
-- GitHub - Was used to store the project code in a repository.
 
-# Testing 
+-   Html
+-   Css
+-   JavaScript
+    -   Kaboom: A JavaScript Library
+-   Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
+-   GitHub - Was used to store the project code in a repository.
+
+# Testing
 
 ## Code validation
 
@@ -148,10 +138,11 @@ The game was designed with
 # Citation of Sources
 
 ## Content
-- [Kaboom](https://kaboomjs.com/) - Used for  general knowldege and idea.
-- [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
-- All content have been by Team4 - Retro Riders.
 
+-   [Kaboom](https://kaboomjs.com/) - Used for general knowldege and idea.
+-   [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
+-   All content have been by Team4 - Retro Riders.
 
 # 9. Acknowledgements
-- 
+
+-

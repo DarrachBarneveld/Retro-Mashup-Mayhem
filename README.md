@@ -1,9 +1,9 @@
-# Retroverse-Odyssey
+# Retro-Mashup-Mayhem
 
-Welcome to Retroverse-Odyssey game!
+Welcome to Retro-Mashup-Mayhem game!
 
 
- ![Retroverse-Odyssey](./READMEimages/imiresponsive-image.png)     
+ ![Retro-Mashup-Mayhem](./READMEimages/imiresponsive-image.png)     
 
 
  ***                                    
@@ -22,24 +22,20 @@ Welcome to Retroverse-Odyssey game!
    + [Existing Features](#existing-features)  
    + [Future Features](#future-features)  
 4. [Technologies](#technologies)
-5. [Testing](#testing) 
-   + [Code validation](#code-validation)
-   + [Lighthouse](#lighthouse)
-   + [Test case](#test-case)
-6. [Bugs](#bugs)
+5. [Bugs](#bugs)
    + [Manual Testing](#manual-testing)
    + [Fixed bugs](#fixed-bugs)
    + [Unknown bugs](#unknown-bugs)
-7. [Deployment](#deployment) 
-8. [Citation of Sources](#citation-of-sources) 
+6. [Deployment](#deployment) 
+7. [Citation of Sources](#citation-of-sources) 
    + [Content](#content)
    + [Media]()
-9. [Acknowledgements](#acknowledgment) 
+8. [Acknowledgements](#acknowledgment) 
 
 ***
 # Overview
 
-"Retro Odyssey - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
+"Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
 
 
 # User Experience
@@ -127,25 +123,19 @@ The game was designed with
 - Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
 - GitHub - Was used to store the project code in a repository.
 
-# Testing 
 
-## Code validation
-
-## Lighthouse
-
-## Test case
 
 # Bugs
-
-## Manual Testing
 
 ## Fixed bugs
 
 ## Unknown bugs
 
-# Deployment
 
-# Citation of Sources
+
+# 6. Deployment
+
+# 7. Citation of Sources
 
 ## Content
 - [Kaboom](https://kaboomjs.com/) - Used for  general knowldege and idea.
@@ -153,5 +143,5 @@ The game was designed with
 - All content have been by Team4 - Retro Riders.
 
 
-# 9. Acknowledgements
+# 8. Acknowledgements
 - 

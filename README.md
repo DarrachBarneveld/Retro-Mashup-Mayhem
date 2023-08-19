@@ -90,18 +90,24 @@ The game was designed with
 
 ![Font](READMEimages/google-font.png)
 
+![Color Palate](READMEimages/color-palate.png)
 - Color used are #EE1B14, #FF00D4, #F3FD09, #27EF10 and #8801F3
 
 
 ## Wireframes
 
+![Index wireframe](READMEimages/index-wireframe.png)
+
+![How to play](READMEimages/how-to-play-wireframe.png)
+
+![About Us](READMEimages/about-us-wireframe.png)
 
 ![Start Game](READMEimages/start-game.png)
 
 
 ![Game Stage](READMEimages/game-stage.png)
 
-![About Us](READMEimages/about-us-wireframe.png)
+
 
 
 

@@ -11,6 +11,8 @@
     --clr-neon-yellow: rgb(243, 253, 9);
     --clr-neon-green: rgb(39, 239, 16);
     --clr-neon-purple: rgb(136, 1, 243);
+
+    --clr-mario-sky: rgb(92, 148, 252);
 }
 
 *,
@@ -62,12 +64,12 @@ body {
 }
 #mycanvas {
   position: absolute;
-  /* background-color: blue; */
+  background-color: var(--clr-mario-sky)
   z-index: 2;
   top: 50%;
   left: 42%;
   transform: translate(-50%, -50%);
-  background: url("../assets/images/backgrounds/space-background.png");
+  /* background: url("../assets/images/backgrounds/space-background.png"); */
   width: 70%;
   height: 80%;
   border: 10px solid black;

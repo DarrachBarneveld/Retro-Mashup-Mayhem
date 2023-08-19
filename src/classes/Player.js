@@ -129,7 +129,7 @@ export class Player {
 //   };
 // }
 
-function bulletMovement(x, y) {
+export function bulletMovement(x, y) {
   return {
     add() {},
     update() {

@@ -82,8 +82,12 @@ export class Boss {
 
     this.health = 600;
     this.speed = 0.5;
+    this.player = player;
+    this.sprite.move();
+    this.direction = -1;
+    this.sprite.add([moveEnemyUpAndDown(this)]);
 
-    // this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+    K.loop(2, () => this.shoot());
 
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
@@ -100,6 +104,51 @@ export class Boss {
       this.sprite.destroy();
       explosion.play("boom");
     }
+  }
+
+  shoot() {
+    const playerPos = this.player.sprite.pos;
+    const spritePos = this.sprite.pos;
+    const direction = K.vec2(
+      playerPos.x - spritePos.x,
+      playerPos.y - spritePos.y
+    );
+
+    const bullet = K.add([
+      K.circle(4),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
+      K.scale(0.5),
+      K.body(),
+      K.area(),
+      K.offscreen({ destroy: true }),
+      // bulletMovement(direction),
+      "bullet",
+    ]);
+
+    const angleRadians = Math.atan2(
+      playerPos.y - spritePos.y,
+      playerPos.x - spritePos.x
+    );
+    const angleDegrees = angleRadians * (180 / Math.PI);
+
+    const velocityX = 5 * Math.cos(angleRadians);
+    const velocityY = 5 * Math.sin(angleRadians);
+
+    bullet.add([bulletMovement(bullet, velocityX, velocityY)]);
+
+    // K.play("shoot");
+
+    // bullet.damage = 50;
+
+    // bullet.onCollide("enemy", (enemy) => {
+    //   bullet.destroy();
+    // });
+    // bullet.onCollide("tiles", (enemy) => {
+    //   bullet.destroy();
+    // });
+    // bullet.onCollide("prize", () => {
+    //   bullet.destroy();
+    // });
   }
 }
 
@@ -125,6 +174,31 @@ function moveEnemyTowardsPosition(player, enemy) {
       );
 
       enemy.sprite.move(direction.scale(speed));
+    },
+  };
+}
+
+function moveEnemyUpAndDown(enemy) {
+  return {
+    add() {},
+    update() {
+      if (enemy.sprite.pos.y < 50) {
+        enemy.direction = 1;
+      }
+      if (enemy.sprite.pos.y > 200) {
+        enemy.direction = -1;
+      }
+      enemy.sprite.move(0, enemy.speed * 50 * enemy.direction);
+    },
+  };
+}
+
+export function bulletMovement(bullet, x, y) {
+  return {
+    add() {},
+    update() {
+      bullet.pos.x += x;
+      bullet.pos.y += y;
     },
   };
 }

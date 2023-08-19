@@ -1,6 +1,6 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
-import { Boss, Enemy } from "./classes/Enemy";
+import { Enemy, HomingEnemy } from "./classes/Enemy";
 import { Level, Level2 } from "./classes/Level";
 
 // When pages loads change background url
@@ -15,8 +15,9 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  const newLocal = K.loop(1, () => new Enemy(player));
-  const level = new Level(player, newLocal);
+  const newBaseEnemy = K.loop(1, () => new Enemy(player));
+  const newHomingEnemy = K.loop(3, () => new HomingEnemy(player));
+  const level = new Level(player, newBaseEnemy, newHomingEnemy);
 
   console.log(player);
 });

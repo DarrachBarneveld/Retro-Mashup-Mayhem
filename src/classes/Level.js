@@ -10,7 +10,7 @@ import hill from "../../assets/images/sprites/mario/sm-hill.png";
 import { Boss, Enemy } from "./Enemy";
 
 export class Level {
-  constructor(player) {
+  constructor(player, enemyLoop) {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("prize", mario);
@@ -39,13 +39,14 @@ export class Level {
       },
     });
 
+    this.enemyLoop = enemyLoop;
     this.level = K.add([logPlayerPosition(this, player)]);
     this.player = player;
   }
 
   activateBoss() {
     this.bossActive = true;
-    console.log("fire");
+    this.enemyLoop.cancel();
     const boss = new Boss(this.player);
   }
 }
@@ -54,7 +55,7 @@ function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 100 && !level.bossActive) {
+      if (player.sprite.pos.x > 1000 && !level.bossActive) {
         level.activateBoss();
       }
     },
@@ -145,10 +146,10 @@ export class Level2 {
         K: () => [K.sprite("castle", { frame: 10 })], // Third row - third from left
         L: () => [K.sprite("castle", { frame: 11 })], // Third row - right
 
-        "M": () => [K.sprite("castle", { frame: 12 })], // Bottom row - left
-        "N": () => [K.sprite("castle", { frame: 13 })], // Bottom row - second from left
-        "O": () => [K.sprite("castle", { frame: 14 })], // Bottom row - third from left
-        "P": () => [K.sprite("castle", { frame: 15 })], // Bottom row - right
+        M: () => [K.sprite("castle", { frame: 12 })], // Bottom row - left
+        N: () => [K.sprite("castle", { frame: 13 })], // Bottom row - second from left
+        O: () => [K.sprite("castle", { frame: 14 })], // Bottom row - third from left
+        P: () => [K.sprite("castle", { frame: 15 })], // Bottom row - right
       },
     });
   }

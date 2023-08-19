@@ -30,7 +30,6 @@ export class Enemy {
       K.color(),
       "enemy",
     ]);
-
     const value1 = K.height() - this.sprite.height - 10;
     const posY = getRandomNumber(value1, 10);
     const posX = player.sprite.pos.x + 300;
@@ -87,8 +86,7 @@ export class Boss {
     this.direction = -1;
     this.sprite.add([moveEnemyUpAndDown(this)]);
 
-    K.loop(2, () => this.shoot());
-
+    this.fireLoop = K.loop(2, () => this.shoot());
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
 
@@ -102,6 +100,7 @@ export class Boss {
       K.play("bowserdies");
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
+      this.fireLoop.cancel();
       explosion.play("boom");
     }
   }
@@ -109,10 +108,6 @@ export class Boss {
   shoot() {
     const playerPos = this.player.sprite.pos;
     const spritePos = this.sprite.pos;
-    const direction = K.vec2(
-      playerPos.x - spritePos.x,
-      playerPos.y - spritePos.y
-    );
 
     const bullet = K.add([
       K.circle(4),
@@ -121,34 +116,25 @@ export class Boss {
       K.body(),
       K.area(),
       K.offscreen({ destroy: true }),
-      // bulletMovement(direction),
-      "bullet",
+      "enemy-bullet",
     ]);
 
     const angleRadians = Math.atan2(
       playerPos.y - spritePos.y,
       playerPos.x - spritePos.x
     );
-    const angleDegrees = angleRadians * (180 / Math.PI);
 
     const velocityX = 5 * Math.cos(angleRadians);
     const velocityY = 5 * Math.sin(angleRadians);
 
     bullet.add([bulletMovement(bullet, velocityX, velocityY)]);
 
-    // K.play("shoot");
-
-    // bullet.damage = 50;
-
-    // bullet.onCollide("enemy", (enemy) => {
-    //   bullet.destroy();
-    // });
-    // bullet.onCollide("tiles", (enemy) => {
-    //   bullet.destroy();
-    // });
-    // bullet.onCollide("prize", () => {
-    //   bullet.destroy();
-    // });
+    bullet.onCollide("player", () => {
+      bullet.destroy();
+    });
+    bullet.onCollide("tiles", () => {
+      bullet.destroy();
+    });
   }
 }
 

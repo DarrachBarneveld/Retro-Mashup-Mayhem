@@ -49,7 +49,7 @@ function enemyMovement() {
   return {
     add() {},
     update() {
-      this.move(-100, 0);
+      this.move(-50, 0);
     },
   };
 }

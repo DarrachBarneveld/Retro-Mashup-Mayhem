@@ -1,6 +1,7 @@
 import K from "../kaboom";
 import dinoSpriteTest from "../../assets/images/sprites/dino.png";
 import bulletAudio from "../../assets/audio/effects/bullet.mp3";
+import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
 
 K.loadSprite("dino", dinoSpriteTest, {
   sliceX: 24,
@@ -12,6 +13,7 @@ K.loadSprite("dino", dinoSpriteTest, {
 });
 
 K.loadSound("shoot", bulletAudio);
+K.loadSound("pikachu", pikachuAudio);
 
 export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
@@ -33,6 +35,11 @@ export class Player {
 
     this.sprite.onUpdate(() => {
       K.camPos(this.sprite.pos);
+    });
+
+    this.sprite.onCollide("pika", () => {
+      K.play("pikachu");
+      console.log("Game win");
     });
   }
 

@@ -1,11 +1,14 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
 import { Enemy } from "./classes/Enemy";
-import { Level } from "./classes/Level";
+import { Level, Level2 } from "./classes/Level";
+
+// When pages loads change background url
 
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 1);
-  const level = new Level();
+  // const level = new Level();
+  const level2 = new Level2();
   K.onKeyDown("left", () => player.moveLeft());
   K.onKeyDown("right", () => player.moveRight());
   K.onKeyDown("up", () => player.moveUp());

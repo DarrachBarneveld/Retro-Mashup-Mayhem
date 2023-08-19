@@ -23,6 +23,7 @@ export class Player {
       K.area(),
       K.scale(scale),
       K.body(),
+      // logPlayerPosition(),
     ]);
     this.running = false;
     this.position = position;
@@ -116,6 +117,17 @@ export class Player {
     });
   }
 }
+
+// function logPlayerPosition() {
+//   return {
+//     add() {},
+//     update() {
+//       if (this.pos.x > 1000) {
+//         console.log("boss fight");
+//       }
+//     },
+//   };
+// }
 
 function bulletMovement(x, y) {
   return {

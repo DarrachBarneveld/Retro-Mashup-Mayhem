@@ -1,11 +1,12 @@
 import K from "../kaboom";
-import enemySprite from "../../assets/images/sprites/enemy.png";
+import { BowserAudio } from "../audioImports";
+import bowser from "../../assets/images/sprites/mario/bowser.png";
 import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import explosion from "../../assets/images/sprites/explosion.png";
 import { getRandomNumber } from "../helpers/math";
 
-K.loadSprite("enemy", enemySprite);
+K.loadSprite("enemy", bowser);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
 K.loadSprite("explosion", explosion, {
   sliceX: 20,
@@ -15,6 +16,8 @@ K.loadSprite("explosion", explosion, {
   },
 });
 K.loadSound("ghost-dead", ghostDeath);
+K.loadSound("bowserarrives", BowserAudio.arrives);
+K.loadSound("bowserdies", BowserAudio.dies);
 
 export class Enemy {
   constructor(player) {
@@ -29,11 +32,8 @@ export class Enemy {
     ]);
 
     const value1 = K.height() - this.sprite.height - 10;
-
     const posY = getRandomNumber(value1, 10);
-
     const posX = player.sprite.pos.x + 300;
-
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
@@ -56,6 +56,46 @@ export class Enemy {
 
     if (this.health <= 0) {
       K.play("ghost-dead");
+      const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+      this.sprite.destroy();
+      explosion.play("boom");
+    }
+  }
+}
+
+export class Boss {
+  constructor(player) {
+    this.sprite = K.add([
+      K.sprite("enemy"),
+      K.pos(),
+      K.area(),
+      K.scale(0.5),
+      K.body({ isStatic: true }),
+      K.color(),
+      "enemy",
+    ]);
+    K.play("bowserarrives");
+    const posY = K.height() / 2;
+    const posX = player.sprite.pos.x + 100;
+    this.sprite.pos.x = posX;
+    this.sprite.pos.y = posY;
+
+    this.health = 600;
+    this.speed = 0.5;
+
+    // this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 100, b: 100 };
+    }
+
+    if (this.health <= 0) {
+      K.play("bowserdies");
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       explosion.play("boom");

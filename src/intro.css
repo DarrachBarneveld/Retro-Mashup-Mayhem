@@ -41,7 +41,7 @@ body {
 .filter {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.7);
     z-index: 0;
 }
 
@@ -223,7 +223,7 @@ p#start {
     margin: 0.8em 0;
     font-weight: bold;
     text-shadow: 1px 1px 1px #fff, 1px 2px 1px #000, 1px 3px 1px #fff, 1px 4px 1px #000;
-    color: #FF00d4;
+    color: white;
 }
 
 #intro-text p.center {

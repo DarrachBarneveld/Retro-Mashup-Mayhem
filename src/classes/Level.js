@@ -11,7 +11,7 @@ import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 export class Level {
   constructor() {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-    K.loadSprite("pika", mario);
+    K.loadSprite("prize", mario);
 
     K.addLevel(testLevel, {
       tileWidth: 16,
@@ -30,10 +30,10 @@ export class Level {
           "tiles",
         ],
         "<": () => [
-          K.sprite("pika"),
+          K.sprite("prize"),
           K.area(),
           K.body({ isStatic: true }),
-          "pika",
+          "prize",
         ],
       },
     });

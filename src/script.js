@@ -3,6 +3,8 @@ import { Player } from "./classes/Player";
 import { Enemy } from "./classes/Enemy";
 import { Level, Level2 } from "./classes/Level";
 
+// When pages loads change background url
+
 K.scene("demo", () => {
   const player = new Player("dino", 0, 150, 1);
   // const level = new Level();

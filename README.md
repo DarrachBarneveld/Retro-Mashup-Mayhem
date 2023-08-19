@@ -124,6 +124,8 @@ The game was designed with
 # 8. Citation of Sources
 
 ## Content
+- [Kaboom](https://kaboomjs.com/) - Used for  general knowldege and idea.
+- [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
 - All content have been by Team4 - Retro Riders.
 
 

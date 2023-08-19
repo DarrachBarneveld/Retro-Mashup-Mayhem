@@ -1,3 +1,6 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 :root {
   /* Colors */
   --clr-primary-light: rgb(245, 245, 245);
@@ -27,6 +30,7 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
+  font-family: 'VT323', monospace;
 }
 
 #tv-container {
@@ -104,4 +108,23 @@ body {
 
 .nav-background a {
   width: 100%;
+}
+
+/* About us*/
+
+.about-background {
+  z-index: 2;
+  background-color: black;
+  color: white;
+  position: absolute;
+  width: 750px;
+  transform: translateX(-90px);
+  height: 590px;
+  padding: 3rem;
+  border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }

@@ -25,7 +25,6 @@ export class Enemy {
       K.scale(1),
       K.body(),
       K.color(),
-      // enemyMovement(player),
       "enemy",
     ]);
 
@@ -39,8 +38,12 @@ export class Enemy {
     this.sprite.pos.y = posY;
 
     this.health = 100;
+    this.speed = 0.5;
 
-    this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+    // this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+    this.sprite.add([enemyMovement(this)]);
+
+    this.sprite.move();
 
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
@@ -60,11 +63,11 @@ export class Enemy {
   }
 }
 
-function enemyMovement(player) {
+function enemyMovement(enemy) {
   return {
     add() {},
     update() {
-      this.move(-50, 0);
+      enemy.sprite.move(-enemy.speed * 100, 0);
     },
   };
 }
@@ -74,15 +77,14 @@ function moveEnemyTowardsPosition(player, enemy) {
     add() {},
     update() {
       const enemyPosition = enemy.sprite.pos;
+      const speed = enemy.speed;
       const playerPosition = player.sprite.pos;
       const direction = K.vec2(
         playerPosition.x - enemyPosition.x,
         playerPosition.y - enemyPosition.y
       );
 
-      const normalizedDirection = K.vec2(direction.x, direction.y);
-
-      enemy.sprite.move(normalizedDirection);
+      enemy.sprite.move(direction.scale(speed));
     },
   };
 }

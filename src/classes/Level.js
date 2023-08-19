@@ -13,23 +13,50 @@ export class Level {
   constructor(player, enemyLoop, homingEnemyLoop) {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
+    K.loadSprite("cloud", cloud);
+    K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
     K.loadSprite("prize", mario);
     K.addLevel(testLevel, {
       tileWidth: 16,
       tileHeight: 16,
       tiles: {
+        // Ground tile
         "=": () => [
           K.sprite("tiles", { frame: 2 }),
           K.area(),
           K.body({ isStatic: true }),
           "tiles",
         ],
-        "^": () => [
-          K.sprite("tiles", { frame: 4 }),
+        // Aerial block
+        "+": () => [
+          K.sprite("tiles", { frame: 3 }),
           K.area(),
           K.body({ isStatic: true }),
           "tiles",
         ],
+
+        // Small bush
+        a: () => [K.sprite("tiles", { frame: 48 }), "tiles"],
+        b: () => [K.sprite("tiles", { frame: 49 }), "tiles"],
+        c: () => [K.sprite("tiles", { frame: 50 }), "tiles"],
+
+        // Pipe
+        x: () => [
+          K.sprite("pipe", { frame: 0 }), // top half
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        y: () => [
+          K.sprite("pipe", { frame: 1 }), // bottom half
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+
+        // Clouds - to add the whole cloud you need to put out ^^ in the layout
+        "^": () => [K.sprite("cloud"), "cloud"],
+
         "<": () => [
           K.sprite("prize"),
           K.area(),
@@ -46,7 +73,10 @@ export class Level {
 
   activateBoss() {
     this.bossActive = true;
-    this.enemyLoop.cancel();
+    if (this.enemyLoop) {
+      this.enemyLoop.cancel();
+    }
+
     const boss = new Boss(this.player, this.homingEnemyLoop);
   }
 }
@@ -77,13 +107,12 @@ export class Level2 {
       tiles: {
         // Ground tile
         "=": () => [
-          K.sprite("tiles", { frame: 0 }),
+          K.sprite("tiles", { frame: 2 }),
           K.area(),
           K.body({ isStatic: true }),
           "tiles",
         ],
-
-        // Tiles
+        // Aerial block
         "+": () => [
           K.sprite("tiles", { frame: 3 }),
           K.area(),

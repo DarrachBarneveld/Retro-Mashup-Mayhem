@@ -145,7 +145,9 @@ export class Boss {
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       this.fireLoop.cancel();
-      this.homingEnemyLoop.cancel();
+      if (this.homingEnemyLoop) {
+        this.homingEnemyLoop.cancel();
+      }
       explosion.play("boom");
     }
   }

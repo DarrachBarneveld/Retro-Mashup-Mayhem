@@ -5,12 +5,61 @@ body {
     height: 100vh;
     box-sizing: border-box;
     border: 0;
-    z-index: 1;
+    z-index: 2;
     font-family: "Press Start 2P", cursive;
     font-weight: 700;
     color: rgba(255, 0, 170, 0.938);
     overflow: hidden;
 }
+
+/* Intro section with Typing and fade animations */
+p#start {
+    font-family: 'VT323', monospace;
+    margin: 20% auto;
+    color: #4ee;
+    width: 20em;
+    animation: intro 5s ease-out, typing 3s steps(25), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 8vh;
+    opacity: 0;
+    /* position: relative; */
+    z-index:9999;
+    text-align: center;
+    font-size: 10vh;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+    
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+@keyframes intro {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/* END - Intro section with Typing and fade animations */
+
 
 .title {
     position: absolute;
@@ -69,36 +118,36 @@ body {
     position: relative;
     z-index: 10;
     margin-top: 20px;
-    transform: rotateX(21deg);
-    margin-bottom: 40px;
+    transform: rotateX(31deg);
+    margin-bottom: 50px;
     color: #a101fe;
     /* text-shadow: -2px -2px 0 #ba7fee, 2px -2px 0 #e0a7f1, -2px 2px 0 #9c2294, 2px 2px 0 #8e1c5bd1; */
-    font-size: 8vh;
+    font-size: 10vh;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -4px;
     text-align: center
 }
 
-.game-title .line-1 {
+/* .game-title .line-1 {
     font-size: 8vh;
     letter-spacing: -2px;
     color:#d33a3a;
     text-shadow: 2px 1px 0px #a31212, 4px 2px 0px #a9193d, 3px 1px 6px #d40d0d;
     margin-top: 1em;
-}
+} */
 
 .game-title .line-2 {
-    font-size: 3vh;
+    font-size: 5vh;
     font-weight: normal;
     letter-spacing: 0px;
     color:#d33a3a;
     text-shadow: 2px 1px 0px #a31212, 4px 2px 0px #a9193d, 3px 1px 6px #d40d0d;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 /* Intro Story Block */
-#titles {
+#intro-text {
     font-family: 'VT323', monospace;
     letter-spacing: .5vw;
     position: absolute;
@@ -107,7 +156,7 @@ body {
     bottom: 0;
     left: 50%;
     margin-left: -9em;
-    font-size: 8vh;
+    font-size: 11vh;
     text-align: justify;
     overflow: hidden;
     -webkit-transform-origin: 50% 100%;
@@ -123,7 +172,7 @@ body {
     transform: perspective(200px) rotateX(10deg);
 }
 
-#titles:after {
+#intro-text:after {
     position: absolute;
     content: ' ';
     left: 0;
@@ -138,7 +187,7 @@ body {
     pointer-events: none;
 }
 
-#titles p {
+#intro-text p {
     text-align: justify;
     margin: 0.8em 0;
     font-weight: bold;
@@ -146,7 +195,7 @@ body {
     color: #FF00d4;
 }
 
-#titles p.center {
+#intro-text p.center {
     text-align: center;
     color: #FF00d4;
     font-family: "Press Start 2P", cursive;

@@ -5,4 +5,3 @@ const duration = 30500; // Duration of the scroll animation in milliseconds
 setTimeout(() => {
   window.location.href = 'index.html';
 }, duration);
-

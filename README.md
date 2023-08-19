@@ -71,7 +71,7 @@ Welcome to Retroverse-Odyssey game!
 
 ![Game Stage](READMEimages/game-stage.png)
 
-
+![About Us](READMEimages/about-us-wireframe.png)
 
 
 [Back to the Top](#contents)

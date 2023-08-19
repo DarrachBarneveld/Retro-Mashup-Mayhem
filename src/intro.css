@@ -231,7 +231,10 @@ p#start {
 
 #titlecontent {
     position: absolute;
+    width: 80vw;
     top: 100%;
+    /* right: 7rem; */
+    left: 10rem;
     -webkit-animation: scroll 120s linear 3s infinite;
     -moz-animation: scroll 120s linear 3s infinite;
     -ms-animation: scroll 120s linear 3s infinite;

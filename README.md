@@ -53,6 +53,14 @@ Welcome to Retroverse-Odyssey game!
 
 ## User Stories
 
+- I can intuitively navigate around the site so that I can find content.
+- I can see an intro animation so I can feel immersed in the retro experience.
+- I want to easily access information about the game and have a seamless level selection experience so that I can understand the game's mechanics and progress through levels efficiently.
+- I can move and shoot so that I can avoid and kill enemies
+- I can press shoot so that I can fire projectiles at oncoming enemies.
+- I can see a victory or defeat screen so that I know when the level is over.
+- I want to find information about the developers so that I can request connections or give feedback.
+
 
 ## Design Structure
 

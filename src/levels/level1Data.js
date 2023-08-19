@@ -1,21 +1,39 @@
 import { commonObjects } from "./commonObjects";
 
 export const level1Layout = [
-    "                                      ",
-    "                                      ",
-    "                                      ",
-    "                 O                    ",
-    "                 O                    ",
-    "                                      ",
-    "                                      ",
-    "                                     R",
-    "                                      ",
-    "                                      ",
+  "                                      ",
+  "                                      ",
+  "                                      ",
+  "                 O                    ",
+  "                 O                    ",
+  "                                      ",
+  "                                      ",
+  "                                     R",
+  "                                      ",
+  "                                      ",
+];
+
+export const testLevel = [
+  "=================================================================================",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                               =",
+  "=                                                                             < =",
+  "=                                                                               =",
+  "=================================================================================",
 ];
 
 export const level1Objects = {
-    ...commonObjects,
-    "R": () => {
-        // Rescue point sprite for level 1.
-    },
+  ...commonObjects,
+  R: () => {
+    // Rescue point sprite for level 1.
+  },
 };

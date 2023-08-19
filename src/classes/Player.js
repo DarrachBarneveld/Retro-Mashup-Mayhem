@@ -34,7 +34,7 @@ export class Player {
     });
 
     this.sprite.onUpdate(() => {
-      K.camPos(this.sprite.pos);
+      K.camPos(this.sprite.pos.x, K.camPos().y);
     });
 
     this.sprite.onCollide("pika", () => {

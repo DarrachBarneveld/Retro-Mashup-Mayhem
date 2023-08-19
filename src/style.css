@@ -3,6 +3,7 @@
 
 /* ----------------------------------------- Colors */
 :root {
+
   --clr-primary-light: rgb(245, 245, 245);
   --clr-primary-dark: rgb(14, 12, 5);
   --clr-neon-red: rgb(238, 27, 20);
@@ -22,15 +23,15 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(../assets/images/bg_neon.png);
-  background-size: cover;
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "VT323", monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../assets/images/bg_neon.png);
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "VT323", monospace;
 }
 
 /* ----------------------------------------- TV frame & Screen */
@@ -63,29 +64,28 @@ body {
     -10px -10px 30px rgba(0, 0, 0, 0.2);
 }
 #mycanvas {
-  position: absolute;
-  background-color: var(--clr-mario-sky);
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 682px;
-  height: 544px;
-  border: 2px solid black;
-  border-radius: 16px;
-  background-color: var(--clr-mario-sky);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 682px;
+    height: 544px;
+    border: 2px solid black;
+    border-radius: 16px;
 }
 
 .tv-screen {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 42%;
-  transform: translate(-50%, -50%);
-  width: 682px;
-  height: 544px;
-  border: 2px solid black;
-  border-radius: 16px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    width: 682px;
+    height: 544px;
+    border: 2px solid black;
+    border-radius: 16px;
+
 }
 
 /* ---------------------------------------Navigation Homepage*/
@@ -120,33 +120,52 @@ body {
 
 /* ---------------------------------------About us*/
 .about-background {
-  background-color: black;
-  color: white;
-  padding: 3rem;
-  border-radius: 20%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+    background-color: black;
+    color: white;
+    padding: 3rem;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
 
+.close-button {
+  position: absolute;
+  right: 4rem;
+  top: 2rem;
+  color: var(--clr-neon-red);
+  font-size: 2rem;
+}
+
+.close-button:hover {
+  transform: scale(1.1) rotate(-7deg);
+}
+
+
 .team-member-card {
-  /* z-index: 3; */
-  height: 150px;
-  width: 150px;
-  background-color: rgb(255, 0, 212);
-  box-shadow: 0 0 25px rgb(39, 239, 16);
+    height: 150px;
+    width: 150px;
+    background-color: var(--clr-neon-green);
+    box-shadow: 0 0 5px var(--clr-neon-green);
+    text-align: center;
+    color: var(--clr-neon-purple);
 }
 
 .team-member-card i {
-  font-size: 2rem;
-  padding-top: 1rem;
-  color: var(--clr-neon-purple);
+    font-size: 2rem;
+    padding-top: 1rem;
+    color: var(--clr-neon-purple);
+}
+
+.team-member-card i:hover {
+  transform: scale(1.1) rotate(-7deg);
 }
 
 .card-group {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
 }

@@ -6,10 +6,11 @@ import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
+import hill from "../../assets/images/sprites/mario/sm-hill.png";
 import { Boss, Enemy } from "./Enemy";
 
 export class Level {
-  constructor(player, enemyLoop) {
+  constructor(player, enemyLoop, homingEnemyLoop) {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("prize", mario);
@@ -37,7 +38,7 @@ export class Level {
         ],
       },
     });
-
+    this.homingEnemyLoop = homingEnemyLoop;
     this.enemyLoop = enemyLoop;
     this.level = K.add([logPlayerPosition(this, player)]);
     this.player = player;
@@ -46,7 +47,7 @@ export class Level {
   activateBoss() {
     this.bossActive = true;
     this.enemyLoop.cancel();
-    const boss = new Boss(this.player);
+    const boss = new Boss(this.player, this.homingEnemyLoop);
   }
 }
 
@@ -54,7 +55,7 @@ function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 1000 && !level.bossActive) {
+      if (player.sprite.pos.x > 900 && !level.bossActive) {
         level.activateBoss();
       }
     },
@@ -66,8 +67,8 @@ export class Level2 {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
     K.loadSprite("cloud", cloud);
-    K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
-    K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
+    K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 }); 
+    K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 }); 
 
     K.addLevel(level2, {
       tileWidth: 16,

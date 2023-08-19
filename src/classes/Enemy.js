@@ -2,11 +2,13 @@ import K from "../kaboom";
 import { BowserAudio } from "../audioImports";
 import bowser from "../../assets/images/sprites/mario/bowser.png";
 import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
+import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import explosion from "../../assets/images/sprites/explosion.png";
 import { getRandomNumber } from "../helpers/math";
 
 K.loadSprite("enemy", bowser);
+K.loadSprite("invader", bullet);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
 K.loadSprite("explosion", explosion, {
   sliceX: 20,
@@ -36,10 +38,9 @@ export class Enemy {
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
-    this.health = 100;
-    this.speed = 0.5;
+    this.health = 200;
+    this.speed = 0.25;
 
-    // this.sprite.add([moveEnemyTowardsPosition(player, this)]);
     this.sprite.add([enemyMovement(this)]);
 
     this.sprite.move();
@@ -62,8 +63,50 @@ export class Enemy {
   }
 }
 
-export class Boss {
+export class HomingEnemy {
   constructor(player) {
+    this.sprite = K.add([
+      K.sprite("invader"),
+      K.pos(),
+      K.area(),
+      K.scale(1),
+      K.body(),
+      K.color(),
+      "enemy",
+    ]);
+    const value1 = K.height() - this.sprite.height - 10;
+    const posY = getRandomNumber(value1, 10);
+    const posX = player.sprite.pos.x + 300;
+    this.sprite.pos.x = posX;
+    this.sprite.pos.y = posY;
+
+    this.health = 100;
+    this.speed = 1;
+
+    this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+
+    this.sprite.move();
+
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 100, b: 100 };
+    }
+
+    if (this.health <= 0) {
+      K.play("ghost-dead");
+      const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+      this.sprite.destroy();
+      explosion.play("boom");
+    }
+  }
+}
+
+export class Boss {
+  constructor(player, homingEnemyLoop) {
     this.sprite = K.add([
       K.sprite("enemy"),
       K.pos(),
@@ -75,7 +118,7 @@ export class Boss {
     ]);
     K.play("bowserarrives");
     const posY = K.height() / 2;
-    const posX = player.sprite.pos.x + 100;
+    const posX = player.sprite.pos.x + 200;
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
@@ -86,6 +129,7 @@ export class Boss {
     this.direction = -1;
     this.sprite.add([moveEnemyUpAndDown(this)]);
 
+    this.homingEnemyLoop = homingEnemyLoop;
     this.fireLoop = K.loop(2, () => this.shoot());
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
@@ -101,6 +145,7 @@ export class Boss {
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       this.fireLoop.cancel();
+      this.homingEnemyLoop.cancel();
       explosion.play("boom");
     }
   }

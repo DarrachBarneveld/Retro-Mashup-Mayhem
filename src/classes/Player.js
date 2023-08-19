@@ -24,6 +24,7 @@ export class Player {
       K.scale(scale),
       K.body(),
       // logPlayerPosition(),
+      "player",
     ]);
     this.running = false;
     this.position = position;

@@ -105,9 +105,12 @@ body {
   flex-direction: column;
   gap: 1rem;
   border-radius: 5px;
+  margin-top: 10px;
+  align-items: center;
 }
 
 .nav-background li {
+
   background-color: var(--clr-neon-green);
   padding: 0.5rem;
   text-align: center;

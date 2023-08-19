@@ -6,8 +6,6 @@ import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 
-
-
 export class Level {
   constructor() {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
@@ -43,7 +41,7 @@ export class Level {
 export class Level2 {
   constructor() {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-    K.loadSprite("mario", mario);
+    K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
     K.loadSprite("cloud", cloud);
     K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 }); 
 
@@ -62,7 +60,14 @@ export class Level2 {
           "cloud",
         ],
         "<": () => [
-          K.sprite("mario"),
+          K.sprite("mario", { frame: 0 }), // top half
+          K.scale(1),
+          K.area(),
+          K.body({ isStatic: true }),
+          "mario",
+        ],
+        ">": () => [
+          K.sprite("mario", { frame: 1 }), // bottom half
           K.scale(1),
           K.area(),
           K.body({ isStatic: true }),

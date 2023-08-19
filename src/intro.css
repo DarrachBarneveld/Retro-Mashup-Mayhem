@@ -15,7 +15,7 @@ body {
 /* Intro section with Typing and fade animations */
 p#start {
     font-family: 'VT323', monospace;
-    margin: 20% auto;
+    margin: 40% auto;
     color: #4ee;
     width: 20em;
     animation: intro 5s ease-out, typing 3s steps(25), blink .5s step-end infinite alternate;

@@ -49,16 +49,43 @@ export class Level2 {
       tileWidth: 16,
       tileHeight: 16,
       tiles: {
+        // Ground tile
         "=": () => [
           K.sprite("tiles", { frame: 0 }),
           K.area(),
           K.body({ isStatic: true }),
           "tiles",
         ],
+
+        // Tiles
+        "+": () => [
+          K.sprite("tiles", { frame: 3 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+
+        // Small bush
+        "a": () => [
+          K.sprite("tiles", { frame: 48 }),
+          "tiles",
+        ],
+        "b": () => [
+          K.sprite("tiles", { frame: 49 }),
+          "tiles",
+        ],
+        "c": () => [
+          K.sprite("tiles", { frame: 50 }),
+          "tiles",
+        ],
+
+        // Clouds - to add the whole cloud you need to put out ^^ in the layout
         "^": () => [
           K.sprite("cloud"),
           "cloud",
         ],
+
+        // Super Mario
         "<": () => [
           K.sprite("mario", { frame: 0 }), // top half
           K.scale(1),
@@ -73,6 +100,8 @@ export class Level2 {
           K.body({ isStatic: true }),
           "mario",
         ],
+
+        // Pipe
         "x": () => [
           K.sprite("pipe", { frame: 0 }), // top half
           K.area(),

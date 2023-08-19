@@ -64,7 +64,7 @@ body {
 }
 #mycanvas {
   position: absolute;
-  background-color: var(--clr-mario-sky)
+  background-color: var(--clr-mario-sky);
   z-index: 2;
   top: 50%;
   left: 42%;

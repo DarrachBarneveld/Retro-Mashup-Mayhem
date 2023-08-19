@@ -9,7 +9,7 @@ import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import { Boss, Enemy } from "./Enemy";
 
 export class Level {
-  constructor(player) {
+  constructor(player, enemyLoop) {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("prize", mario);
@@ -38,13 +38,14 @@ export class Level {
       },
     });
 
+    this.enemyLoop = enemyLoop;
     this.level = K.add([logPlayerPosition(this, player)]);
     this.player = player;
   }
 
   activateBoss() {
     this.bossActive = true;
-    console.log("fire");
+    this.enemyLoop.cancel();
     const boss = new Boss(this.player);
   }
 }
@@ -53,7 +54,7 @@ function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 100 && !level.bossActive) {
+      if (player.sprite.pos.x > 1000 && !level.bossActive) {
         level.activateBoss();
       }
     },

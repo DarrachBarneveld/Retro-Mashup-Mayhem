@@ -17,7 +17,7 @@ K.scene("demo", () => {
   K.onKeyPress("space", () => player.shoot());
   K.onKeyRelease("left", () => player.idle());
   K.onKeyRelease("right", () => player.idle());
-  const newLocal = K.loop(1, () => new Enemy(player));
+  // const newLocal = K.loop(1, () => new Enemy(player));
 });
 
 K.go("demo");

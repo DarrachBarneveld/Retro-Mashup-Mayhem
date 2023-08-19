@@ -98,6 +98,7 @@ export class Player {
       K.scale(0.5),
       K.body(),
       K.area(),
+      K.offscreen({ destroy: true }),
       bulletMovement(direction, 0),
       "bullet",
     ]);
@@ -108,6 +109,9 @@ export class Player {
       bullet.destroy();
     });
     bullet.onCollide("tiles", (enemy) => {
+      bullet.destroy();
+    });
+    bullet.onCollide("prize", () => {
       bullet.destroy();
     });
   }

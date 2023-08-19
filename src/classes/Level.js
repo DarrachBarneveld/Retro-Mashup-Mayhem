@@ -7,7 +7,7 @@ import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 export class Level {
   constructor() {
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-    K.loadSprite("pika", pika);
+    K.loadSprite("pika", mario);
 
     K.addLevel(testLevel, {
       tileWidth: 16,
@@ -27,7 +27,6 @@ export class Level {
         ],
         "<": () => [
           K.sprite("pika"),
-          K.scale(0.25),
           K.area(),
           K.body({ isStatic: true }),
           "pika",

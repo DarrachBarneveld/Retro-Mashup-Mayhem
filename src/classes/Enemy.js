@@ -1,10 +1,12 @@
 import K from "../kaboom";
 import enemySprite from "../../assets/images/sprites/enemy.png";
 import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
+import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import { getRandomNumber } from "../helpers/math";
 
 K.loadSprite("enemy", enemySprite);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
+K.loadSound("ghost-dead", ghostDeath);
 
 export class Enemy {
   constructor(player) {
@@ -41,6 +43,7 @@ export class Enemy {
 
     if (this.health <= 0) {
       this.sprite.destroy();
+      K.play("ghost-dead");
     }
   }
 }

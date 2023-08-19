@@ -41,7 +41,6 @@ body {
   height: 95vh;
   position: relative;
   width: auto;
-  /* background-color: red; */
 }
 
 #tv-frame {
@@ -64,7 +63,6 @@ body {
 }
 #mycanvas {
   position: absolute;
-  background-color: var(--clr-mario-sky);
   z-index: 2;
   top: 50%;
   left: 50%;
@@ -112,17 +110,22 @@ body {
 }
 
 .nav-background li {
-  padding: 1rem;
-}
 
-.nav-background li a {
-  color: var(--clr-neon-pink);
-  text-decoration: none;
+  background-color: var(--clr-neon-green);
+  padding: 0.5rem;
   text-align: center;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 0 7px var(--clr-neon-green);
 }
 
 .nav-background a {
   width: 100%;
+  text-decoration: none;
+}
+
+.nav-background li:hover {
+  transform: scale(1.1) rotate(-4deg);
 }
 
 /* ---------------------------------------About us*/
@@ -130,7 +133,7 @@ body {
   background-color: black;
   color: white;
   padding: 3rem;
-  border-radius: 20%;
+  border-radius: 16px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -138,12 +141,37 @@ body {
   align-items: center;
 }
 
+.close-button {
+  position: absolute;
+  right: 4rem;
+  top: 2rem;
+  color: var(--clr-neon-red);
+  font-size: 2rem;
+}
+
+.close-button:hover {
+  transform: scale(1.1) rotate(-7deg);
+}
+
+#about-us-screen {
+  overflow: scroll;
+}
+
+.about-content {
+  padding-top: 15rem;
+  text-align: center;
+}
+
 .team-member-card {
-  /* z-index: 3; */
-  height: 150px;
+  /* height: 150px; */
   width: 150px;
-  background-color: rgb(255, 0, 212);
-  box-shadow: 0 0 25px rgb(39, 239, 16);
+  background-color: var(--clr-neon-green);
+  box-shadow: 0 0 5px var(--clr-neon-green);
+  text-align: center;
+  color: var(--clr-neon-purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .team-member-card i {
@@ -152,8 +180,26 @@ body {
   color: var(--clr-neon-purple);
 }
 
+.team-member-card i:hover {
+  transform: scale(1.1) rotate(-7deg);
+}
+
+.team-member-card img {
+  width: 130px !important;
+  height: auto !important;
+  padding-top: 4px;
+}
+
 .card-group {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  padding-top: 1rem;
+}
+
+.member-links {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
 }

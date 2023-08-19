@@ -1,11 +1,12 @@
 import K from "../kaboom";
-import enemySprite from "../../assets/images/sprites/enemy.png";
+import { BowserAudio } from "../audioImports";
+import bowser from "../../assets/images/sprites/mario/bowser.png";
 import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import explosion from "../../assets/images/sprites/explosion.png";
 import { getRandomNumber } from "../helpers/math";
 
-K.loadSprite("enemy", enemySprite);
+K.loadSprite("enemy", bowser);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
 K.loadSprite("explosion", explosion, {
   sliceX: 20,
@@ -15,6 +16,8 @@ K.loadSprite("explosion", explosion, {
   },
 });
 K.loadSound("ghost-dead", ghostDeath);
+K.loadSound("bowserarrives", BowserAudio.arrives);
+K.loadSound("bowserdies", BowserAudio.dies);
 
 export class Enemy {
   constructor(player) {
@@ -25,22 +28,22 @@ export class Enemy {
       K.scale(1),
       K.body(),
       K.color(),
-      // enemyMovement(player),
       "enemy",
     ]);
 
     const value1 = K.height() - this.sprite.height - 10;
-
     const posY = getRandomNumber(value1, 10);
-
     const posX = player.sprite.pos.x + 300;
-
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
     this.health = 100;
+    this.speed = 0.5;
 
-    this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+    // this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+    this.sprite.add([enemyMovement(this)]);
+
+    this.sprite.move();
 
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
@@ -60,11 +63,100 @@ export class Enemy {
   }
 }
 
-function enemyMovement(player) {
+export class Boss {
+  constructor(player) {
+    this.sprite = K.add([
+      K.sprite("enemy"),
+      K.pos(),
+      K.area(),
+      K.scale(0.5),
+      K.body({ isStatic: true }),
+      K.color(),
+      "enemy",
+    ]);
+    K.play("bowserarrives");
+    const posY = K.height() / 2;
+    const posX = player.sprite.pos.x + 100;
+    this.sprite.pos.x = posX;
+    this.sprite.pos.y = posY;
+
+    this.health = 600;
+    this.speed = 0.5;
+    this.player = player;
+    this.sprite.move();
+    this.direction = -1;
+    this.sprite.add([moveEnemyUpAndDown(this)]);
+
+    K.loop(2, () => this.shoot());
+
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 100, b: 100 };
+    }
+
+    if (this.health <= 0) {
+      K.play("bowserdies");
+      const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+      this.sprite.destroy();
+      explosion.play("boom");
+    }
+  }
+
+  shoot() {
+    const playerPos = this.player.sprite.pos;
+    const spritePos = this.sprite.pos;
+    const direction = K.vec2(
+      playerPos.x - spritePos.x,
+      playerPos.y - spritePos.y
+    );
+
+    const bullet = K.add([
+      K.circle(4),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
+      K.scale(0.5),
+      K.body(),
+      K.area(),
+      K.offscreen({ destroy: true }),
+      // bulletMovement(direction),
+      "bullet",
+    ]);
+
+    const angleRadians = Math.atan2(
+      playerPos.y - spritePos.y,
+      playerPos.x - spritePos.x
+    );
+    const angleDegrees = angleRadians * (180 / Math.PI);
+
+    const velocityX = 5 * Math.cos(angleRadians);
+    const velocityY = 5 * Math.sin(angleRadians);
+
+    bullet.add([bulletMovement(bullet, velocityX, velocityY)]);
+
+    // K.play("shoot");
+
+    // bullet.damage = 50;
+
+    // bullet.onCollide("enemy", (enemy) => {
+    //   bullet.destroy();
+    // });
+    // bullet.onCollide("tiles", (enemy) => {
+    //   bullet.destroy();
+    // });
+    // bullet.onCollide("prize", () => {
+    //   bullet.destroy();
+    // });
+  }
+}
+
+function enemyMovement(enemy) {
   return {
     add() {},
     update() {
-      this.move(-50, 0);
+      enemy.sprite.move(-enemy.speed * 100, 0);
     },
   };
 }
@@ -74,15 +166,39 @@ function moveEnemyTowardsPosition(player, enemy) {
     add() {},
     update() {
       const enemyPosition = enemy.sprite.pos;
+      const speed = enemy.speed;
       const playerPosition = player.sprite.pos;
       const direction = K.vec2(
         playerPosition.x - enemyPosition.x,
         playerPosition.y - enemyPosition.y
       );
 
-      const normalizedDirection = K.vec2(direction.x, direction.y);
+      enemy.sprite.move(direction.scale(speed));
+    },
+  };
+}
 
-      enemy.sprite.move(normalizedDirection);
+function moveEnemyUpAndDown(enemy) {
+  return {
+    add() {},
+    update() {
+      if (enemy.sprite.pos.y < 50) {
+        enemy.direction = 1;
+      }
+      if (enemy.sprite.pos.y > 200) {
+        enemy.direction = -1;
+      }
+      enemy.sprite.move(0, enemy.speed * 50 * enemy.direction);
+    },
+  };
+}
+
+export function bulletMovement(bullet, x, y) {
+  return {
+    add() {},
+    update() {
+      bullet.pos.x += x;
+      bullet.pos.y += y;
     },
   };
 }

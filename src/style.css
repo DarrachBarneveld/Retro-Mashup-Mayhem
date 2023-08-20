@@ -90,11 +90,10 @@ body {
 #health-bar {
     z-index: 3;
     outline: 2px solid #fff;
-    border-radius: 10px;
     width: 140px;
     height: 300px;
     position: absolute;
-    bottom: 60px;
+    bottom: 255px;
     right: 30px;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -104,7 +103,6 @@ body {
     position: absolute;
     bottom: 0;
     content: "";
-    border-radius: 10px;
     background-color: var(--clr-neon-green);
     height: 300px;
     width: 140px;

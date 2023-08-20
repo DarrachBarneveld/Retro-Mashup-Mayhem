@@ -191,6 +191,8 @@ function enemyMovement(player, enemy) {
     add() {},
     update() {
       direction = findDirectionRelationship(player, enemy);
+      // Accounts for sprite variance of movement
+
       enemy.sprite.move(-enemy.speed * 100, direction.y);
     },
   };
@@ -205,6 +207,13 @@ function findDirectionRelationship(player, enemy) {
   );
 
   return direction;
+}
+function addRandomRangeToNum(number) {
+  const range = Math.floor(Math.random() * 201) - 100;
+
+  // Add the range to the input number
+
+  return number + range;
 }
 
 function moveEnemyTowardsPosition(player, enemy) {

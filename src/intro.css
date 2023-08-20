@@ -183,14 +183,14 @@ p#start {
     font-family: 'VT323', monospace;
     letter-spacing: .5vw;
     position: absolute;
-    width: 15em;
+    width: 14em;
     height: 50em;
     bottom: 0;
     left: 50%;
-    margin-left: -7.5em;
+    margin-left: -8em;
     font-size: 11vh;
     text-align: justify;
-    overflow: hidden;
+    /* overflow: hidden; */
     -webkit-transform-origin: 50% 100%;
     -moz-transform-origin: 50% 100%;
     -ms-transform-origin: 50% 100%;
@@ -237,7 +237,7 @@ p#start {
     position: absolute;
     width: 80vw;
     top: 100%;
-    /* right: 7rem; */
+    right: 7rem;
     left: 10rem;
     -webkit-animation: scroll 120s linear 0s infinite;
     -moz-animation: scroll 120s linear 0s infinite;

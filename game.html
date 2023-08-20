@@ -9,12 +9,14 @@
   <body>
     <div id="tv-container">
       <div id="tv-frame">
-        <img src="assets/images/tv_frame.png" alt="TV Frame" />
+        <div style="position: relative">
+          <img src="assets/images/tv_frame.png" alt="TV Frame" />
+          <div id="health-bar">
+            <div id="health"></div>
+          </div>
+        </div>
         <div class="tv-screen">
           <canvas id="mycanvas"></canvas>
-        </div>
-        <div id="health-bar">
-          <div id="health"></div>
         </div>
       </div>
     </div>

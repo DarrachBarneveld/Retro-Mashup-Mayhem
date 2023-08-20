@@ -7,6 +7,8 @@ import { delayTimer } from "./helpers/math";
 
 // When pages loads change background url
 
+const url = window.location.pathname.split(".");
+
 K.loadSprite("explosion", explosion, {
   sliceX: 20,
   sliceY: 1,
@@ -16,9 +18,21 @@ K.loadSprite("explosion", explosion, {
 });
 
 K.scene("demo", async () => {
+  if (url[0] == "/game") {
+    const level = new Level1();
+  }
+  if (url[0] == "/game2") {
+    const level = new Level1();
+  }
+  if (url[0] == "/game3") {
+    const level = new Level3();
+  }
+  if (url[0] == "/game4") {
+    const level = new Level4();
+  }
   // console.log("run ani");
   // await delayTimer(3000);
-  const level = new Level3();
+  // const level = new Level3();
 });
 
 K.go("demo");

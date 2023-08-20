@@ -8,6 +8,7 @@
   --clr-neon-red: rgb(238, 27, 20);
   --clr-neon-pink: rgb(255, 0, 212);
   --clr-neon-yellow: rgb(243, 253, 9);
+  --clr-neon-blue: #4103ff;
   --clr-neon-green: rgb(39, 239, 16);
   --clr-neon-purple: rgb(136, 1, 243);
   --clr-mario-sky: rgb(92, 148, 252);
@@ -79,8 +80,7 @@ body {
   border: 2px solid black;
   border-radius: 16px;
   /* background-color: var(--clr-mario-sky);  Background for Marios level */
-  background-color: var(--clr-primary-dark);
-  /* background: url(../assets/images/backgrounds/space-background.png); Background for Space Invaders level */
+  background: url(../assets/images/backgrounds/space-background.png);
 }
 
 .tv-screen {
@@ -192,19 +192,38 @@ body {
 
 .levels li {
   background-color: var(--clr-neon-pink);
-  padding: 0.5rem;
   text-align: center;
-  margin: 0.5rem;
   border-radius: 1px;
   box-shadow: 0 0 17px var(--clr-neon-pink);
 }
 
+.levels li:nth-child(1) {
+  background-color: var(--clr-neon-green);
+}
+.levels li:nth-child(2) {
+  background-color: var(--clr-neon-yellow);
+}
+.levels li:nth-child(3) {
+  background-color: var(--clr-neon-blue);
+}
+.levels li:nth-child(4) {
+  background-color: var(--clr-neon-pink);
+}
+
 .levels li a {
   text-decoration: none;
+  padding: 0.5rem;
+}
+
+.levels li h2 {
   font-size: 30px;
+  text-decoration: underline;
+  margin-bottom: 10px;
+  color: black;
 }
 
 .levels li p {
+  font-size: 16px;
   color: var(--clr-primary-dark);
 }
 

@@ -3,11 +3,13 @@
 Welcome to Retro-Mashup-Mayhem game!
 
 
- ![Retro-Mashup-Mayhem](READMEimages/imiresponsive-image.png)     
+ ![Retro-Mashup-Mayhem](READMEimages/retro-mash.png)
+
+
+ Link to deploy site: https://retro-mashup-mayhem.netlify.app/   
 
 
  ***                                    
-
 
 
 # Table of Contents
@@ -21,7 +23,6 @@ Welcome to Retro-Mashup-Mayhem game!
     - [Wireframes](#wireframes)
 3. [Features](#features)
     - [Existing Features](#existing-features)
-    - [Future Features](#future-features)
 4. [Technologies](#technologies)
 5. [Controls](#controls)
    + [Game Controls](#game-controls)
@@ -127,7 +128,7 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 ![Introductory Page](./READMEimages/k-game-intro.png)
 
 
-### ## Menu Page
+### Menu Page
 
 ![Menu Page](./READMEimages/k-game.png)
 
@@ -138,7 +139,6 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
   + Can view the about us page, where the team information can be found.
 
 
-## Future Features
 
 # Technologies
 
@@ -167,6 +167,9 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 
 # 6. Deployment
 
+
+
+
 # 7. Citation of Sources
 
 ## Content
@@ -176,6 +179,7 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 - [Andelrodis](https://andelrodis.itch.io/) - Explored for inspiration and game mechanics insights.
 - [Spriters-Resource](https://www.spriters-resource.com/) - Utilized for sprite references and artistic direction.
 - [Canva](https://www.canva.com/) - Leveraged for graphic design and visual enhancements.
+- Intro page inspiration from Filthy Rebel SCRUM
 
 - All content have been by Team4 - Retro Riders.
 

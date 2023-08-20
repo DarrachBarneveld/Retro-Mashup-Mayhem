@@ -7,15 +7,19 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
-import { Boss, Enemy } from "./Enemy";
+import { Boss, Enemy, HomingEnemy } from "./Enemy";
+import { Player } from "./Player";
 
-export class Level {
-  constructor(player, enemyLoop, homingEnemyLoop) {
+export class Level1 {
+  constructor() {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
+    K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
     K.loadSprite("cloud", cloud);
     K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
-    K.loadSprite("prize", mario);
+    K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
+    K.loadSprite("hill", hill, { sliceX: 4, sliceY: 2 });
+
     K.addLevel(testLevel, {
       tileWidth: 16,
       tileHeight: 16,
@@ -35,90 +39,11 @@ export class Level {
           "tiles",
         ],
 
-        // Small bush
-        a: () => [K.sprite("tiles", { frame: 48 }), "tiles"],
-        b: () => [K.sprite("tiles", { frame: 49 }), "tiles"],
-        c: () => [K.sprite("tiles", { frame: 50 }), "tiles"],
-
-        // Pipe
-        x: () => [
-          K.sprite("pipe", { frame: 0 }), // top half
-          K.area(),
-          K.body({ isStatic: true }),
-          "tiles",
-        ],
-        y: () => [
-          K.sprite("pipe", { frame: 1 }), // bottom half
-          K.area(),
-          K.body({ isStatic: true }),
-          "tiles",
-        ],
-
-        // Clouds - to add the whole cloud you need to put out ^^ in the layout
-        "^": () => [K.sprite("cloud"), "cloud"],
-
-        "<": () => [
-          K.sprite("prize"),
-          K.area(),
-          K.body({ isStatic: true }),
-          "prize",
-        ],
-      },
-    });
-    this.homingEnemyLoop = homingEnemyLoop;
-    this.enemyLoop = enemyLoop;
-    this.level = K.add([logPlayerPosition(this, player)]);
-    this.player = player;
-  }
-
-  activateBoss() {
-    this.bossActive = true;
-    if (this.enemyLoop) {
-      this.enemyLoop.cancel();
-    }
-
-    const boss = new Boss(this.player, this.homingEnemyLoop);
-  }
-}
-
-function logPlayerPosition(level, player) {
-  return {
-    add() {},
-    update() {
-      if (player.sprite.pos.x > 900 && !level.bossActive) {
-        level.activateBoss();
-      }
-    },
-  };
-}
-
-export class Level2 {
-  constructor() {
-    K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
-    K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
-    K.loadSprite("cloud", cloud);
-    K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
-    K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
-    K.loadSprite("hill", hill, { sliceX: 4, sliceY: 2 });
-
-    K.addLevel(level2, {
-      tileWidth: 16,
-      tileHeight: 16,
-      tiles: {
-        // Ground tile
-        "=": () => [
-          K.sprite("tiles", { frame: 2 }),
-          K.area(),
-          K.body({ isStatic: true }),
-          "tiles",
-        ],
-        // Aerial block
-        "+": () => [
-          K.sprite("tiles", { frame: 3 }),
-          K.area(),
-          K.body({ isStatic: true }),
-          "tiles",
-        ],
+        "*": () => {
+          this.player = new Player("dino", 0, 150, 1);
+          this.startLevel(this.player);
+          return [this.player];
+        },
 
         // Small bush
         a: () => [K.sprite("tiles", { frame: 48 }), "tiles"],
@@ -182,16 +107,43 @@ export class Level2 {
         P: () => [K.sprite("castle", { frame: 15 })], // Bottom row - right
 
         // Hill
-        Q: () => [K.sprite("hill", { frame: 0 })],  // Top-left corner
-        R: () => [K.sprite("hill", { frame: 1 })],  // Top-second from left
-        S: () => [K.sprite("hill", { frame: 2 })],  // Top-third from left
-        T: () => [K.sprite("hill", { frame: 3 })],  // Top-right corner
+        Q: () => [K.sprite("hill", { frame: 0 })], // Top-left corner
+        R: () => [K.sprite("hill", { frame: 1 })], // Top-second from left
+        S: () => [K.sprite("hill", { frame: 2 })], // Top-third from left
+        T: () => [K.sprite("hill", { frame: 3 })], // Top-right corner
 
-        U: () => [K.sprite("hill", { frame: 4 })],  // Bottom row - left
-        V: () => [K.sprite("hill", { frame: 5 })],  // Bottom row - second from left
-        W: () => [K.sprite("hill", { frame: 6 })],  // Bottom row - third from left
-        X: () => [K.sprite("hill", { frame: 7 })],  // Bottom row - right
+        U: () => [K.sprite("hill", { frame: 4 })], // Bottom row - left
+        V: () => [K.sprite("hill", { frame: 5 })], // Bottom row - second from left
+        W: () => [K.sprite("hill", { frame: 6 })], // Bottom row - third from left
+        X: () => [K.sprite("hill", { frame: 7 })], // Bottom row - right
       },
     });
+    this.level = K.add([logPlayerPosition(this, this.player)]);
   }
+
+  startLevel() {
+    // this.enemyLoop = K.loop(1, () => new Enemy(this.player));
+    // this.homingEnemyLoop = K.loop(3, () => new HomingEnemy(this.player));
+  }
+
+  activateBoss() {
+    this.bossActive = true;
+    if (this.enemyLoop) {
+      this.enemyLoop.cancel();
+    }
+
+    const boss = new Boss(this.player, this.homingEnemyLoop);
+  }
+}
+
+function logPlayerPosition(level, player) {
+  return {
+    add() {},
+    update() {
+      console.log(player.sprite.pos.x);
+      if (player.sprite.pos.x > 100 && !level.bossActive) {
+        level.activateBoss();
+      }
+    },
+  };
 }

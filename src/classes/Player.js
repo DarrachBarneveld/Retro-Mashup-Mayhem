@@ -31,6 +31,14 @@ export class Player {
     this.moveSpeed = moveSpeed;
     this.sprite.play("idle");
 
+    K.onKeyDown("left", () => this.moveLeft());
+    K.onKeyDown("right", () => this.moveRight());
+    K.onKeyDown("up", () => this.moveUp());
+    K.onKeyDown("down", () => this.moveDown());
+    K.onKeyPress("space", () => this.shoot());
+    K.onKeyRelease("left", () => this.idle());
+    K.onKeyRelease("right", () => this.idle());
+
     this.sprite.onCollide("wall", () => {
       this.sprite.destroy();
     });
@@ -48,6 +56,14 @@ export class Player {
       K.play("mario");
       console.log("Game win");
     });
+
+    this.health = 3;
+    this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
+  }
+
+  takeDamage() {
+    this.health--;
+    console.log(this.health);
   }
 
   moveUp() {

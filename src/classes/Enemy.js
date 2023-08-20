@@ -5,11 +5,17 @@ import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import explosion from "../../assets/images/sprites/explosion.png";
+import bowserShot from "../../assets/images/sprites/mario/sm-bowser-shot.png";
 import { getRandomNumber } from "../helpers/math";
 
 K.loadSprite("enemy", bowser);
 K.loadSprite("invader", bullet);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
+K.loadSprite("bowserbullet", bowserShot, {
+  sliceX: 4,
+  sliceY: 1,
+  anims: { shot: { from: 1, to: 3, loop: true } },
+});
 K.loadSprite("explosion", explosion, {
   sliceX: 20,
   sliceY: 1,
@@ -20,6 +26,8 @@ K.loadSprite("explosion", explosion, {
 K.loadSound("ghost-dead", ghostDeath);
 K.loadSound("bowserarrives", BowserAudio.arrives);
 K.loadSound("bowserdies", BowserAudio.dies);
+K.loadSound("bowsershoot", BowserAudio.shoot);
+K.loadSound("bowserhurt", BowserAudio.hurt);
 
 export class Enemy {
   constructor(player) {
@@ -135,11 +143,11 @@ export class Boss {
   }
 
   takeDamage(damage) {
+    K.play("bowserhurt");
     this.health -= damage;
     if (this.health <= 50) {
       this.sprite.color = { r: 255, g: 100, b: 100 };
     }
-
     if (this.health <= 0) {
       K.play("bowserdies");
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
@@ -155,9 +163,9 @@ export class Boss {
   shoot() {
     const playerPos = this.player.sprite.pos;
     const spritePos = this.sprite.pos;
-
+    K.play("bowsershoot");
     const bullet = K.add([
-      K.circle(4),
+      K.sprite("bowserbullet"),
       K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
       K.scale(0.5),
       K.body(),
@@ -166,6 +174,7 @@ export class Boss {
       "enemy-bullet",
     ]);
 
+    bullet.play("shot");
     const angleRadians = Math.atan2(
       playerPos.y - spritePos.y,
       playerPos.x - spritePos.x

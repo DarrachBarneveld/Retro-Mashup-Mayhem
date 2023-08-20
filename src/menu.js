@@ -1,1 +1,0 @@
-const MenuScreen=document.getElementsByClassName("menu-canvas");

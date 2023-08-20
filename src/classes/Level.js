@@ -4,7 +4,6 @@ import marioTileset from "../../assets/images/tileset/mario_tileset.png";
 import { testLevel, level4 } from "../levels/layouts";
 
 // Sprite imports Level 1
-
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import princess from "../../assets/images/sprites/mario/sm-princess.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";

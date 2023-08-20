@@ -73,7 +73,8 @@ body {
   border: 2px solid black;
   border-radius: 16px;
   /* background-color: var(--clr-mario-sky);  Background for Marios level */
-  background: url(../assets/images/backgrounds/space-background.png);
+  background-color: var(--clr-primary-dark);
+  /* background: url(../assets/images/backgrounds/space-background.png); Background for Space Invaders level */
 }
 
 .tv-screen {

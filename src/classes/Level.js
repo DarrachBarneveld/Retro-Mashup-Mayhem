@@ -1,6 +1,6 @@
 import K from "../kaboom";
 import marioTileset from "../../assets/images/tileset/mario_tileset.png";
-import { testLevel, level4 } from "../levels/layouts";
+import { testLevel, level3, level4 } from "../levels/layouts";
 
 // Sprite imports Level 1
 import { testLevel, level2 } from "../levels/layouts";
@@ -10,6 +10,9 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
+
+// Sprite imports Level 3
+import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png"
 
 // Sprite imports Level 4
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
@@ -169,6 +172,48 @@ export class Level1 {
     this.staticEnemyCoords.forEach(
       (coords) => new StaticEnemy(this.player, coords)
     );
+  }
+
+  activateBoss() {
+    this.bossActive = true;
+    if (this.enemyLoop) {
+      this.enemyLoop.cancel();
+    }
+
+    const boss = new Boss(this.player, this.homingEnemyLoop);
+  }
+}
+
+export class Level3 {
+  constructor() {
+    this.bossActive = false;
+    K.loadSprite("mazebrick", mazebrick);
+
+    K.addLevel(level3, {
+      tileWidth: 16,
+      tileHeight: 16,
+      tiles: {
+        // mazebrick
+        "=": () => [
+          K.sprite("mazebrick"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "mazebrick",
+        ],
+
+        "*": () => {
+        this.player = new Player("dino", 0, 150, 1);
+        this.startLevel(this.player);
+        return [this.player];
+        },
+      },
+    });
+    this.level = K.add([logPlayerPosition(this, this.player)]);
+  }
+
+  startLevel() {
+    this.enemyLoop = K.loop(2, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
   }
 
   activateBoss() {

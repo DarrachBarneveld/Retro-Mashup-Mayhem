@@ -255,10 +255,16 @@ body {
   top: 1rem;
   color: white;
   font-size: 2rem;
+  z-index: 3;
+}
+
+.sound-buttons i {
+  color: var(--clr-neon-green);
 }
 
 .sound-buttons i:hover {
-  color: var(--clr-neon-green);
+  cursor: pointer;
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .hide {

@@ -1,13 +1,4 @@
-/*Change Page after Scroll animation */
-const titles = document.querySelector('#titlecontent');
-const duration = 3300; // Duration of the scroll animation in milliseconds
-
-setTimeout(() => {
-  window.location.href ="index.html";
-}, duration);
-
 /* Sound toggle */
-
 const soundOnButton = document.getElementById('sound-on');
 const soundOffButton = document.getElementById('sound-off');
 const backgroundMusic = document.getElementById('backgroundMusic');
@@ -23,4 +14,14 @@ soundOnButton.addEventListener('click', () => {
   soundOnButton.classList.add('hide');
   soundOffButton.classList.remove('hide');
   backgroundMusic.pause();
+});
+
+/* Open Modals */
+const rulesModal = document.querySelector('.rules-modal');
+const aboutUsModal = document.querySelector('.about-us-modal');
+const rulesButton = document.querySelector('.rules-button');
+const aboutUsButton = document.querySelector('.about-us-button');
+
+rulesButton.addEventListener('click', () => {
+    console.log('open rules modal');
 });

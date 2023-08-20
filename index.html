@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="./src/style.css" />
-    <link rel="stylesheet" type="text/css" href="./src/intro.css" />
-    <title>Retro Mashup Mayhem</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="./src/style.css" />
+        <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+        <title>Retro Mashup Mayhem</title>
+    </head>
+    <body>
+        <!-- Sound -->
+        <audio id="backgroundMusic" loop>
+            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3">
+        </audio> 
+        <div class="sound-buttons">
+            <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
+            <i class="fa-solid fa-volume-off" id="sound-off"></i>
+        </div>
 
-<body>
-    <div id="tv-container">
-        <div id="tv-frame">
-            <img src="assets/images/tv_frame.png" alt="TV Frame" />
-            <div class="nav-background tv-screen">
-                <img src="assets/images/gamelogo.gif" alt="" />
-                <nav>
-                    <ul>
-                        <li><a href="rules.html">How to play</a></li>
-                        <li><a href="levels.html">Start Game</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="intro-tv.html">Intro</a></li>
-                    </ul>
-                </nav>
+        <div id="tv-container">
+            <div id="tv-frame">
+                <img src="assets/images/tv_frame.png" alt="TV Frame" />
+                <div class="nav-background tv-screen">
+                    
+                    <!-- Home Screen -->
+                    <img src="assets/images/gamelogo.gif" alt="" />
+                    <nav>
+                        <ul class="menu-btn">
+                            <li class="rules-button"><a href="#">How to play</a></li>
+                            <li><a href="game.html">Start Game</a></li>
+                            <li class="about-us-button"><a href="about-us.html">About Us</a></li>
+                            <li><a href="intro-tv.html">Intro</a></li>
+                        </ul>
+                    </nav>
+                    <!-- Close Home Screen -->
+
+                    <!-- Rules Modal -->
+                    <div class="rules-modal">
+
+                    </div>
+                    <!-- Close Rules Modal-->
+
+                    <!-- About Us Modal -->
+                    <div class="about-us-modal">
+
+                    </div>
+                    <!-- Close About Us Modal -->
+
+                </div>
             </div>
         </div>
-    </div>
-</body>
-
+        <!-- JavaScript -->
+        <!-- <script src="./src/intro.js"></script> -->
+        <script src ="./src/home.js"></script>
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
+    </body>
 </html>

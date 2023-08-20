@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+    <title>Retro Mashup Mayhem</title>
+  </head>
+  <body>
+    <!-- Sound -->
+    <audio id="backgroundMusic" loop>
+      <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3" />
+    </audio>
+    <div class="sound-buttons">
+      <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
+      <i class="fa-solid fa-volume-off" id="sound-off"></i>
+    </div>
 
     <head>
         <meta charset="UTF-8" />
@@ -80,10 +100,15 @@
                 
             </div>
         </div>
-        <!-- JavaScript -->
-        <!-- <script src="./src/intro.js"></script> -->
-        <script src ="./src/home.js"></script>
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
-    </body>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <!-- <script src="./src/intro.js"></script> -->
+    <script src="./src/home.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/076967cb18.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

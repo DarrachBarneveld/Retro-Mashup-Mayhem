@@ -11,12 +11,12 @@ export const testLevel = [
   "=                                                      ++                                    =",
   "=   *             ++++                                                                       =",
   "=                                                                                            =",
-  "=                                x                                                        <  =",
-  "=                                z                           ++                           >  =",
+  "=                                x                                                           =",
+  "=                                z                           ++                              =",
   "= x                              ==                                                  ...ABCD.=",
   "= y                              ==abc                                               ...EFGH.=",
-  "===== QRST                 QRST  ======               x        QRST                  ...IJKL.=",
-  "===== UVWX           abc   UVWX ========= abc         z    abc UVWX                  ...MNOP.=",
+  "===== QRST                 QRST  ======               x        QRST                <:...IJKL.=",
+  "===== UVWXabcabc     abc   UVWX ========= abc         z    abc UVWX                >|...MNOP.=",
   "==============================================================================================",
 ];
 
@@ -47,6 +47,9 @@ export const level2 = [
 
 // <
 // >              = mario
+
+// :
+// |              = princess
 
 // x
 // y              = pipe

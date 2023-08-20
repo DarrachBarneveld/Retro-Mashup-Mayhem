@@ -68,16 +68,18 @@ body {
 }
 
 #mycanvas {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 682px;
-    height: 544px;
-    border: 2px solid black;
-    border-radius: 16px;
-    background-color: var(--clr-mario-sky);
+
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 682px;
+  height: 544px;
+  border: 2px solid black;
+  border-radius: 16px;
+  /* background-color: var(--clr-mario-sky);  Background for Marios level */
+  background: url(../assets/images/backgrounds/space-background.png);
 }
 
 .tv-screen {

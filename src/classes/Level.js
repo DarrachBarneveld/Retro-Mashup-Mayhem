@@ -1,21 +1,15 @@
 import K from "../kaboom";
 import marioTileset from "../../assets/images/tileset/mario_tileset.png";
-<<<<<<< HEAD
 import { testLevel, level4 } from "../levels/layouts";
-import { Boss, Enemy, HomingEnemy } from "./Enemy";
-import { Player } from "./Player";
 
 // Sprite imports Level 1
-=======
 import { testLevel, level2 } from "../levels/layouts";
->>>>>>> origin/san
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import princess from "../../assets/images/sprites/mario/sm-princess.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
-<<<<<<< HEAD
 
 // Sprite imports Level 4
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png"
@@ -23,11 +17,9 @@ import shattered_planet from "../../assets/images/sprites/space-invaders/shatter
 import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png"
 import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png"
 
-=======
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
 import koopa from "../../assets/images/sprites/mario/koopa.png";
->>>>>>> origin/san
 
 export class Level1 {
   constructor() {
@@ -215,6 +207,14 @@ export class Level4 {
         },
 
         // Red planet
+        "<": () => [
+          K.sprite("redplanet"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "redplanet",
+        ],
+
+        // Empty space that will stop from going up and down
         "<": () => [
           K.sprite("redplanet"),
           K.area(),

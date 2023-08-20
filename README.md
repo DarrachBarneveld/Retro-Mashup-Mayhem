@@ -3,7 +3,7 @@
 Welcome to Retro-Mashup-Mayhem game!
 
 
- ![Retro-Mashup-Mayhem](./READMEimages/imiresponsive-image.png)     
+ ![Retro-Mashup-Mayhem](READMEimages/imiresponsive-image.png)     
 
 
  ***                                    
@@ -165,17 +165,19 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 - Kill the boss to save the heroes and earn a reward.
 - Move up level after each victory.
 
-
-
 # 6. Deployment
 
 # 7. Citation of Sources
 
 ## Content
 
--   [Kaboom](https://kaboomjs.com/) - Used for general knowldege and idea.
--   [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
--   All content have been by Team4 - Retro Riders.
+- [Kaboom](https://kaboomjs.com/) - Used for general knowldege and idea.
+- [Ourcade](https://www.youtube.com/watch?v=ICGSu5yjQrU&t=719s) - Tips for Getting Started with Kaboom.
+- [Andelrodis](https://andelrodis.itch.io/) - Explored for inspiration and game mechanics insights.
+- [Spriters-Resource](https://www.spriters-resource.com/) - Utilized for sprite references and artistic direction.
+- [Canva](https://www.canva.com/) - Leveraged for graphic design and visual enhancements.
+
+- All content have been by Team4 - Retro Riders.
 
 
 # 8. Acknowledgements

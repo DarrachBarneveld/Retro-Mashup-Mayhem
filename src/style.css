@@ -158,13 +158,14 @@ body {
 
 /* ---------------------------------------Rules*/
 .about-background li {
-    color: var(--clr-neon-green);
-    font-size: 20px;
-    padding: 4px;
+  color: var(--clr-neon-green);
+  font-size: 12px;
+  padding: 4px;
+  line-height: 1.4rem;
 }
 
 .about-background h1 {
-    font-size: 64px;
+  font-size: 34px;
 }
 
 #tv-frame .arrows {
@@ -207,15 +208,16 @@ body {
 /* ---------------------------------------About us*/
 
 .about-background {
-    background-color: black;
-    color: white;
-    padding: 3rem;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+  background-color: black;
+  color: white;
+  padding: 3rem;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  overflow: scroll;
 }
 
 .close-button {
@@ -239,6 +241,16 @@ body {
     text-align: center;
 }
 
+.about-content h1 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.about-content p {
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+
 .team-member-card {
     /* height: 150px; */
     width: 150px;
@@ -249,6 +261,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.team-member-card h3 {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  padding: 1rem;
+}
+
+.team-member-card h4 {
+  font-size: 0.65rem;
 }
 
 .team-member-card i {
@@ -304,3 +326,9 @@ body {
 .hide {
     display: none !important;
 }
+
+.hide-modal{
+  opacity:.5!important ;
+  z-index: -1;
+}
+

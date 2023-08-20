@@ -73,6 +73,9 @@ export class Player {
     const currentHeight = healthElement.clientHeight;
     healthElement.style.height = currentHeight - 50 + "px";
 
+    if (this.health <= 5) {
+      healthElement.style.backgroundColor = "red";
+    }
     if (this.health <= 0) {
       this.death();
       return;
@@ -83,11 +86,14 @@ export class Player {
   async death() {
     K.play("game-over");
     this.sprite.destroy();
-
     const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
     explosion.play("boom");
     await delayTimer(1000);
-    window.location.href = "index.html";
+    const gameOverModal = document.getElementById("testmodal");
+    gameOverModal.style.display = "flex";
+    gameOverModal.style.opacity = 1;
+
+    // window.location.href = "index.html";
   }
 
   moveUp() {

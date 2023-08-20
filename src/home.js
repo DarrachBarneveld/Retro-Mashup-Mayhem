@@ -18,14 +18,15 @@ soundOnButton.addEventListener('click', () => {
 
 /* Modals Constants */
 const rulesModal = document.querySelector('#rules-modal');
-const aboutUsModal = document.querySelector('.about-us-modal');
+const aboutUsModal = document.querySelector('#about-us-modal');
 
 /* Open Modal Buttons */
 const rulesButton = document.querySelector('.rules-button');
 const aboutUsButton = document.querySelector('.about-us-button');
 
 /* Close Modal Buttons */
-const closeRulesButton = document.querySelector('#close-rules-modal-button')
+const closeRulesButton = document.querySelector('#close-rules-modal-button');
+const closeAboutUsButton = document.querySelector('#close-about-us-modal-button');
 
 /* Open rules modal */
 rulesButton.addEventListener('click', () => {
@@ -35,4 +36,15 @@ rulesButton.addEventListener('click', () => {
 /* Close rules modal*/
 closeRulesButton.addEventListener('click', () => {
     rulesModal.classList.add('hide-modal');
+});
+
+/* Open About Us Modal */
+aboutUsButton.addEventListener('click', () => {
+    console.log('success')
+    aboutUsModal.classList.remove('hide-modal');
+});
+
+/* Close About Us Modal */
+closeAboutUsButton.addEventListener('click', () => {
+    aboutUsModal.classList.add('hide-modal');
 });

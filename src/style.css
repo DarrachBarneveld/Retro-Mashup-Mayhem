@@ -156,6 +156,7 @@ body {
   color: var(--clr-neon-green);
   font-size: 12px;
   padding: 4px;
+  line-height: 1.4rem;
 }
 
 .about-background h1 {
@@ -235,6 +236,16 @@ body {
   text-align: center;
 }
 
+.about-content h1 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.about-content p {
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+
 .team-member-card {
   /* height: 150px; */
   width: 150px;
@@ -245,6 +256,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.team-member-card h3 {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  padding: 1rem;
+}
+
+.team-member-card h4 {
+  font-size: 0.65rem;
 }
 
 .team-member-card i {

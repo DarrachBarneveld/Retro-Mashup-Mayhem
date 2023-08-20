@@ -17,17 +17,19 @@ K.loadSprite("explosion", explosion, {
   },
 });
 
+console.log(url[0]);
+
 K.scene("demo", async () => {
-  if (url[0] == "/game") {
+  if (url[0] == "/src/levels/game") {
     const level = new Level1();
   }
-  if (url[0] == "/game2") {
+  if (url[0] == "/src/levels/game2") {
     const level = new Level1();
   }
-  if (url[0] == "/game3") {
+  if (url[0] == "/src/levels/game3") {
     const level = new Level3();
   }
-  if (url[0] == "/game4") {
+  if (url[0] == "/src/levels/game4") {
     const level = new Level4();
   }
   // console.log("run ani");

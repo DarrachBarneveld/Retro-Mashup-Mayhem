@@ -122,10 +122,10 @@ The game was designed with
 ### Game Control - Player moves using the following arrows to:
 
 ⬆️: Move forward
-⬇️: Move backw
+⬇️: Move backward
 ⬅️: Move left
 ➡️: Move right
-
+`Spacebar`: For shooting
 
 
 

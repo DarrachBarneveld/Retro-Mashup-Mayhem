@@ -4,7 +4,6 @@ import marioTileset from "../../assets/images/tileset/mario_tileset.png";
 import { testLevel, level4 } from "../levels/layouts";
 
 // Sprite imports Level 1
-import { testLevel, level2 } from "../levels/layouts";
 
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import princess from "../../assets/images/sprites/mario/sm-princess.png";
@@ -187,7 +186,10 @@ export class Level4 {
     this.bossActive = false;
     K.loadSprite("iceplanet", iceplanet);
     K.loadSprite("redplanet", redplanet);
-    K.loadSprite("shattered_planet", shattered_planet, { sliceX: 2, sliceY: 2 });
+    K.loadSprite("shattered_planet", shattered_planet, {
+      sliceX: 2,
+      sliceY: 2,
+    });
     K.loadSprite("sphereplanet", sphereplanet, { sliceX: 2, sliceY: 2 });
     K.loadSprite("emptyspace", emptyspace);
 
@@ -204,9 +206,9 @@ export class Level4 {
         ],
 
         "*": () => {
-        this.player = new Player("dino", 0, 150, 1);
-        this.startLevel(this.player);
-        return [this.player];
+          this.player = new Player("dino", 0, 150, 1);
+          this.startLevel(this.player);
+          return [this.player];
         },
 
         // Red planet
@@ -226,11 +228,23 @@ export class Level4 {
         ],
 
         //  Shattered_planet
-        a: () => [K.sprite("shattered_planet", { frame: 0 }), "shattered_planet"],
-        b: () => [K.sprite("shattered_planet", { frame: 1 }), "shattered_planet"],
+        a: () => [
+          K.sprite("shattered_planet", { frame: 0 }),
+          "shattered_planet",
+        ],
+        b: () => [
+          K.sprite("shattered_planet", { frame: 1 }),
+          "shattered_planet",
+        ],
 
-        c: () => [K.sprite("shattered_planet", { frame: 2 }), "shattered_planet"],
-        d: () => [K.sprite("shattered_planet", { frame: 3 }), "shattered_planet"],
+        c: () => [
+          K.sprite("shattered_planet", { frame: 2 }),
+          "shattered_planet",
+        ],
+        d: () => [
+          K.sprite("shattered_planet", { frame: 3 }),
+          "shattered_planet",
+        ],
 
         // sphereplanet
         e: () => [K.sprite("sphereplanet", { frame: 0 }), "sphereplanet"],

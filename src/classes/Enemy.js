@@ -1,7 +1,7 @@
 import K from "../kaboom";
 import { BowserAudio } from "../audioImports";
 import bowser from "../../assets/images/sprites/mario/bowser.png";
-import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
+import ghosts from "../../assets/images/sprites/pacman/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import bowserShot from "../../assets/images/sprites/mario/sm-bowser-shot.png";

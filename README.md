@@ -35,11 +35,21 @@ Welcome to Retro-Mashup-Mayhem game!
 
 # Overview
 
-"Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
+"Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history? 
+Retro-Mashup-Mayhem is targeted at people with the love playing games especially classic retro inspired enthusiasts.
+
+Retro games can evoke feelings of nostalgia for those who grew up playing games from previous decades. They allow players to relive fond memories and experiences from their youth.
+
+The pixel art and limited color palettes of retro games can create a distinct visual style that resonates with players who appreciate the aesthetics of the past.
+
+While different people play retro game for various reasons, retro offers the opportunity to explore the history of gaming. Regardless of the reasons, retro games offer a distinct and valuable experience within the gaming world.
 
 # User Experience
 
 ## Game Goals
+
+- Problem Statement: A dreaded team of Space Invaders and Retro Worlds enemies have captured our beloved retro heroes. 
+- You must overcome menacing foes, and face the formidable Bowser in a cosmic showdown.
 
 Defeat the Enemies: Players must navigate through various time periods, combating waves of enemies with precise shooting and evasive maneuvers. Each defeated enemy contributes to the player's score and progression.
 
@@ -151,6 +161,9 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 - ⬅️: Move left
 - ➡️: Move right
 - `Spacebar`: For shooting
+- Keep an eye on the life span progress bar
+- Kill the boss to save the heroes and earn a reward.
+- Move up level after each victory.
 
 
 

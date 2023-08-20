@@ -1,9 +1,11 @@
 import K from "../kaboom";
 import marioTileset from "../../assets/images/tileset/mario_tileset.png";
+
 import { testLevel, level4 } from "../levels/layouts";
 
 // Sprite imports Level 1
 import { testLevel, level2 } from "../levels/layouts";
+
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import princess from "../../assets/images/sprites/mario/sm-princess.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
@@ -20,7 +22,6 @@ import emptyspace from "../../assets/images/sprites/space-invaders/empty-space.p
 
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
-import koopa from "../../assets/images/sprites/mario/koopa.png";
 
 export class Level1 {
   constructor() {

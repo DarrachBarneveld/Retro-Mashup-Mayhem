@@ -16,12 +16,23 @@ soundOnButton.addEventListener('click', () => {
   backgroundMusic.pause();
 });
 
-/* Open Modals */
-const rulesModal = document.querySelector('.rules-modal');
+/* Modals Constants */
+const rulesModal = document.querySelector('#rules-modal');
 const aboutUsModal = document.querySelector('.about-us-modal');
+
+/* Open Modal Buttons */
 const rulesButton = document.querySelector('.rules-button');
 const aboutUsButton = document.querySelector('.about-us-button');
 
+/* Close Modal Buttons */
+const closeRulesButton = document.querySelector('#close-rules-modal-button')
+
+/* Open rules modal */
 rulesButton.addEventListener('click', () => {
-    console.log('open rules modal');
+    rulesModal.classList.remove('hide-modal');
+});
+
+/* Close rules modal*/
+closeRulesButton.addEventListener('click', () => {
+    rulesModal.classList.add('hide-modal');
 });

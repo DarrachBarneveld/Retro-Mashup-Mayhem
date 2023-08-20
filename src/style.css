@@ -154,12 +154,12 @@ body {
 /* ---------------------------------------Rules*/
 .about-background li {
   color: var(--clr-neon-green);
-  font-size: 20px;
+  font-size: 12px;
   padding: 4px;
 }
 
 .about-background h1 {
-  font-size: 64px;
+  font-size: 34px;
 }
 
 #tv-frame .arrows {
@@ -211,6 +211,7 @@ body {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  overflow: scroll;
 }
 
 .close-button {
@@ -298,4 +299,9 @@ body {
 
 .hide {
   display: none !important;
+}
+
+.hide-modal{
+  opacity:.5!important ;
+  z-index: -1;
 }

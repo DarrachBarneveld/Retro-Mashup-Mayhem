@@ -197,8 +197,8 @@ body {
     letter-spacing: .5vw;
     position: absolute;
   
-    width: 100%; /* Adjust the width as needed */
-    height: 210%; /* Adjust the height as needed */
+    width: 100%;
+    height: 210%;
     bottom: 0;
     left: 0;
 
@@ -259,22 +259,28 @@ body {
     font-family: "Press Start 2P", cursive;
 }
 
+.invisible-text {
+    color: rgba(0, 0, 0, 0.0001);
+    opacity: .001 !important;
+}
 
 #titlecontent {
     position: absolute;
-    width: 100%; /* Adjust the width as needed */
+    width: 100%;
     bottom: 0;
+    overflow: hidden;
     
     /* position: absolute;
     width: 80vw;
     top: 100%; */
     /* right: 7rem; */
     /* left: 10rem; */
-    -webkit-animation: scroll 30s linear 0s infinite;
-    -moz-animation: scroll 30s linear 0s infinite;
-    -ms-animation: scroll 30s linear 0s infinite;
-    -o-animation: scroll 30s linear 0s infinite;
-    animation: scroll 30s linear 0s infinite;
+    /* infinite */
+    -webkit-animation: scroll 20s linear 0s ;
+    -moz-animation: scroll 20s linear 0s ;
+    -ms-animation: scroll 20s linear 0s ;
+    -o-animation: scroll 20s linear 0s ;
+    animation: scroll 20s linear 0s ;
 }
 
 /* animation */
@@ -302,6 +308,7 @@ body {
     0% { top: 100%; }
     100% { top: -170%; }
 }
+
 /* END - Intro Story Block */
 
 /* Skip Intro */

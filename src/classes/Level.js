@@ -20,6 +20,7 @@ import shattered_planet from "../../assets/images/sprites/space-invaders/shatter
 import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png";
 import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png";
 import emptyspace from "../../assets/images/sprites/space-invaders/empty-space.png";
+import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
 
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
@@ -236,6 +237,7 @@ export class Level4 {
     });
     K.loadSprite("sphereplanet", sphereplanet, { sliceX: 2, sliceY: 2 });
     K.loadSprite("emptyspace", emptyspace);
+    K.loadSprite("asteroid", asteroid);
 
     K.addLevel(level4, {
       tileWidth: 16,
@@ -264,11 +266,19 @@ export class Level4 {
         ],
 
         // Empty space that will stop from going up and down
-        "=": () => [
+        "-": () => [
           K.sprite("emptyspace"),
           K.area(),
           K.body({ isStatic: true }),
           "emptyspace",
+        ],
+
+        // Asteroid
+        "=": () => [
+          K.sprite("asteroid"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "asteroid",
         ],
 
         //  Shattered_planet

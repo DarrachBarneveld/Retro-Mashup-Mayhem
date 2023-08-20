@@ -81,7 +81,14 @@ The game was designed with
 
 ![Color Palate](READMEimages/color-palate.png)
 
--   Color used are #EE1B14, #FF00D4, #F3FD09, #27EF10 and #8801F3
+The chosen color palette is a vibrant tribute to the neon-lit arcades of the 80s. Drawing inspiration from an iconic image of Space Invaders from that era, the colors are a direct nod to the luminescent hues of the game's enemies. The palette includes:
+
+Red: #EE1B14 <br>
+Neon Pink: #FF00D4 <br>
+Bright Yellow: #F3FD09 <br>
+Neon Green: #27EF10 <br>
+Electric Purple: #8801F3 <br><br>
+These colors not only encapsulate the nostalgic retro feel but also infuse energy and dynamism into the design.
 
 ## Wireframes
 

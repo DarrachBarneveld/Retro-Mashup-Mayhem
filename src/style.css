@@ -239,3 +239,21 @@ body {
   justify-content: space-around;
   padding-bottom: 1rem;
 }
+
+/* Sound */
+
+.sound-buttons {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  color: white;
+  font-size: 2rem;
+}
+
+.sound-buttons i:hover {
+  color: var(--clr-neon-green);
+}
+
+.hide {
+  display: none !important;
+}

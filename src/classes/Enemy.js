@@ -39,9 +39,9 @@ export class Enemy {
     this.sprite.pos.y = posY;
 
     this.health = 200;
-    this.speed = 0.25;
+    this.speed = 0.5;
 
-    this.sprite.add([enemyMovement(this)]);
+    this.sprite.add([enemyMovement(player, this)]);
 
     this.sprite.move();
 
@@ -81,7 +81,7 @@ export class HomingEnemy {
     this.sprite.pos.y = posY;
 
     this.health = 100;
-    this.speed = 1;
+    this.speed = 0.75;
 
     this.sprite.add([moveEnemyTowardsPosition(player, this)]);
 
@@ -186,27 +186,33 @@ export class Boss {
   }
 }
 
-function enemyMovement(enemy) {
+function enemyMovement(player, enemy) {
   return {
     add() {},
     update() {
-      enemy.sprite.move(-enemy.speed * 100, 0);
+      direction = findDirectionRelationship(player, enemy);
+      enemy.sprite.move(-enemy.speed * 100, direction.y);
     },
   };
+}
+
+function findDirectionRelationship(player, enemy) {
+  const enemyPosition = enemy.sprite.pos;
+  const playerPosition = player.sprite.pos;
+  const direction = K.vec2(
+    playerPosition.x - enemyPosition.x,
+    playerPosition.y - enemyPosition.y
+  );
+
+  return direction;
 }
 
 function moveEnemyTowardsPosition(player, enemy) {
   return {
     add() {},
     update() {
-      const enemyPosition = enemy.sprite.pos;
       const speed = enemy.speed;
-      const playerPosition = player.sprite.pos;
-      const direction = K.vec2(
-        playerPosition.x - enemyPosition.x,
-        playerPosition.y - enemyPosition.y
-      );
-
+      direction = findDirectionRelationship(player, enemy);
       enemy.sprite.move(direction.scale(speed));
     },
   };

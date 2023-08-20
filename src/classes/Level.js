@@ -122,8 +122,8 @@ export class Level1 {
   }
 
   startLevel() {
-    // this.enemyLoop = K.loop(1, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(3, () => new HomingEnemy(this.player));
+    this.enemyLoop = K.loop(2, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
   }
 
   activateBoss() {
@@ -141,7 +141,7 @@ function logPlayerPosition(level, player) {
     add() {},
     update() {
       console.log(player.sprite.pos.x);
-      if (player.sprite.pos.x > 100 && !level.bossActive) {
+      if (player.sprite.pos.x > 1100 && !level.bossActive) {
         level.activateBoss();
       }
     },

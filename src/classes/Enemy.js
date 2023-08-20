@@ -118,7 +118,7 @@ export class Boss {
     ]);
     K.play("bowserarrives");
     const posY = K.height() / 2;
-    const posX = player.sprite.pos.x + 200;
+    const posX = player.sprite.pos.x + 150;
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 

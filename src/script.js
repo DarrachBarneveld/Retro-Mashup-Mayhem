@@ -2,12 +2,19 @@ import K from "./kaboom";
 import { Player } from "./classes/Player";
 import { Enemy, HomingEnemy } from "./classes/Enemy";
 import { Level1 } from "./classes/Level";
+import explosion from "../assets/images/sprites/explosion.png";
 
 // When pages loads change background url
 
+K.loadSprite("explosion", explosion, {
+  sliceX: 20,
+  sliceY: 1,
+  anims: {
+    boom: { from: 1, to: 19, speed: 32 },
+  },
+});
+
 K.scene("demo", () => {
-  // const newBaseEnemy = K.loop(1, () => new Enemy(player));
-  // const newHomingEnemy = K.loop(3, () => new HomingEnemy(player));
   const level = new Level1();
 });
 

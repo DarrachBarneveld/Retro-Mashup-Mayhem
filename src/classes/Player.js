@@ -2,6 +2,9 @@ import K from "../kaboom";
 import dinoSpriteTest from "../../assets/images/sprites/dino.png";
 import bulletAudio from "../../assets/audio/effects/bullet.mp3";
 import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
+import lossLife from "../../assets/audio/effects/loss-life.mp3";
+import gameOver from "../../assets/audio/effects/game-over.mp3";
+import { delayTimer } from "../helpers/math";
 
 K.loadSprite("dino", dinoSpriteTest, {
   sliceX: 24,
@@ -14,6 +17,8 @@ K.loadSprite("dino", dinoSpriteTest, {
 
 K.loadSound("shoot", bulletAudio);
 K.loadSound("pikachu", pikachuAudio);
+K.loadSound("loss-life", lossLife);
+K.loadSound("game-over", gameOver);
 
 export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
@@ -64,6 +69,22 @@ export class Player {
   takeDamage() {
     this.health--;
     console.log(this.health);
+
+    if (this.health <= 0) {
+      this.death();
+      return;
+    }
+    K.play("loss-life");
+  }
+
+  async death() {
+    K.play("game-over");
+    this.sprite.destroy();
+
+    const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+    explosion.play("boom");
+    await delayTimer(1000);
+    window.location.href = "index.html";
   }
 
   moveUp() {

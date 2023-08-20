@@ -346,11 +346,11 @@ function playerWithinRange(player, enemy) {
     add() {},
     update() {
       const distance = K.vec2(player.sprite.pos).sub(enemy.sprite.pos).len();
-      if (distance < 100 && !enemy.playerInRange) {
+      if (distance < 150 && !enemy.playerInRange) {
         enemy.playerInRange = true;
         enemy.fireLoop = K.loop(2, () => enemy.shoot());
       }
-      if (distance > 100 && enemy.fireLoop) {
+      if (distance > 150 && enemy.fireLoop) {
         enemy.playerInRange = false;
         enemy.fireLoop.cancel();
       }

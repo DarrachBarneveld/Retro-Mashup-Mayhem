@@ -63,14 +63,14 @@ export class Player {
       console.log("Game win");
     });
 
-    this.health = 3;
+    this.health = 6;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
   }
 
   takeDamage() {
     this.health--;
     const currentHeight = healthElement.clientHeight;
-    healthElement.style.height = currentHeight - 100 + "px";
+    healthElement.style.height = currentHeight - 50 + "px";
 
     if (this.health <= 0) {
       this.death();

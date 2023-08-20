@@ -329,8 +329,39 @@ body {
     display: none !important;
 }
 
+
+/* Game-over-modal */
+
+#game-over-logo {
+  width:480px !important;
+  height:100px !important;
+  transform: translate(0,-50px); 
+}
+
+#game-over-text {
+  width:480px !important;
+  height: 180px !important;
+  border: 2px #fff solid;
+  text-align: center;
+}
+
+#game-over-animation {
+  width:480px !important;
+  height: 180px !important;
+  border: 2px #fff solid;
+  text-align: center;
+}
+
+#game-over-menu {
+  display: flex;
+  flex-direction: row;
+  width: 480px;
+  justify-content: space-between;
+}
+
 .hide-modal{
   opacity:.5!important ;
   z-index: -1;
 }
+
 

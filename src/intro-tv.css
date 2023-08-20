@@ -197,6 +197,12 @@ body {
     letter-spacing: .5vw;
     position: absolute;
   
+    width: 100%; /* Adjust the width as needed */
+    height: 210%; /* Adjust the height as needed */
+    bottom: 0;
+    left: 0;
+
+
     /* width: 15em;
     height: 50em; */
     /* bottom: 0; */
@@ -231,11 +237,11 @@ body {
     right: 0;
     top: 0;
     bottom: 60%;
-    background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-    background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-    background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-    background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-    background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background-image: -o-linear-gradient(top, rgba(0,0,0,0.5) 0%, transparent 100%);
+    background-image: linear-gradient(top, rgba(0,0,0,0.5) 0%, transparent 100%);
     pointer-events: none;
 }
 
@@ -255,16 +261,20 @@ body {
 
 
 #titlecontent {
+    position: absolute;
+    width: 100%; /* Adjust the width as needed */
+    bottom: 0;
+    
     /* position: absolute;
     width: 80vw;
     top: 100%; */
     /* right: 7rem; */
     /* left: 10rem; */
-    -webkit-animation: scroll 120s linear 0s infinite;
-    -moz-animation: scroll 120s linear 0s infinite;
-    -ms-animation: scroll 120s linear 0s infinite;
-    -o-animation: scroll 120s linear 0s infinite;
-    animation: scroll 120s linear 0s infinite;
+    -webkit-animation: scroll 30s linear 0s infinite;
+    -moz-animation: scroll 30s linear 0s infinite;
+    -ms-animation: scroll 30s linear 0s infinite;
+    -o-animation: scroll 30s linear 0s infinite;
+    animation: scroll 30s linear 0s infinite;
 }
 
 /* animation */

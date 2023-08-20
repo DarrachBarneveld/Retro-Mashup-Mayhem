@@ -238,6 +238,14 @@ export class Boss {
         this.homingEnemyLoop.cancel();
       }
       explosion.play("boom");
+
+      const gameOverModal = document.getElementById("testmodal");
+      const heading = document.getElementById("modal-heading");
+      heading.textContent = "Victory";
+      const image = document.getElementById("modal-img");
+      image.style.display = "block";
+      gameOverModal.style.display = "flex";
+      gameOverModal.style.opacity = 1;
     }
   }
 

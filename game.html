@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/css/game.css" />
     <title>DEMO KABOOM</title>
   </head>
   <body>
@@ -16,10 +17,27 @@
           </div>
         </div>
         <div class="tv-screen">
+          <div id="testmodal">
+            <h1 id="modal-heading">game over</h1>
+            <img id="modal-img" src="./assets/images/sprites/pika.png" />
+            <div class="btn-container">
+              <button id="replay">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+              <button id="home">
+                <i class="fa-solid fa-house"></i>
+              </button>
+            </div>
+          </div>
           <canvas id="mycanvas"></canvas>
         </div>
       </div>
     </div>
+
     <script type="module" src="./src/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/076967cb18.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

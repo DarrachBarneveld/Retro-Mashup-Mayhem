@@ -18,6 +18,7 @@
 #modal-img {
   display: none;
   width: 200px;
+  height: 275px !important;
 }
 
 h1 {

@@ -11,15 +11,10 @@ import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
 import koopa from "../../assets/images/sprites/mario/koopa.png";
 
-// K.loadSprite("koopa", koopa, {
-//   sliceX: 6,
-//   sliceY: 1,
-//   anims: { id: { from: 1, to: 5, loop: true } },
-// });
-
 export class Level1 {
   constructor() {
     this.bossActive = false;
+    this.staticEnemyCoords = [];
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
     K.loadSprite("princess", princess, { sliceX: 1, sliceY: 2 });
@@ -56,7 +51,7 @@ export class Level1 {
         e: (coords) => {
           coords.x = coords.x * 16;
           coords.y = coords.y * 16;
-          this.staticEnemyCoords = coords;
+          this.staticEnemyCoords.push(coords);
           return [this.staticEnemyCoords];
         },
 
@@ -151,11 +146,18 @@ export class Level1 {
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.staticEnemy = new StaticEnemy(this.player, this.staticEnemyCoords);
+    this.renderStaticEnemies();
   }
 
   startLevel() {
-    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    // this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+  }
+
+  renderStaticEnemies() {
+    this.staticEnemyCoords.forEach(
+      (coords) => new StaticEnemy(this.player, coords)
+    );
   }
 
   activateBoss() {
@@ -172,7 +174,6 @@ function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      // console.log(player.sprite.pos.x);
       if (player.sprite.pos.x > 1100 && !level.bossActive) {
         level.activateBoss();
       }

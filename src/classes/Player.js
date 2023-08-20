@@ -145,6 +145,8 @@ export class Player {
       "bullet",
     ]);
 
+    // Destroys bullet after certain time, acts as range
+    K.wait(0.5, () => bullet.destroy());
     bullet.damage = 50;
 
     bullet.onCollide("enemy", (enemy) => {

@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./src/style.css" />
-    <title>DEMO KABOOM</title>
-  </head>
-  <body>
-    <div id="tv-container">
-      <div id="tv-frame">
-        <div style="position: relative">
-          <img src="assets/images/tv_frame.png" alt="TV Frame" />
-          <div id="health-bar">
-            <div id="health"></div>
-          </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="./src/style.css" />
+        <link rel="icon" href="assets/images/favicon_green.ico" type="image/x-icon" />
+        <title>Retro Mashup Mayhem - Game</title>
+    </head>
+    <body>
+        <div id="tv-container">
+            <div id="tv-frame">
+                <div style="position: relative">
+                    <img src="assets/images/tv_frame.png" alt="TV Frame" />
+                    <div id="health-bar">
+                        <div id="health"></div>
+                    </div>
+                </div>
+                <div class="tv-screen">
+                    <canvas id="mycanvas"></canvas>
+                </div>
+            </div>
         </div>
-        <div class="tv-screen">
-          <canvas id="mycanvas"></canvas>
-        </div>
-      </div>
-    </div>
-    <script type="module" src="./src/script.js"></script>
-  </body>
+        <script type="module" src="./src/script.js"></script>
+    </body>
 </html>

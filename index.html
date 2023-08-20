@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,13 +9,14 @@
         />
         <link rel="stylesheet" type="text/css" href="./src/style.css" />
         <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+        <link rel="icon" href="assets/images/favicon_green.ico" type="image/x-icon" />
         <title>Retro Mashup Mayhem</title>
     </head>
     <body>
         <!-- Sound -->
         <audio id="backgroundMusic" loop>
-            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3">
-        </audio> 
+            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3" />
+        </audio>
         <div class="sound-buttons">
             <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
             <i class="fa-solid fa-volume-off" id="sound-off"></i>
@@ -25,10 +25,9 @@
         <div id="tv-container">
             <div id="tv-frame">
                 <img src="assets/images/tv_frame.png" alt="TV Frame" />
-                
-                <!-- Home Screen -->
-                <div class="nav-background tv-screen"> 
-                    <img src="assets/images/gamelogo.gif" alt="" />
+                <div class="nav-background tv-screen">
+                    <!-- Home Screen -->
+                    <img src="assets/images/gamelogo.gif" alt="game logo" id="gamelogo" />
                     <nav>
                         <ul class="menu-btn">
                             <li class="rules-button"><a href="#">How to play</a></li>
@@ -155,7 +154,7 @@
         </div>
         <!-- JavaScript -->
         <!-- <script src="./src/intro.js"></script> -->
-        <script src ="./src/home.js"></script>
+        <script src="./src/home.js"></script>
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
     </body>

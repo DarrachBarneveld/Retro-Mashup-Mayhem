@@ -248,22 +248,16 @@ body {
   top: 1rem;
   color: white;
   font-size: 2rem;
+  z-index: 3;
 }
 
-#sound-on {
+.sound-buttons i {
   color: var(--clr-neon-green);
 }
 
-#sound-on:hover {
-  color: var(--clr-neon-red);
-}
-
-#sound-off {
-  color: var(--clr-neon-red)
-}
-
-#sound-off:hover {
-  color: var(--clr-neon-green);
+.sound-buttons i:hover {
+  cursor: pointer;
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .hide {

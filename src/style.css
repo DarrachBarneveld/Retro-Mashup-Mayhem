@@ -4,7 +4,7 @@
 /* ----------------------------------------- Colors */
 :root {
   --clr-primary-light: rgb(245, 245, 245);
-  --clr-primary-dark: rgb(14, 12, 5);
+  --clr-primary-dark: rgb(36, 1, 41);
   --clr-neon-red: rgb(238, 27, 20);
   --clr-neon-pink: rgb(255, 0, 212);
   --clr-neon-yellow: rgb(243, 253, 9);
@@ -161,6 +161,36 @@ body {
 
 .about-background h1 {
   font-size: 64px;
+}
+
+/* ---------------------------------------Pick level*/
+.levels ul {
+  border-radius: 5px;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    display: grid;
+}
+
+.levels li {
+  background-color: var(--clr-neon-green);
+  padding: 0.5rem;
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 0 7px var(--clr-neon-green);
+}
+
+.levels li a {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.levels li p {
+  color: var(--clr-primary-dark);
 }
 
 /* ---------------------------------------About us*/

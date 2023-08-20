@@ -1,5 +1,6 @@
 import kaboom from "kaboom";
 
+console.log(kaboom);
 export default K = kaboom({
   width: 341,
   height: 272,

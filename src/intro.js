@@ -10,13 +10,17 @@ setTimeout(() => {
 
 const soundOnButton = document.getElementById('sound-on');
 const soundOffButton = document.getElementById('sound-off');
+const backgroundMusic = document.getElementById('backgroundMusic');
 
 soundOffButton.addEventListener('click', () => {
-  soundOffButton.classList.remove('hide');
-  soundOnButton.classList.add('hide');
+  soundOffButton.classList.add('hide');
+  soundOnButton.classList.remove('hide');
+  backgroundMusic.play();
+
 });
 
 soundOnButton.addEventListener('click', () => {
-  soundOnButton.classList.remove('hide');
-  soundOffButton.classList.add('hide');
+  soundOnButton.classList.add('hide');
+  soundOffButton.classList.remove('hide');
+  backgroundMusic.pause();
 });

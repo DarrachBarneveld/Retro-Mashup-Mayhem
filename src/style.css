@@ -250,7 +250,19 @@ body {
   font-size: 2rem;
 }
 
-.sound-buttons i:hover {
+#sound-on {
+  color: var(--clr-neon-green);
+}
+
+#sound-on:hover {
+  color: var(--clr-neon-red);
+}
+
+#sound-off {
+  color: var(--clr-neon-red)
+}
+
+#sound-off:hover {
   color: var(--clr-neon-green);
 }
 

@@ -25,11 +25,8 @@ Welcome to Retro-Mashup-Mayhem game!
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
 4. [Technologies](#technologies)
-
-5. [Bugs](#bugs)
-   + [Manual Testing](#manual-testing)
-   + [Fixed bugs](#fixed-bugs)
-   + [Unknown bugs](#unknown-bugs)
+5. [Controls](#controls)
+   + [Game Controls](#game-controls)
 6. [Deployment](#deployment) 
 7. [Citation of Sources](#citation-of-sources) 
    + [Content](#content)
@@ -119,16 +116,16 @@ The game was designed with
 -   Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
 -   GitHub - Was used to store the project code in a repository.
 
-# Testing
 
+# 5. Controls
 
+### Game Control - Player moves using the following arrows to:
 
+⬆️: Move forward
+⬇️: Move backw
+⬅️: Move left
+➡️: Move right
 
-# Bugs
-
-## Fixed bugs
-
-## Unknown bugs
 
 
 

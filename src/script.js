@@ -1,8 +1,9 @@
 import K from "./kaboom";
 import { Player } from "./classes/Player";
 import { Enemy, HomingEnemy } from "./classes/Enemy";
-import { Level1 } from "./classes/Level";
+import { Level1, Level4 } from "./classes/Level";
 import explosion from "../assets/images/sprites/explosion.png";
+import { delayTimer } from "./helpers/math";
 
 // When pages loads change background url
 
@@ -14,7 +15,10 @@ K.loadSprite("explosion", explosion, {
   },
 });
 
-K.scene("demo", () => {
+
+K.scene("demo", async () => {
+  // console.log("run ani");
+  // await delayTimer(3000);
   const level = new Level1();
 });
 

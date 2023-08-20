@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,13 +9,14 @@
         />
         <link rel="stylesheet" type="text/css" href="./src/style.css" />
         <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+        <link rel="icon" href="assets/images/favicon_green.ico" type="image/x-icon" />
         <title>Retro Mashup Mayhem</title>
     </head>
     <body>
         <!-- Sound -->
         <audio id="backgroundMusic" loop>
-            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3">
-        </audio> 
+            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3" />
+        </audio>
         <div class="sound-buttons">
             <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
             <i class="fa-solid fa-volume-off" id="sound-off"></i>
@@ -26,40 +26,139 @@
             <div id="tv-frame">
                 <img src="assets/images/tv_frame.png" alt="TV Frame" />
                 <div class="nav-background tv-screen">
-                    
                     <!-- Home Screen -->
-                    <img src="assets/images/gamelogo.gif" alt="" />
+                    <img src="assets/images/gamelogo.gif" alt="game logo" id="gamelogo" />
                     <nav>
                         <ul class="menu-btn">
                             <li class="rules-button"><a href="#">How to play</a></li>
                             <li><a href="game.html">Start Game</a></li>
-                            <li class="about-us-button"><a href="about-us.html">About Us</a></li>
+                            <li class="about-us-button"><a href="#">About Us</a></li>
                             <li><a href="intro-tv.html">Intro</a></li>
                             <li><a href="game-over-modal.html">Game Over Modal</a></li>
                             <li><a href="victory-modal.html">Victory Modal</a></li>
                         </ul>
                     </nav>
-                    <!-- Close Home Screen -->
-
-                    <!-- Rules Modal -->
-                    <div class="rules-modal">
-
-                    </div>
-                    <!-- Close Rules Modal-->
-
-                    <!-- About Us Modal -->
-                    <div class="about-us-modal">
-
-                    </div>
-                    <!-- Close About Us Modal -->
-
                 </div>
+                <!-- Close Home Screen -->
+
+                <!-- Rules Modal -->
+                <div class="about-background tv-screen hide-modal" id="rules-modal">
+                    <!-- Close -->
+                    <a id="close-rules-modal-button" href="#"><i class="fa-solid fa-square-xmark close-button"></i></a>
+                    <!-- Heading -->
+                    <h1>How to Play</h1>
+                    <ul>
+                        <li>Navigate the field with arrows:</li>
+                        <ul>
+                            <li><img src="assets/images/arrow_b.ico" alt="down arrow" class="arrows" />: Move Down</li>
+                            <li><img src="assets/images/arrow_y.ico" alt="up arrow" class="arrows" />: Move Up</li>
+                            <li>
+                                <img src="assets/images/arrow_p.ico" alt="left arrow" class="arrows" />: Move Backward
+                            </li>
+                            <li>
+                                <img src="assets/images/arrow_g.ico" alt="right arrow" class="arrows" />: Move Forward
+                            </li>
+                        </ul>
+                        <br />
+                        <li>Press `SPACE` to shoot and defeat the enemies.</li>
+                        <li>Be brave and ruthless! Survival of the universe is at stake.</li>
+                        <li>
+                            You will get wounded in battle. Monitor your lifespan on the right: the bar decreases each
+                            time you're hit.
+                        </li>
+                        <li>Kill the boss to save the heroes and earn a reward.</li>
+                        <li>Advance to the next level after each victory.</li>
+                    </ul>
+                </div>
+                <!-- Close Rules Modal-->
+
+                <!-- About Us Modal -->
+                <div class="about-background tv-screen hide-modal" id="about-us-modal">
+            
+                    <!-- Close button -->
+                    <a id="close-about-us-modal-button" href="#"><i class="fa-solid fa-square-xmark close-button"></i></a>
+                    
+                    <div class="about-content">
+                        <!-- Heading -->
+                        <div class="about-heading">
+                            <h1>Retro Mashup Mayhem</h1>
+                            <p>Meet the Retro Riders Team who worked tirelessly for the Code Institute August Hackathon.<p>
+                        </div>
+        
+                        <div class="card-group">
+                            <!-- Darrach card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/darrach.jpeg" alt="Image of Darrach" class="team-member-avatar">
+                                <h3>Darrach Barneveld</h3>
+                                <h4>Scrum Master</h4>
+                                <div class="member-links">
+                                    <a href="https://github.com/DarrachBarneveld"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/darrach-barneveld-2b493511b/"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+        
+                            <!-- Sandra card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/sandra.jpeg" alt="Image of Sandra" class="team-member-avatar">
+                                <h3>Sandra Bergstrom</h3>
+                                <div class="member-links">
+                                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://github.com/SandraBergstrom"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+        
+                            <!-- Debbie 3 card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/debbie.jpeg" alt="Image of Debbie" class="team-member-avatar">
+                                <h3>Debbie Bergstrom</h3>
+                                <div class="member-links">
+                                    <a href="https://github.com/DebbieBergstrom"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/debbie-bergstrom/"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-group">
+                            <!-- Dan card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/dan.jpeg" alt="Image of Dan" class="team-member-avatar">
+                                <h3>Dan Morriss</h3>
+                                <div class="member-links">
+                                    <a href="https://github.com/DanMorriss"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/morrissdaniel/"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+        
+                            <!-- Rashidat card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/rachidat.jpeg" alt="Image of Rashidat" class="team-member-avatar">
+                                <h3>Rashidat Adekoya</h3>
+                                <div class="member-links">
+                                    <a href="https://github.com/Shida18719"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/rashidat-adekoya-668843245/"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+        
+                            <!-- Yash card-->
+                            <div class="team-member-card">
+                                <img src="assets/images/about-us-images/yash.jpeg" alt="Image of Yash" class="team-member-avatar">
+                                <h3>Yash Gurjar</h3>
+                                <div class="member-links">
+                                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/yash-gurjar/"><i class="fa-brands fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Close About Us Modal -->
+
             </div>
         </div>
         <!-- JavaScript -->
         <!-- <script src="./src/intro.js"></script> -->
-        <script src ="./src/home.js"></script>
+        <script src="./src/home.js"></script>
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
     </body>
 </html>
+

@@ -4,7 +4,6 @@ import bowser from "../../assets/images/sprites/mario/bowser.png";
 import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
-import explosion from "../../assets/images/sprites/explosion.png";
 import bowserShot from "../../assets/images/sprites/mario/sm-bowser-shot.png";
 import { getRandomNumber } from "../helpers/math";
 
@@ -15,13 +14,6 @@ K.loadSprite("bowserbullet", bowserShot, {
   sliceX: 4,
   sliceY: 1,
   anims: { shot: { from: 1, to: 3, loop: true } },
-});
-K.loadSprite("explosion", explosion, {
-  sliceX: 20,
-  sliceY: 1,
-  anims: {
-    boom: { from: 1, to: 19, speed: 32 },
-  },
 });
 K.loadSound("ghost-dead", ghostDeath);
 K.loadSound("bowserarrives", BowserAudio.arrives);

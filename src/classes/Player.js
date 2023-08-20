@@ -5,6 +5,7 @@ import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
 import lossLife from "../../assets/audio/effects/loss-life.mp3";
 import gameOver from "../../assets/audio/effects/game-over.mp3";
 import { delayTimer } from "../helpers/math";
+const healthElement = document.getElementById("health");
 
 K.loadSprite("dino", dinoSpriteTest, {
   sliceX: 24,
@@ -68,7 +69,8 @@ export class Player {
 
   takeDamage() {
     this.health--;
-    console.log(this.health);
+    const currentHeight = healthElement.clientHeight;
+    healthElement.style.height = currentHeight - 100 + "px";
 
     if (this.health <= 0) {
       this.death();

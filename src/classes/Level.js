@@ -1,15 +1,21 @@
 import K from "../kaboom";
 import marioTileset from "../../assets/images/tileset/mario_tileset.png";
 import { testLevel, level2 } from "../levels/layouts";
-import pika from "../../assets/images/sprites/pika.png";
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
 import princess from "../../assets/images/sprites/mario/sm-princess.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
-import { Boss, Enemy, HomingEnemy } from "./Enemy";
+import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
+import koopa from "../../assets/images/sprites/mario/koopa.png";
+
+// K.loadSprite("koopa", koopa, {
+//   sliceX: 6,
+//   sliceY: 1,
+//   anims: { id: { from: 1, to: 5, loop: true } },
+// });
 
 export class Level1 {
   constructor() {
@@ -40,11 +46,18 @@ export class Level1 {
           K.body({ isStatic: true }),
           "tiles",
         ],
-
+        // Player placement
         "*": () => {
           this.player = new Player("dino", 0, 150, 1);
           this.startLevel(this.player);
           return [this.player];
+        },
+        // Static Enemy placement
+        e: (coords) => {
+          coords.x = coords.x * 16;
+          coords.y = coords.y * 16;
+          this.staticEnemyCoords = coords;
+          return [this.staticEnemyCoords];
         },
 
         // Small bush
@@ -137,11 +150,12 @@ export class Level1 {
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
+    this.staticEnemy = new StaticEnemy(this.player, this.staticEnemyCoords);
   }
 
   startLevel() {
-    this.enemyLoop = K.loop(2, () => new Enemy(this.player));
-    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    // this.enemyLoop = K.loop(2, () => new Enemy(this.player));
+    // this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
   }
 
   activateBoss() {
@@ -158,7 +172,7 @@ function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      console.log(player.sprite.pos.x);
+      // console.log(player.sprite.pos.x);
       if (player.sprite.pos.x > 1100 && !level.bossActive) {
         level.activateBoss();
       }

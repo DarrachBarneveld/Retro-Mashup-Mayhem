@@ -5,6 +5,8 @@ import ghosts from "../../assets/images/sprites/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import bowserShot from "../../assets/images/sprites/mario/sm-bowser-shot.png";
+import koopashot from "../../assets/images/sprites/mario/koopa-bullet.png";
+import koopa from "../../assets/images/sprites/mario/koopa.png";
 import { getRandomNumber } from "../helpers/math";
 
 K.loadSprite("enemy", bowser);
@@ -15,11 +17,23 @@ K.loadSprite("bowserbullet", bowserShot, {
   sliceY: 1,
   anims: { shot: { from: 1, to: 3, loop: true } },
 });
+K.loadSprite("koopabullet", koopashot, {
+  sliceX: 6,
+  sliceY: 1,
+  anims: { shot: { from: 1, to: 5, loop: true } },
+});
+K.loadSprite("koopa", koopa, {
+  sliceX: 6,
+  sliceY: 1,
+  anims: { idle: { from: 1, to: 5, loop: true } },
+});
+
 K.loadSound("ghost-dead", ghostDeath);
 K.loadSound("bowserarrives", BowserAudio.arrives);
 K.loadSound("bowserdies", BowserAudio.dies);
 K.loadSound("bowsershoot", BowserAudio.shoot);
 K.loadSound("bowserhurt", BowserAudio.hurt);
+K.loadSound("koopashoot", BowserAudio.staticShooter);
 
 export class Enemy {
   constructor(player) {
@@ -60,6 +74,81 @@ export class Enemy {
       this.sprite.destroy();
       explosion.play("boom");
     }
+  }
+}
+
+export class StaticEnemy {
+  constructor(player, coords) {
+    this.sprite = K.add([
+      K.sprite("koopa", { flipX: true }),
+      K.pos(coords),
+      K.area(),
+      K.scale(1),
+      K.body({ isStatic: true }),
+      K.color(),
+      "enemy",
+    ]);
+    this.health = 100;
+
+    this.sprite.play("idle");
+    this.player = player;
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+
+    this.sprite.add([playerWithinRange(player, this)]);
+
+    this.fireLoop = undefined;
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 100, b: 100 };
+    }
+
+    if (this.health <= 0) {
+      K.play("ghost-dead");
+      const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+      this.sprite.destroy();
+      explosion.play("boom");
+      if (this.fireLoop) {
+        this.fireLoop.cancel();
+      }
+    }
+  }
+
+  shoot() {
+    const playerPos = this.player.sprite.pos;
+    const spritePos = this.sprite.pos;
+    console.log(spritePos);
+
+    K.play("koopashoot");
+    const bullet = K.add([
+      K.sprite("koopabullet"),
+      K.pos(this.sprite.pos.x, this.sprite.pos.y),
+      K.scale(0.5),
+      K.body(),
+      K.area(),
+      K.offscreen({ destroy: true }),
+      "enemy-bullet",
+    ]);
+
+    bullet.play("shot");
+    const angleRadians = Math.atan2(
+      playerPos.y - spritePos.y,
+      playerPos.x - spritePos.x
+    );
+
+    const velocityX = 5 * Math.cos(angleRadians);
+    const velocityY = 5 * Math.sin(angleRadians);
+
+    bullet.add([bulletMovement(bullet, velocityX, velocityY)]);
+
+    bullet.onCollide("player", () => {
+      bullet.destroy();
+    });
+    bullet.onCollide("tiles", () => {
+      bullet.destroy();
+    });
   }
 }
 
@@ -248,6 +337,23 @@ export function bulletMovement(bullet, x, y) {
     update() {
       bullet.pos.x += x;
       bullet.pos.y += y;
+    },
+  };
+}
+
+function playerWithinRange(player, enemy) {
+  return {
+    add() {},
+    update() {
+      const distance = K.vec2(player.sprite.pos).sub(enemy.sprite.pos).len();
+      if (distance < 100 && !enemy.playerInRange) {
+        enemy.playerInRange = true;
+        enemy.fireLoop = K.loop(2, () => enemy.shoot());
+      }
+      if (distance > 100 && enemy.fireLoop) {
+        enemy.playerInRange = false;
+        enemy.fireLoop.cancel();
+      }
     },
   };
 }

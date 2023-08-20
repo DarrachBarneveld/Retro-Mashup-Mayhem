@@ -3,263 +3,265 @@
 
 /* ----------------------------------------- Colors */
 :root {
-    --clr-primary-light: rgb(245, 245, 245);
-    --clr-primary-dark: rgb(14, 12, 5);
-    --clr-neon-red: rgb(238, 27, 20);
-    --clr-neon-pink: rgb(255, 0, 212);
-    --clr-neon-yellow: rgb(243, 253, 9);
-    --clr-neon-green: rgb(39, 239, 16);
-    --clr-neon-purple: rgb(136, 1, 243);
-    --clr-mario-sky: rgb(92, 148, 252);
+  --clr-primary-light: rgb(245, 245, 245);
+  --clr-primary-dark: rgb(14, 12, 5);
+  --clr-neon-red: rgb(238, 27, 20);
+  --clr-neon-pink: rgb(255, 0, 212);
+  --clr-neon-yellow: rgb(243, 253, 9);
+  --clr-neon-green: rgb(39, 239, 16);
+  --clr-neon-purple: rgb(136, 1, 243);
+  --clr-mario-sky: rgb(92, 148, 252);
 }
 
 *,
 *::after,
 *::before {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(../assets/images/bg_neon.png);
-    background-size: cover;
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    font-family: "VT323", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../assets/images/bg_neon.png);
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "VT323", monospace;
 }
 
 /* ----------------------------------------- TV frame & Screen */
 #tv-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 95vh;
-    position: relative;
-    width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  position: relative;
+  width: auto;
 }
 
 #tv-frame {
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #tv-frame img {
-    position: relative;
-    z-index: 2;
-    display: block;
-    height: 650px;
-    width: auto;
-    object-fit: contain;
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+  display: block;
+  height: 650px;
+  width: auto;
+  object-fit: contain;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2),
+    -10px -10px 30px rgba(0, 0, 0, 0.2);
 }
+
 #mycanvas {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 682px;
-    height: 544px;
-    border: 2px solid black;
-    border-radius: 16px;
-    background-color: var(--clr-mario-sky);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 682px;
+  height: 544px;
+  border: 2px solid black;
+  border-radius: 16px;
+  background-color: var(--clr-mario-sky);
 }
 
 .tv-screen {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    width: 682px;
-    height: 544px;
-    border: 2px solid black;
-    border-radius: 16px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  width: 682px;
+  height: 544px;
+  border: 2px solid black;
+  border-radius: 16px;
 }
 
 /* GAME CSS INDICATORS */
 
 #health-bar {
-    z-index: 3;
-    outline: 2px solid #fff;
-    border-radius: 10px;
-    width: 140px;
-    height: 300px;
-    position: absolute;
-    bottom: 60px;
-    right: 30px;
-    background-color: rgba(255, 255, 255, 0.8);
+  z-index: 3;
+  outline: 2px solid #fff;
+  border-radius: 10px;
+  width: 140px;
+  height: 300px;
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 #health {
-    transition: all 300ms;
-    position: absolute;
-    bottom: 0;
-    content: "";
-    border-radius: 10px;
-    background-color: var(--clr-neon-green);
-    height: 300px;
-    width: 140px;
+  transition: all 300ms;
+  position: absolute;
+  bottom: 0;
+  content: "";
+  border-radius: 10px;
+  background-color: var(--clr-neon-green);
+  height: 300px;
+  width: 140px;
 }
 
 /* ---------------------------------------Navigation Homepage*/
 .nav-background {
-    background-color: black;
-    color: white;
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+  background-color: black;
+  color: white;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .nav-background ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    flex-direction: column;
-    gap: 1rem;
-    border-radius: 5px;
-    margin-top: 10px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  align-items: center;
 }
 
 .nav-background li {
-    background-color: var(--clr-neon-green);
-    padding: 0.5rem;
-    text-align: center;
-    margin: 0.5rem;
-    border-radius: 3px;
-    box-shadow: 0 0 7px var(--clr-neon-green);
+  background-color: var(--clr-neon-green);
+  padding: 0.5rem;
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0 0 7px var(--clr-neon-green);
 }
 
 .nav-background a {
-    width: 100%;
-    text-decoration: none;
+  width: 100%;
+  text-decoration: none;
 }
 
 .nav-background li:hover {
-    transform: scale(1.1) rotate(-4deg);
+  transform: scale(1.1) rotate(-4deg);
 }
 
 /* ---------------------------------------Rules*/
 .about-background li {
-    color: var(--clr-neon-green);
-    font-size: 20px;
-    padding: 4px;
+  color: var(--clr-neon-green);
+  font-size: 20px;
+  padding: 4px;
 }
 
 .about-background h1 {
-    font-size: 64px;
+  font-size: 64px;
 }
 
 #tv-frame .arrows {
-    width: 25px;
-    height: auto;
-    display: inline-block;
-    vertical-align: middle;
+  width: 25px;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* ---------------------------------------About us*/
 
 .about-background {
-    background-color: black;
-    color: white;
-    padding: 3rem;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+  background-color: black;
+  color: white;
+  padding: 3rem;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .close-button {
-    position: absolute;
-    right: 4rem;
-    top: 2rem;
-    color: var(--clr-neon-red);
-    font-size: 2rem;
+  position: absolute;
+  right: 4rem;
+  top: 2rem;
+  color: var(--clr-neon-red);
+  font-size: 2rem;
 }
 
 .close-button:hover {
-    transform: scale(1.1) rotate(-7deg);
+  transform: scale(1.1) rotate(-7deg);
 }
 
 #about-us-screen {
-    overflow: scroll;
+  overflow: scroll;
 }
 
 .about-content {
-    padding-top: 15rem;
-    text-align: center;
+  padding-top: 15rem;
+  text-align: center;
 }
 
 .team-member-card {
-    /* height: 150px; */
-    width: 150px;
-    background-color: var(--clr-neon-green);
-    box-shadow: 0 0 5px var(--clr-neon-green);
-    text-align: center;
-    color: var(--clr-neon-purple);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* height: 150px; */
+  width: 150px;
+  background-color: var(--clr-neon-green);
+  box-shadow: 0 0 5px var(--clr-neon-green);
+  text-align: center;
+  color: var(--clr-neon-purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .team-member-card i {
-    font-size: 2rem;
-    padding-top: 1rem;
-    color: var(--clr-neon-purple);
+  font-size: 2rem;
+  padding-top: 1rem;
+  color: var(--clr-neon-purple);
 }
 
 .team-member-card i:hover {
-    transform: scale(1.1) rotate(-7deg);
+  transform: scale(1.1) rotate(-7deg);
 }
 
 .team-member-card img {
-    width: 130px !important;
-    height: auto !important;
-    padding-top: 4px;
+  width: 130px !important;
+  height: auto !important;
+  padding-top: 4px;
 }
 
 .card-group {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .member-links {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    padding-bottom: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
 }
 
 /* Sound */
 
 .sound-buttons {
-    position: absolute;
-    left: 2rem;
-    top: 1rem;
-    color: white;
-    font-size: 2rem;
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  color: white;
+  font-size: 2rem;
 }
 
 .sound-buttons i:hover {
-    color: var(--clr-neon-green);
+  color: var(--clr-neon-green);
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
 }

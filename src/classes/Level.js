@@ -3,6 +3,7 @@ import marioTileset from "../../assets/images/tileset/mario_tileset.png";
 import { testLevel, level2 } from "../levels/layouts";
 import pika from "../../assets/images/sprites/pika.png";
 import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
+import princess from "../../assets/images/sprites/mario/sm-princess.png";
 import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
@@ -15,6 +16,7 @@ export class Level1 {
     this.bossActive = false;
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
+    K.loadSprite("princess", princess, { sliceX: 1, sliceY: 2 });
     K.loadSprite("cloud", cloud);
     K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
     K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
@@ -54,8 +56,7 @@ export class Level1 {
         "^": () => [K.sprite("cloud"), "cloud"],
 
         // Super Mario
-
-        "^": () => [K.sprite("cloud"), "cloud"],
+        // "^": () => [K.sprite("cloud"), "cloud"],
         "<": () => [
           K.sprite("mario", { frame: 0 }), // top half
           K.scale(1),
@@ -69,6 +70,23 @@ export class Level1 {
           K.area(),
           K.body({ isStatic: true }),
           "mario",
+        ],
+
+        // Princess
+        // "^": () => [K.sprite("cloud"), "cloud"],
+        ":": () => [
+          K.sprite("princess", { frame: 0 }), // top half
+          K.scale(1),
+          K.area(),
+          K.body({ isStatic: true }),
+          "princess",
+        ],
+        "|": () => [
+          K.sprite("princess", { frame: 1 }), // bottom half
+          K.scale(1),
+          K.area(),
+          K.body({ isStatic: true }),
+          "princess",
         ],
 
         // Pipe

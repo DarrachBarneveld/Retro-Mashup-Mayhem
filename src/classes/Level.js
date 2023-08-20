@@ -12,10 +12,11 @@ import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
 
 // Sprite imports Level 4
-import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png"
-import shattered_planet from "../../assets/images/sprites/space-invaders/shattered_planet.png"
-import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png"
-import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png"
+import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
+import shattered_planet from "../../assets/images/sprites/space-invaders/shattered_planet.png";
+import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png";
+import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png";
+import emptyspace from "../../assets/images/sprites/space-invaders/empty-space.png";
 
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
@@ -187,6 +188,7 @@ export class Level4 {
     K.loadSprite("redplanet", redplanet);
     K.loadSprite("shattered_planet", shattered_planet, { sliceX: 2, sliceY: 2 });
     K.loadSprite("sphereplanet", sphereplanet, { sliceX: 2, sliceY: 2 });
+    K.loadSprite("emptyspace", emptyspace);
 
     K.addLevel(level4, {
       tileWidth: 16,
@@ -215,11 +217,11 @@ export class Level4 {
         ],
 
         // Empty space that will stop from going up and down
-        "<": () => [
-          K.sprite("redplanet"),
+        "=": () => [
+          K.sprite("emptyspace"),
           K.area(),
           K.body({ isStatic: true }),
-          "redplanet",
+          "emptyspace",
         ],
 
         //  Shattered_planet

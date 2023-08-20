@@ -151,7 +151,7 @@ export class Level1 {
 
   startLevel() {
     // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
   }
 
   renderStaticEnemies() {

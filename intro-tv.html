@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="./src/style.css" />
+        <link rel="stylesheet" type="text/css" href="./src/intro-tv.css" />
+        <title>Retro Mashup Mayhem - Intro</title>
+    </head>
+    <body>
+        <div id="tv-container">
+            <div id="tv-frame">
+                <img src="assets/images/tv_frame.png" alt="TV Frame" />
+                <div class="nav-background tv-screen">
+                    
+                    <!-- Intro Animation -->
+                    <div class="intro-screen-container">
+                        <!-- Video background -->
+                        <video id="background-video" autoplay loop muted poster="assets/images/backgrounds/intro-background.png">    
+                            <source src="assets/videos/intro-video-background.mp4" type="video/mp4">
+                            </video>
+                            <div class="filter"></div>
+                        
+                            <!-- skip intro -->
+                            <div class="skip-intro">
+                            <a href="index.html">skip intro >>></a>
+                            </div>
+                        
+                            <!-- Title -->
+                            <!-- <p id="start">Retro Mashup Mayhem<br>Battle Against<Br>The foes of the past</p> -->
+                        
+                            <!-- Scrolling text -->
+                            <div id="intro-text">
+                                <div id="titlecontent">
+                                    <p>Retro Mashup Mayhem</p>
+                                    <p>Supreme evil - a dreaded team of Space Invaders and Retro Worlds enemies have captured our beloved retro heroes.</p>
+                                    <p>Threatened to be cast into an infinite black hole. As the galaxy's last hope, you must traverse treacherous worlds, overcome menacing foes, and face the formidable Bowser in a cosmic showdown.</p>
+                                    <p>It will be mayhem, it will be chaos, but time is ticking...</p>
+                                    <p>Save the legends of the retro realm!</p>   
+                                </div>
+                            </div>
+                    </div>
+
+
+                
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="./src/intro.js"></script>
+    </body>
+</html>

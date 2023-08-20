@@ -2,8 +2,6 @@
 
 Welcome to Retro-Mashup-Mayhem game!
 
-![Retroverse-Odyssey](./READMEimages/imiresponsive-image.png)
-
 
  ![Retro-Mashup-Mayhem](./READMEimages/imiresponsive-image.png)     
 
@@ -34,6 +32,7 @@ Welcome to Retro-Mashup-Mayhem game!
 8. [Acknowledgements](#acknowledgment) 
 
 ***
+
 # Overview
 
 "Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
@@ -68,7 +67,8 @@ Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that 
 
 ## Design Structure
 
-The game was designed with
+The game was designed with a simplistic retro strucrure, with clear and easy to follow instruction, that will allow user easily navigate across the program.
+
 
 ## Typography and Color Scheme
 
@@ -103,6 +103,24 @@ The game was designed with
 
 ## Existing Features
 
+### Title and Introductory Page
+
++ The introductory page is displayed as soon as the program start to run
+
+![Introductory Page](./READMEimages/k-game-intro.png)
+
+
+### ## Menu Page
+
+![Menu Page](./READMEimages/k-game.png)
+
++ Menu Page display the menu where user: 
+
+  + Can click to display the game rules. 
+  + Prompted to displayed the game stage. 
+  + Can view the about us page, where the team information can be found.
+
+
 ## Future Features
 
 # Technologies
@@ -121,11 +139,11 @@ The game was designed with
 
 ### Game Control - Player moves using the following arrows to:
 
-⬆️: Move forward
-⬇️: Move backward
-⬅️: Move left
-➡️: Move right
-`Spacebar`: For shooting
+- ⬆️: Move forward
+- ⬇️: Move backward
+- ⬅️: Move left
+- ➡️: Move right
+- `Spacebar`: For shooting
 
 
 

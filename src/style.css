@@ -139,6 +139,10 @@ body {
 }
 
 /* ---------------------------------------Rules*/
+#rules-modal {
+  overflow: hidden;
+}
+
 .about-background li {
   color: var(--clr-neon-green);
   font-size: 12px;
@@ -188,6 +192,12 @@ body {
 }
 .levels li:nth-child(3) {
   background-color: var(--clr-neon-blue);
+}
+.levels li:nth-child(3) h2 {
+  color: white;
+}
+.levels li:nth-child(3) p {
+  color: white;
 }
 .levels li:nth-child(4) {
   background-color: var(--clr-neon-pink);

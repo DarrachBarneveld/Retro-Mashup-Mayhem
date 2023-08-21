@@ -183,6 +183,24 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 
 - All content have been by Team4 - Retro Riders.
 
+Music from [https://uppbeat.io](Uppbeat) and editied by Dan Morriss:
+- [https://uppbeat.io/t/kevin-macleod/pookatori-and-friends](Kevin Macleod - Pookatori and Friends) License code: GWISOMBPIZDPTGXF
+
+- [https://uppbeat.io/t/kevin-macleod/blockman](Kevin Macleodan - Blockman) License code: KBULYGVDWAXJPZCN
+
+- [https://uppbeat.io/t/sulyya/paradrizzle](Sulyya - Paradrizzle) License code: SLZGGK0RXJWDFAGE
+
+- [https://uppbeat.io/t/michael-grubb/corkscrew](Michael Grubb - Corkscrew) License code: YDYVWFTLKO7IUCQN
+
+[https://uppbeat.io/t/capturez/explorer](Capture - Explorer) License code: WS13MMJLFOFPCHOR
+
+- Other Level music came from [http://khinsider.com/](khinsider.com)
+
+- Retro Mashup Mayhem logo was created by Debbie Bergstrom
+
+- Pokemon theme music was recorded by Dan Morriss
+
+- Intro text was written by Debbie Bergstrom
 
 # 8. Acknowledgements
 - 

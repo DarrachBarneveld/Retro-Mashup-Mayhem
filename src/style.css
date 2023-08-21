@@ -186,6 +186,7 @@ body {
   box-shadow: 0 0 17px var(--clr-neon-pink);
   font-family: "Press Start 2P", cursive;
   color: var(--clr-neon-purple) !important;
+  line-height: 1.4rem;
 }
 
 .levels button:disabled {
@@ -198,6 +199,7 @@ body {
 
 .levels button:hover:not(:disabled) {
   transform: scale(1.1) rotate(-4deg);
+  cursor: pointer;
 }
 
 .levels button:nth-child(1) {
@@ -226,6 +228,7 @@ body {
 
 .levels button h2 {
   font-size: 1.2rem;
+  margin-bottom: 1rem !important;
   text-decoration: underline;
   margin-bottom: 10px;
   color: var(--clr-neon-purple);

@@ -1,7 +1,8 @@
 import K from "../kaboom";
-import { BowserAudio, PokemonAudio } from "../audioImports";
+import { BowserAudio, PacmanAudio, PokemonAudio } from "../audioImports";
 import bowser from "../../assets/images/sprites/mario/bowser.png";
 import mewtwo from "../../assets/images/sprites/pokemon/mewtwo.png";
+import redghost from "../../assets/images/sprites/pacman/pacman-boss.png";
 import ghosts from "../../assets/images/sprites/pacman/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
@@ -20,6 +21,7 @@ import { delayTimer, getRandomNumber } from "../helpers/math";
 // Bosses
 K.loadSprite("bowser", bowser);
 K.loadSprite("mewtwo", mewtwo);
+K.loadSprite("redghost", redghost);
 
 //
 K.loadSprite("invader", invader);
@@ -61,6 +63,7 @@ K.loadSound("bowserhurt", BowserAudio.hurt);
 K.loadSound("koopashoot", BowserAudio.staticShooter);
 K.loadSound("mariowin", BowserAudio.win);
 
+// level2
 K.loadSound("mewtwoarrives", PokemonAudio.arrives);
 K.loadSound("mewtwodies", PokemonAudio.dies);
 K.loadSound("mewtwoshoot", PokemonAudio.shoot);
@@ -68,6 +71,15 @@ K.loadSound("mewtwohurt", PokemonAudio.hurt);
 K.loadSound("arbokdead", PokemonAudio.staticDie);
 K.loadSound("arbokshoot", PokemonAudio.staticShooter);
 K.loadSound("pokemonwin", PokemonAudio.win);
+
+// level3
+K.loadSound("redghostarrives", PacmanAudio.arrives);
+K.loadSound("redghostdie", PacmanAudio.dies);
+K.loadSound("redghostshoot", PacmanAudio.shoot);
+K.loadSound("redghosthurt", PacmanAudio.hurt);
+K.loadSound("pacstaticdead", PacmanAudio.staticDie);
+K.loadSound("pacstaticshot", PacmanAudio.staticShooter);
+K.loadSound("pacmanwin", PacmanAudio.win);
 
 export class Enemy {
   constructor(player) {
@@ -325,7 +337,7 @@ function enemyMovement(player, enemy) {
   return {
     add() {},
     update() {
-      direction = findDirectionRelationship(player, enemy);
+      const direction = findDirectionRelationship(player, enemy);
       // Accounts for sprite variance of movement
 
       enemy.sprite.move(-enemy.speed * 100, direction.y);

@@ -12,9 +12,6 @@ import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
 import marioMusic from "../../assets/audio/music/mario-level-music.mp3";
 
-// Sprite imports Level 3
-import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png";
-
 // Sprite imports Level 4
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
 import shattered_planet from "../../assets/images/sprites/space-invaders/shattered_planet.png";
@@ -206,48 +203,6 @@ export class Level1 {
     }
 
     const boss = new Boss(this.player, this.homingEnemyLoop, bossObject);
-  }
-}
-
-export class Level3 {
-  constructor() {
-    this.bossActive = false;
-    K.loadSprite("mazebrick", mazebrick);
-
-    K.addLevel(level3, {
-      tileWidth: 16,
-      tileHeight: 16,
-      tiles: {
-        // mazebrick
-        "=": () => [
-          K.sprite("mazebrick"),
-          K.area(),
-          K.body({ isStatic: true }),
-          "mazebrick",
-        ],
-
-        "*": () => {
-          this.player = new Player("dino", 0, 150, 1);
-          this.startLevel(this.player);
-          return [this.player];
-        },
-      },
-    });
-    this.level = K.add([logPlayerPosition(this, this.player)]);
-  }
-
-  startLevel() {
-    this.enemyLoop = K.loop(2, () => new Enemy(this.player));
-    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
-  }
-
-  activateBoss() {
-    this.bossActive = true;
-    if (this.enemyLoop) {
-      this.enemyLoop.cancel();
-    }
-
-    const boss = new Boss(this.player, this.homingEnemyLoop);
   }
 }
 

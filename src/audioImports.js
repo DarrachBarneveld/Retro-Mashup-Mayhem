@@ -13,6 +13,12 @@ import mewtwoHurt from "../assets/audio/effects/pokemon/mewtwo-hurt.mp3";
 import mewtwoShoot from "../assets/audio/effects/pokemon/mewtwo-shoot.mp3";
 import mewtwowin from "../assets/audio/music/pokemon-win.mp3";
 
+import redGhostHurt from "../assets/audio/effects/pacman/pacman-death.mp3";
+import redGhostDie from "../assets/audio/effects/pacman/pacman-player-death.mp3";
+import redGhostArrives from "../assets/audio/effects/pacman/ghost-arrives.mp3";
+import pacmanWin from "../assets/audio/music/pacman-win-music.mp3";
+import pacmanShoot from "../assets/audio/effects/pacman/pacman-shoot.mp3";
+
 export const BowserAudio = {
   dies: bowserDies,
   arrives: bowserArrives,
@@ -30,4 +36,14 @@ export const PokemonAudio = {
   staticDie: arbokdie,
   staticShooter: arbokshot,
   win: mewtwowin,
+};
+
+export const PacmanAudio = {
+  dies: redGhostDie,
+  arrives: redGhostArrives,
+  hurt: redGhostHurt,
+  shoot: pacmanShoot,
+  staticDie: arbokdie,
+  staticShooter: arbokshot,
+  win: pacmanWin,
 };

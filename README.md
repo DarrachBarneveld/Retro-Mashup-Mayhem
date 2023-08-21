@@ -196,6 +196,12 @@ Music from [https://uppbeat.io](Uppbeat) and editied by Dan Morriss:
 
 - Other Level music came from [http://khinsider.com/](khinsider.com)
 
+- Retro Mashup Mayhem logo was created by Debbie Bergstrom
+
+- Pokemon theme music was recorded by Dan Morriss
+
+- Intro text was written by Debbie Bergstrom
+
 # 8. Acknowledgements
 - 
 

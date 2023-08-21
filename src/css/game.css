@@ -8,7 +8,7 @@
   height: 300px;
   position: absolute;
   bottom: 40px;
-  right: 30px;
+  right: 33px;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -127,6 +127,32 @@ h1 {
   color: var(--clr-primary-light);
   text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
   font-family: VT323, monospace;
-  font-size: 46px;
+  font-size: 32px;
   font-weight: 800;
 }
+
+/* Score */
+.score-container {
+  position: absolute; 
+  top: 10px;
+  left: 10px;
+  display: flex;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.score-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.score-value {
+  color: var(--clr-primary-light);
+  text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
+  font-family: VT323, monospace;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+

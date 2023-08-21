@@ -27,6 +27,7 @@ import invaderBullet from "../../assets/images/sprites/space-invaders/space-bull
 import { delayTimer, getRandomNumber } from "../helpers/math";
 import { loadFromLocalStorage } from "../home";
 
+const score = document.getElementById("score");
 // Bosses
 K.loadSprite("bowser", bowser);
 K.loadSprite("mewtwo", mewtwo);
@@ -143,6 +144,7 @@ export class Enemy {
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       explosion.play("boom");
+      updateScore(10);
     }
   }
 }
@@ -177,10 +179,12 @@ export class StaticEnemy {
     }
 
     if (this.health <= 0) {
+      updateScore(50);
       K.play(this.spriteObject.die);
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       explosion.play("boom");
+
       if (this.fireLoop) {
         this.fireLoop.cancel();
       }
@@ -257,6 +261,8 @@ export class HomingEnemy {
 
     if (this.health <= 0) {
       K.play("ghost-dead");
+      updateScore(25);
+
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       explosion.play("boom");
@@ -332,6 +338,7 @@ export class HomingEnemyShoot {
     }
 
     if (this.health <= 0) {
+      updateScore(100);
       K.play("ghost-dead");
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
@@ -379,6 +386,7 @@ export class Boss {
       this.sprite.color = { r: 255, g: 100, b: 100 };
     }
     if (this.health <= 0) {
+      updateScore(200);
       K.play(this.spriteObject.die);
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
@@ -518,4 +526,11 @@ function playerWithinRange(player, enemy) {
       }
     },
   };
+}
+
+function updateScore(number) {
+  let scoreValue = parseInt(score.textContent.split(" ")[1]);
+  scoreValue += number;
+
+  score.textContent = `Score: ${scoreValue}`;
 }

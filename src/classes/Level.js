@@ -34,7 +34,7 @@ const bossObject = {
 };
 
 export class Level1 {
-  constructor() {
+  constructor(player) {
     const background = document.getElementById("mycanvas");
     background.style.background = "var(--clr-mario-sky)";
     K.loadSound("mario-music", marioMusic);
@@ -48,6 +48,8 @@ export class Level1 {
     K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
     K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
     K.loadSprite("hill", hill, { sliceX: 4, sliceY: 2 });
+
+    this.player = player;
 
     K.addLevel(testLevel, {
       tileWidth: 16,
@@ -68,11 +70,6 @@ export class Level1 {
           "tiles",
         ],
         // Player placement
-        "*": () => {
-          this.player = new Player("dino", 0, 150, 1);
-          this.startLevel(this.player);
-          return [this.player];
-        },
         // Static Enemy placement
         e: (coords) => {
           coords.x = coords.x * 16;

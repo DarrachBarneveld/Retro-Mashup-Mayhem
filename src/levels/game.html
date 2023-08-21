@@ -1,62 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link
+      rel="icon"
+      href="../../assets/images/favicon_green.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/game.css" />
+    <title>Retro Mashup Mayhem - Game</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="../style.css" />
-  <link rel="icon" href="../../assets/images/favicon_green.ico" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="../css/game.css" />
-  <title>Retro Mashup Mayhem - Game</title>
-</head>
+  <body>
+    <div id="tv-container">
+      <div id="tv-frame">
+        <div style="position: relative">
+          <img src="../../assets/images/tv_frame.png" alt="TV Frame" />
+          <div id="health-bar">
+            <div id="health"></div>
+          </div>
+          <div class="power-container">
+            <div class="power">
+              <img
+                class="power-image"
+                src="/assets/images/Wiki_mario_icon.webp"
+              />
+            </div>
+            <div class="power">
+              <img class="power-image" src="/assets/images/sprites/pika.png" />
+            </div>
+            <div class="power">
+              <img
+                class="power-image"
+                src="/assets/images/sprites/pacman/pacman.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="tv-screen">
+          <div class="timer-container">
+            <span class="timer-value" id="timer">Time: 02:00</span>
+            <!-- Initial time: 120 seconds -->
+          </div>
+          <div class="score-container">
+            <span class="score-value" id="score">Score: 0</span>
+            <!-- Initial time: 120 seconds -->
+          </div>
 
-<body>
-  <div id="tv-container">
-    <div id="tv-frame">
-      <div style="position: relative">
-        <img src="../../assets/images/tv_frame.png" alt="TV Frame" />
-        <div id="health-bar">
-          <div id="health"></div>
-        </div>
-        <div class="power-container">
-          <div class="power">
-            <img class="power-image" src="/assets/images/Wiki_mario_icon.webp" />
+          <div id="testmodal">
+            <h1 id="modal-heading">game over</h1>
+            <img id="modal-img" src="../../assets/images/rescue_mario.gif" />
+            <div class="btn-container">
+              <button class="btn" id="replay">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+              <a class="btn" id="home" href="../../menu.html">
+                <i class="fa-solid fa-house"></i>
+              </a>
+            </div>
           </div>
-          <div class="power">
-            <img class="power-image" src="/assets/images/sprites/pika.png" />
-          </div>
-          <div class="power">
-            <img class="power-image" src="/assets/images/sprites/pacman/pacman.png" />
-          </div>
+          <canvas id="mycanvas"></canvas>
         </div>
-      </div>
-      <div class="tv-screen">
-        <div class="timer-container">
-          <span class="timer-value" id="timer">Time: 02:00</span> <!-- Initial time: 120 seconds -->
-        </div>
-        <div class="score-container">
-          <span class="score-value" id="score">Score: 0</span> <!-- Initial time: 120 seconds -->
-        </div>
-
-        <div id="testmodal">
-          <h1 id="modal-heading">game over</h1>
-          <img id="modal-img" src="../../assets/images/rescue_mario.gif" />
-          <div class="btn-container">
-            <button class="btn" id="replay">
-              <i class="fa-solid fa-rotate-right"></i>
-            </button>
-            <a class="btn" id="home" href="../../index.html">
-              <i class="fa-solid fa-house"></i>
-            </a>
-          </div>
-        </div>
-        <canvas id="mycanvas"></canvas>
       </div>
     </div>
-  </div>
 
-  <script type="module" src="../script.js"></script>
-  <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
-</body>
-
+    <script type="module" src="../script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/076967cb18.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -30,6 +30,10 @@ const bossObject = {
 
 export class Level2 {
   constructor() {
+    // Set background
+    const background = document.getElementById("mycanvas");
+    background.style.background = "var(--clr-pokemon-color)";
+
     K.loadSound("music", music);
     K.play("music", { loop: true });
     this.bossActive = false;

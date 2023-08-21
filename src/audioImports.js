@@ -19,6 +19,12 @@ import redGhostArrives from "../assets/audio/effects/pacman/ghost-arrives.mp3";
 import pacmanWin from "../assets/audio/music/pacman-win-music.mp3";
 import pacmanShoot from "../assets/audio/effects/pacman/pacman-shoot.mp3";
 
+import spaceInvaderDie from "../assets/audio/effects/space-invaders/space-invader-boss-death.mp3";
+import spaceInvaderHurt from "../assets/audio/effects/space-invaders/space-invader-hurt.mp3";
+import spaceInvaderShoot from "../assets/audio/effects/space-invaders/space-invader-shoot.mp3";
+import spaceInvaderArrives from "../assets/audio/effects/space-invaders/space-invader-arrives.mp3";
+import spaceInvaderWin from "../assets/audio/music/space-invaders-win.mp3";
+
 export const BowserAudio = {
   dies: bowserDies,
   arrives: bowserArrives,
@@ -46,4 +52,14 @@ export const PacmanAudio = {
   staticDie: arbokdie,
   staticShooter: arbokshot,
   win: pacmanWin,
+};
+
+export const SpaceInvaderAudio = {
+  dies: spaceInvaderDie,
+  arrives: spaceInvaderArrives,
+  hurt: spaceInvaderHurt,
+  shoot: spaceInvaderShoot,
+  staticDie: arbokdie,
+  staticShooter: arbokshot,
+  win: spaceInvaderWin,
 };

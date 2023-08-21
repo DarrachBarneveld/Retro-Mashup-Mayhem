@@ -1,6 +1,6 @@
 /*Change Page after Scroll animation */
 const titles = document.querySelector('#titlecontent');
-const duration = 19550; // Duration of the scroll animation in milliseconds
+const duration = 22550; // Duration of the scroll animation in milliseconds
 
 setTimeout(() => {
   window.location.href ="index.html";

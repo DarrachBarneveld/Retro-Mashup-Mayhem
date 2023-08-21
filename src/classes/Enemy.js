@@ -149,7 +149,6 @@ export class Enemy {
 
 export class StaticEnemy {
   constructor(player, coords, spriteObject) {
-    console.log(spriteObject);
     this.sprite = K.add([
       K.sprite(spriteObject.sprite, { flipX: true }),
       K.pos(coords),
@@ -361,13 +360,13 @@ export class Boss {
 
     this.spriteObject = spriteObject;
     this.health = spriteObject.health;
+    console.log(spriteObject);
     this.speed = 0.5;
     this.player = player;
     this.sprite.move();
     this.direction = -1;
     this.sprite.add([moveEnemyUpAndDown(this)]);
 
-    console.log(spriteObject);
     this.gameLevel = spriteObject.gameLevel;
     this.homingEnemyLoop = homingEnemyLoop;
     this.fireLoop = K.loop(2, () => this.shoot());
@@ -400,7 +399,6 @@ export class Boss {
       gameOverModal.style.display = "flex";
       gameOverModal.style.opacity = 1;
       const levels = loadFromLocalStorage("levels");
-      console.log(this.gameLevel);
       levels.push(this.gameLevel);
       localStorage.setItem("levels", JSON.stringify(levels));
     }

@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/intro.css" />
+    <title>Retro Mashup Mayhem</title>
+  </head>
+  <body>
+    <!-- Sound -->
+    <audio id="backgroundMusic" loop>
+      <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3" />
+    </audio>
+    <div class="sound-buttons">
+      <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
+      <i class="fa-solid fa-volume-off" id="sound-off"></i>
+    </div>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" type="text/css" href="./src/style.css" />
-        <link rel="stylesheet" type="text/css" href="./src/intro.css" />
-        <title>Retro Mashup Mayhem</title>
-    </head>
-    <body>
-        <!-- Sound -->
-        <audio id="backgroundMusic" loop>
-            <source src="assets/audio/music/home-screen-music.mp3" type="audio/mp3">
-        </audio> 
-        <div class="sound-buttons">
-            <i class="fa-solid fa-volume-high hide" id="sound-on"></i>
-            <i class="fa-solid fa-volume-off" id="sound-off"></i>
+    <div id="tv-container">
+      <div id="tv-frame">
+        <img src="assets/images/tv_frame.png" alt="TV Frame" />
+        <div class="nav-background tv-screen">
+          <!-- Home Screen -->
+
+          <img src="assets/images/game-over.gif" id="game-over-logo" alt="" />
+          <div id="game-over-animation">Game over animation</div>
+          <div id="game-over-text">Game over Text</div>
+          <nav>
+            <ul class="menu-btn" id="game-over-menu">
+              <li><a href="#">Replay</a></li>
+              <li><a href="menu.html">Menu</a></li>
+            </ul>
+          </nav>
         </div>
-
-        <div id="tv-container">
-            <div id="tv-frame">
-                <img src="assets/images/tv_frame.png" alt="TV Frame" />
-                <div class="nav-background tv-screen">
-                    
-                    <!-- Home Screen -->
-                    
-                    <img src="assets/images/game-over.gif" id="game-over-logo" alt="" />
-                    <div id="game-over-animation">
-                        Game over animation
-                    </div>
-                    <div id="game-over-text">
-                        Game over Text
-                    </div>
-                    <nav >
-                        <ul class="menu-btn" id="game-over-menu">
-                            <li><a href="#">Replay</a></li>
-                            <li><a href="index.html">Menu</a></li>
-                        </ul>
-                    </nav>
-                    
-
-                </div>
-            </div>
-        </div>
-        <!-- JavaScript -->
-        <!-- <script src="./src/intro.js"></script> -->
-        <script src ="./src/home.js"></script>
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/076967cb18.js" crossorigin="anonymous"></script>
-    </body>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <!-- <script src="./src/intro.js"></script> -->
+    <script src="./src/home.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/076967cb18.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

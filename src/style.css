@@ -80,9 +80,7 @@ body {
   height: 544px;
   border: 2px solid black;
   border-radius: 16px;
-  background: var(--clr-pokemon-color);
-  /* background-color: var(--clr-mario-sky);  Background for Marios level */
-  /* background: url(../assets/images/backgrounds/space-background.png); */
+  background: url(../assets/images/backgrounds/space-background.png);
 }
 
 .tv-screen {

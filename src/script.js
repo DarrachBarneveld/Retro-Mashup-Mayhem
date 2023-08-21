@@ -1,11 +1,10 @@
 import K from "./kaboom";
-import { Player } from "./classes/Player";
-import { Enemy, HomingEnemy } from "./classes/Enemy";
-import { Level1, Level4 } from "./classes/Level";
+import { Level1 } from "./classes/Level";
 import explosion from "../assets/images/sprites/explosion.png";
 import { delayTimer } from "./helpers/math";
 import { Level2 } from "./classes/Level2";
 import { Level3 } from "./classes/Level3";
+import { Level4 } from "./classes/Level4";
 
 const replayBtn = document.getElementById("replay");
 

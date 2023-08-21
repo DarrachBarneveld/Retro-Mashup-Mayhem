@@ -1,8 +1,14 @@
 import K from "../kaboom";
-import { BowserAudio, PacmanAudio, PokemonAudio } from "../audioImports";
+import {
+  BowserAudio,
+  PacmanAudio,
+  PokemonAudio,
+  SpaceInvaderAudio,
+} from "../audioImports";
 import bowser from "../../assets/images/sprites/mario/bowser.png";
 import mewtwo from "../../assets/images/sprites/pokemon/mewtwo.png";
 import redghost from "../../assets/images/sprites/pacman/pacman-boss.png";
+import spaceship from "../../assets/images/sprites/space-invaders/boss.png";
 import ghosts from "../../assets/images/sprites/pacman/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
@@ -16,12 +22,15 @@ import invader from "../../assets/images/invader.png";
 import arbok from "../../assets/images/sprites/pokemon/arbok.png";
 import arbokbullet from "../../assets/images/sprites/pokemon/pokemon-bullet.png";
 
+import invaderBullet from "../../assets/images/sprites/space-invaders/space-bullet.png";
+
 import { delayTimer, getRandomNumber } from "../helpers/math";
 
 // Bosses
 K.loadSprite("bowser", bowser);
 K.loadSprite("mewtwo", mewtwo);
 K.loadSprite("redghost", redghost);
+K.loadSprite("spaceship", spaceship);
 
 //
 K.loadSprite("invader", invader);
@@ -31,27 +40,32 @@ K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
 K.loadSprite("bowserbullet", bowserShot, {
   sliceX: 4,
   sliceY: 1,
-  anims: { shot: { from: 1, to: 3, loop: true } },
+  anims: { shot: { from: 0, to: 3, loop: true } },
 });
 K.loadSprite("koopabullet", koopashot, {
   sliceX: 6,
   sliceY: 1,
-  anims: { shot: { from: 1, to: 5, loop: true } },
+  anims: { shot: { from: 0, to: 5, loop: true } },
 });
 K.loadSprite("koopa", koopa, {
   sliceX: 6,
   sliceY: 1,
-  anims: { idle: { from: 1, to: 5, loop: true } },
+  anims: { idle: { from: 0, to: 5, loop: true } },
 });
 K.loadSprite("arbok", arbok, {
   sliceX: 2,
   sliceY: 1,
-  anims: { idle: { from: 1, to: 1, loop: true } },
+  anims: { idle: { from: 0, to: 1, loop: true } },
 });
 K.loadSprite("arbokbullet", arbokbullet, {
   sliceX: 2,
   sliceY: 1,
-  anims: { shot: { from: 1, to: 1, loop: true } },
+  anims: { shot: { from: 0, to: 1, loop: true } },
+});
+K.loadSprite("invaderbullet", invaderBullet, {
+  sliceX: 2,
+  sliceY: 1,
+  anims: { shot: { from: 0, to: 1, loop: true } },
 });
 
 // Sounds
@@ -80,6 +94,15 @@ K.loadSound("redghosthurt", PacmanAudio.hurt);
 K.loadSound("pacstaticdead", PacmanAudio.staticDie);
 K.loadSound("pacstaticshot", PacmanAudio.staticShooter);
 K.loadSound("pacmanwin", PacmanAudio.win);
+
+// level4
+K.loadSound("spaceshiparrives", SpaceInvaderAudio.arrives);
+K.loadSound("spaceshipdie", SpaceInvaderAudio.dies);
+K.loadSound("spaceshipshoot", SpaceInvaderAudio.shoot);
+K.loadSound("spaceshiphurt", SpaceInvaderAudio.hurt);
+K.loadSound("pacstaticdead", SpaceInvaderAudio.staticDie);
+K.loadSound("pacstaticshot", SpaceInvaderAudio.staticShooter);
+K.loadSound("spaceshipwin", SpaceInvaderAudio.win);
 
 export class Enemy {
   constructor(player) {
@@ -296,6 +319,7 @@ export class Boss {
       image.style.display = "block";
       gameOverModal.style.display = "flex";
       gameOverModal.style.opacity = 1;
+      K.paus;
     }
   }
 

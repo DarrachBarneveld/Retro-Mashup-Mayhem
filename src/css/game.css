@@ -1,3 +1,6 @@
+/* ----------------------------------------- Font */
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
 #health-bar {
   z-index: 3;
   outline: 2px solid #fff;
@@ -114,7 +117,7 @@ h1 {
   background-color: var(--clr-neon-yellow);
   padding: 5px 10px;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 17px var(--clr-neon-yellow);
   z-index: 10;
 }
 
@@ -124,7 +127,9 @@ h1 {
 }
 
 .timer-value {
-  font-size: 24px;
-  color: var(--clr-neon-red); 
-  font-weight: 500;
+  color: var(--clr-neon-red);
+  text-shadow: 0 0 1px var(--clr-neon-red), 0 0 20px var(--clr-neon-red), 0 0 30px var(--clr-neon-red);
+  font-family: VT323, monospace;
+  font-size: 32px;
+  font-weight: 800;
 }

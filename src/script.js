@@ -5,6 +5,7 @@ import { delayTimer } from "./helpers/math";
 import { Level2 } from "./classes/Level2";
 import { Level3 } from "./classes/Level3";
 import { Level4 } from "./classes/Level4";
+import { Player } from "./classes/Player";
 
 const replayBtn = document.getElementById("replay");
 
@@ -28,16 +29,24 @@ console.log(url[0]);
 
 K.scene("demo", async () => {
   if (url[0] == "/src/levels/game") {
-    const level = new Level1();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level1(player);
+    timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game2") {
-    const level = new Level2();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level2(player);
+    timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game3") {
-    const level = new Level3();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level3(player);
+    timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game4") {
-    const level = new Level4();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level4(player);
+    timerCountdown(120, player);
   }
 
   // console.log("run ani");
@@ -47,8 +56,28 @@ K.scene("demo", async () => {
 
 K.go("demo");
 
-// function addWallBounds() {
-//   K.add([K.pos(0, K.height() - 2), K.rect(K.width(), 2), K.area(), "wall"]);
-//   K.add([K.pos(0, 2), K.rect(K.width(), 2), K.area(), "wall"]);
-//   K.add([K.pos(2, 0), K.rect(2, K.height()), K.area(), "wall"]);
-// }
+// Timer
+
+function timerCountdown(duration = 120, player) {
+  return new Promise((resolve) => {
+    let remainingTime = duration;
+
+    const intervalId = setInterval(() => {
+      const minutes = Math.floor(remainingTime / 60);
+      const seconds = remainingTime % 60;
+
+      const formattedTime = `${String(minutes).padStart(2, "0")}:${String(
+        seconds
+      ).padStart(2, "0")}`;
+      document.getElementById("timer").textContent = formattedTime;
+
+      remainingTime--;
+
+      if (remainingTime < 0) {
+        clearInterval(intervalId);
+        player.death();
+        resolve("Timer done");
+      }
+    }, 1000);
+  });
+}

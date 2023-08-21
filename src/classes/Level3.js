@@ -18,10 +18,11 @@ const bossObject = {
   shot: "redghostshoot",
   arrives: "redghostarrives",
   win: "pacmanwin",
+  gameLevel: 3,
 };
 
 export class Level3 {
-  constructor() {
+  constructor(player) {
     // Set background
     const background = document.getElementById("mycanvas");
     background.style.background = "black";
@@ -32,6 +33,8 @@ export class Level3 {
     this.bossActive = false;
     K.loadSprite("mazebrick", mazebrick);
     K.loadSprite("pacman", pacman);
+
+    this.player = player;
 
     K.addLevel(level3, {
       tileWidth: 16,
@@ -51,12 +54,6 @@ export class Level3 {
           K.body({ isStatic: true }),
           "mazebrick",
         ],
-
-        "*": () => {
-          this.player = new Player("dino", 0, 150, 1);
-          this.startLevel(this.player);
-          return [this.player];
-        },
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);

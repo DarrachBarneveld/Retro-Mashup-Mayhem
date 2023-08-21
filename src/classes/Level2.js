@@ -26,10 +26,11 @@ const bossObject = {
   shot: "mewtwoshoot",
   arrives: "mewtwoarrives",
   win: "pokemonwin",
+  gameLevel: 2,
 };
 
 export class Level2 {
-  constructor() {
+  constructor(player) {
     // Set background
     const background = document.getElementById("mycanvas");
     background.style.background = "var(--clr-pokemon-color)";
@@ -46,6 +47,7 @@ export class Level2 {
       sliceY: 1,
       anims: { idle: { from: 1, to: 3 } },
     });
+    this.player = player;
 
     K.addLevel(level2, {
       tileWidth: 16,
@@ -114,11 +116,7 @@ export class Level2 {
           "tiles",
         ],
         // Player placement
-        "*": () => {
-          this.player = new Player("dino", 0, 150, 1);
-          this.startLevel(this.player);
-          return [this.player];
-        },
+
         // Static Enemy placement
         e: (coords) => {
           coords.x = coords.x * 16;

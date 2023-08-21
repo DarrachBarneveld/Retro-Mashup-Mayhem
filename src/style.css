@@ -204,20 +204,27 @@ body {
 
 .levels button:nth-child(1) {
   background-color: var(--clr-neon-green);
+  box-shadow: 0 0 17px var(--clr-neon-green);
 }
 .levels button:nth-child(2) {
   background-color: var(--clr-neon-yellow);
+  box-shadow: 0 0 17px var(--clr-neon-yellow);
 }
 .levels button:nth-child(3) {
   background-color: var(--clr-neon-blue);
+  box-shadow: 0 0 17px var(--clr-neon-blue);
 }
+
 .levels button:nth-child(3) h2 {
   color: white !important;
+
 }
 .levels button:nth-child(3) p {
   color: white;
+
 }
 .levels button:nth-child(4) {
+
   background-color: var(--clr-neon-pink);
 }
 
@@ -225,6 +232,7 @@ body {
   text-decoration: none;
   padding: 0.5rem;
 }
+
 
 .levels button h2 {
   font-size: 1.2rem;

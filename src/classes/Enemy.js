@@ -283,7 +283,7 @@ export class Boss {
     this.sprite.pos.y = posY;
 
     this.spriteObject = spriteObject;
-    this.health = 600;
+    this.health = spriteObject.health;
     this.speed = 0.5;
     this.player = player;
     this.sprite.move();

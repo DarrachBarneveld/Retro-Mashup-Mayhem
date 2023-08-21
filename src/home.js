@@ -2,6 +2,22 @@
 const soundOnButton = document.getElementById("sound-on");
 const soundOffButton = document.getElementById("sound-off");
 const backgroundMusic = document.getElementById("backgroundMusic");
+/* Modals Constants */
+const rulesModal = document.querySelector("#rules-modal");
+const aboutUsModal = document.querySelector("#about-us-modal");
+const trophiesModal = document.querySelector("#trophies-modal");
+const levelsModal = document.querySelector("#levels-modal");
+
+/* Open Modal Buttons */
+const rulesButton = document.querySelector(".rules-button");
+const aboutUsButton = document.querySelector(".about-us-button");
+const trophiesButton = document.querySelector(".trophies-button");
+const levelsButton = document.querySelector(".levels-button");
+
+const level1Btn = document.getElementById("level1");
+const level2Btn = document.getElementById("level2");
+const level3Btn = document.getElementById("level3");
+const level4Btn = document.getElementById("level4");
 
 document.addEventListener("DOMContentLoaded", () => {
   const levels = loadFromLocalStorage("levels");
@@ -32,23 +48,6 @@ soundOnButton.addEventListener("click", () => {
   soundOffButton.classList.remove("hide");
   backgroundMusic.pause();
 });
-
-/* Modals Constants */
-const rulesModal = document.querySelector("#rules-modal");
-const aboutUsModal = document.querySelector("#about-us-modal");
-const trophiesModal = document.querySelector("#trophies-modal");
-const levelsModal = document.querySelector("#levels-modal");
-
-/* Open Modal Buttons */
-const rulesButton = document.querySelector(".rules-button");
-const aboutUsButton = document.querySelector(".about-us-button");
-const trophiesButton = document.querySelector(".trophies-button");
-const levelsButton = document.querySelector(".levels-button");
-
-const level1Btn = document.getElementById("level1");
-const level2Btn = document.getElementById("level2");
-const level3Btn = document.getElementById("level3");
-const level4Btn = document.getElementById("level4");
 
 /* Close Modal Buttons */
 const closeRulesButton = document.querySelector("#close-rules-modal-button");

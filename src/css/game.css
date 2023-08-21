@@ -103,3 +103,28 @@ h1 {
   width: 100% !important;
   height: 100% !important;
 }
+
+/* Timer */
+.timer-container {
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-neon-yellow);
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.timer-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.timer-value {
+  font-size: 24px;
+  color: var(--clr-neon-red); 
+  font-weight: 500;
+}

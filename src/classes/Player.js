@@ -4,6 +4,7 @@ import bulletAudio from "../../assets/audio/effects/bullet.mp3";
 import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
 import lossLife from "../../assets/audio/effects/loss-life.mp3";
 import gameOver from "../../assets/audio/effects/game-over.mp3";
+import gameOverGif from "../../assets/images/gameoverfateofuniverse.gif";
 import { delayTimer } from "../helpers/math";
 const healthElement = document.getElementById("health");
 
@@ -63,7 +64,7 @@ export class Player {
       console.log("Game win");
     });
 
-    this.health = 20;
+    this.health = 6;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());
   }
@@ -73,7 +74,7 @@ export class Player {
     const currentHeight = healthElement.clientHeight;
     healthElement.style.height = currentHeight - 50 + "px";
 
-    if (this.health <= 5) {
+    if (this.health <= 3) {
       healthElement.style.backgroundColor = "red";
     }
     if (this.health <= 0) {
@@ -92,6 +93,8 @@ export class Player {
     const gameOverModal = document.getElementById("testmodal");
     gameOverModal.style.display = "flex";
     gameOverModal.style.opacity = 1;
+    const image = document.getElementById("modal-img");
+    image.src = gameOverGif;
 
     // window.location.href = "index.html";
   }

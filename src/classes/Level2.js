@@ -2,8 +2,8 @@ import K from "../kaboom";
 import pokemonTileset from "../../assets/images/tileset/pokemon-tileset.png";
 import house from "../../assets/images/tileset/pokemon-house.png";
 import center from "../../assets/images/tileset/pokemon-center.png";
+import pika from "../../assets/images/sprites/pokemon/pikasprite.png";
 import music from "../../assets/audio/music/pokemon-win-music.mp3";
-import winmusic from "../../assets/audio/music/pokemon-win.mp3";
 
 import { level2 } from "../levels/layouts";
 
@@ -37,6 +37,11 @@ export class Level2 {
     K.loadSprite("tiles", pokemonTileset, { sliceX: 8, sliceY: 8 });
     K.loadSprite("house", house);
     K.loadSprite("center", center);
+    K.loadSprite("pika", pika, {
+      sliceX: 3,
+      sliceY: 1,
+      anims: { idle: { from: 1, to: 3 } },
+    });
 
     K.addLevel(level2, {
       tileWidth: 16,
@@ -117,6 +122,14 @@ export class Level2 {
           this.staticEnemyCoords.push(coords);
           return [this.staticEnemyCoords];
         },
+        // Pikachu
+        p: () => [
+          K.sprite("pika"),
+          K.area(),
+          K.body({ isStatic: true }),
+          K.scale(1),
+          "tiles",
+        ],
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);

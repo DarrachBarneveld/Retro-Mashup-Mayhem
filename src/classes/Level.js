@@ -32,7 +32,7 @@ const bossObject = {
   arrives: "bowserarrives",
   win: "mariowin",
   gameLevel: 1,
-  heath: 600,
+  health: 600,
 };
 
 export class Level1 {

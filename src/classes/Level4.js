@@ -9,6 +9,9 @@ import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png"
 import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png";
 import emptyspace from "../../assets/images/sprites/space-invaders/empty-space.png";
 import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
+
+import music from "../../assets/audio/music/space-invaders-level-music.mp3";
+
 import { logPlayerPosition } from "./Level";
 
 const staticObject = {
@@ -30,6 +33,9 @@ const bossObject = {
 
 export class Level4 {
   constructor() {
+    K.loadSound("music", music);
+    K.play("music", { loop: true });
+
     this.bossActive = false;
     K.loadSprite("iceplanet", iceplanet);
     K.loadSprite("redplanet", redplanet);

@@ -32,7 +32,7 @@ const bossObject = {
 };
 
 export class Level4 {
-  constructor() {
+  constructor(player) {
     K.loadSound("music", music);
     K.play("music", { loop: true });
 
@@ -47,6 +47,8 @@ export class Level4 {
     K.loadSprite("emptyspace", emptyspace);
     K.loadSprite("asteroid", asteroid);
 
+    this.player = player;
+
     K.addLevel(level4, {
       tileWidth: 16,
       tileHeight: 16,
@@ -58,12 +60,6 @@ export class Level4 {
           K.body({ isStatic: true }),
           "iceplanet",
         ],
-
-        "*": () => {
-          this.player = new Player("dino", 0, 150, 1);
-          this.startLevel(this.player);
-          return [this.player];
-        },
 
         // Red planet
         "<": () => [

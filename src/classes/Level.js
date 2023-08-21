@@ -70,6 +70,7 @@ export class Level1 {
           "tiles",
         ],
         // Player placement
+
         // Static Enemy placement
         e: (coords) => {
           coords.x = coords.x * 16;

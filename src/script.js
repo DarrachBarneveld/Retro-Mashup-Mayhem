@@ -34,13 +34,19 @@ K.scene("demo", async () => {
     timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game2") {
-    const level = new Level2();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level2(player);
+    timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game3") {
-    const level = new Level3();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level3(player);
+    timerCountdown(120, player);
   }
   if (url[0] == "/src/levels/game4") {
-    const level = new Level4();
+    const player = new Player("dino", 0, 150, 1);
+    const level = new Level4(player);
+    timerCountdown(120, player);
   }
 
   // console.log("run ani");

@@ -84,8 +84,6 @@ export class Player {
     gameOverModal.style.opacity = 1;
     const image = document.getElementById("modal-img");
     image.src = gameOverGif;
-
-    // window.location.href = "index.html";
   }
 
   moveUp() {

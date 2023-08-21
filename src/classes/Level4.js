@@ -1,6 +1,6 @@
 import K from "../kaboom";
 import { level4 } from "../levels/layouts";
-import { Boss, Enemy, HomingEnemy } from "./Enemy";
+import { Boss, Enemy, HomingEnemy, HomingEnemyShoot } from "./Enemy";
 import { Player } from "./Player";
 
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
@@ -14,11 +14,10 @@ import music from "../../assets/audio/music/space-invaders-level-music.mp3";
 
 import { logPlayerPosition } from "./Level";
 
-const staticObject = {
-  sprite: "arbok",
-  die: "arbokdead",
-  bullet: "arbokbullet",
-  shot: "arbokshoot",
+const spriteObject = {
+  name: "invader",
+  bullet: "invaderbullet",
+  shot: "spaceshipshoot",
 };
 
 const bossObject = {
@@ -148,7 +147,10 @@ export class Level4 {
 
   startLevel() {
     this.enemyLoop = K.loop(2, () => new Enemy(this.player));
-    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    this.homingEnemyLoop = K.loop(
+      4,
+      () => new HomingEnemyShoot(this.player, spriteObject)
+    );
   }
 
   activateBoss() {

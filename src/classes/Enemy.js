@@ -265,6 +265,83 @@ export class HomingEnemy {
   }
 }
 
+export class HomingEnemyShoot {
+  constructor(player, spriteObject) {
+    this.sprite = K.add([
+      K.sprite(spriteObject.name),
+      K.pos(),
+      K.area(),
+      K.scale(1),
+      K.body(),
+      K.color(),
+      "enemy",
+    ]);
+    const value1 = K.height() - this.sprite.height - 10;
+    const posY = getRandomNumber(value1, 10);
+    const posX = player.sprite.pos.x + 175;
+    this.sprite.pos.x = posX;
+    this.sprite.pos.y = posY;
+    this.spriteObject = spriteObject;
+
+    this.health = 100;
+    this.speed = 0.75;
+    this.player = player;
+
+    this.sprite.add([moveEnemyTowardsPosition(player, this)]);
+
+    this.sprite.move();
+
+    this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
+    this.fireLoop = K.loop(2, () => this.shoot());
+  }
+  shoot() {
+    const playerPos = this.player.sprite.pos;
+    const spritePos = this.sprite.pos;
+    K.play(this.spriteObject.shot);
+    const bullet = K.add([
+      K.sprite(this.spriteObject.bullet),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
+      K.scale(0.5),
+      K.body(),
+      K.area(),
+      K.offscreen({ destroy: true }),
+      "enemy-bullet",
+    ]);
+
+    const angleRadians = Math.atan2(
+      playerPos.y - spritePos.y,
+      playerPos.x - spritePos.x
+    );
+
+    const velocityX = 5 * Math.cos(angleRadians);
+    const velocityY = 5 * Math.sin(angleRadians);
+
+    bullet.add([bulletMovement(bullet, velocityX, velocityY)]);
+
+    bullet.onCollide("player", () => {
+      bullet.destroy();
+    });
+    bullet.onCollide("tiles", () => {
+      bullet.destroy();
+    });
+  }
+
+  takeDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 50) {
+      this.sprite.color = { r: 255, g: 100, b: 100 };
+    }
+
+    if (this.health <= 0) {
+      K.play("ghost-dead");
+      const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
+      this.sprite.destroy();
+      this.fireLoop.cancel();
+      explosion.play("boom");
+    }
+  }
+}
+
 export class Boss {
   constructor(player, homingEnemyLoop, spriteObject) {
     this.sprite = K.add([

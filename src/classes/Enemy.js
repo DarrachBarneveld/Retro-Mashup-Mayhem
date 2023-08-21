@@ -310,7 +310,7 @@ export class Boss {
       }
       explosion.play("boom");
 
-      await delayTimer(500);
+      await delayTimer(1000);
       K.play(this.spriteObject.win);
       const gameOverModal = document.getElementById("testmodal");
       const heading = document.getElementById("modal-heading");
@@ -392,7 +392,7 @@ function moveEnemyTowardsPosition(player, enemy) {
     add() {},
     update() {
       const speed = enemy.speed;
-      direction = findDirectionRelationship(player, enemy);
+      const direction = findDirectionRelationship(player, enemy);
       enemy.sprite.move(direction.scale(speed));
     },
   };

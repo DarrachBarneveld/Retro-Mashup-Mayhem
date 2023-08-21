@@ -26,11 +26,10 @@ Welcome to Retro-Mashup-Mayhem game!
 4. [Technologies](#technologies)
 5. [Controls](#controls)
    + [Game Controls](#game-controls)
-6. [Deployment](#deployment) 
-7. [Citation of Sources](#citation-of-sources) 
+6. [Bug](#bug)
+7. [Deployment](#deployment) 
+8. [Citation of Sources](#citation-of-sources) 
    + [Content](#content)
-   + [Media]()
-8. [Acknowledgements](#acknowledgment) 
 
 ***
 
@@ -165,12 +164,19 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 - Kill the boss to save the heroes and earn a reward.
 - Move up level after each victory.
 
-# 6. Deployment
+
+# 6. Bug
+
+GAME MUSIC - Game music does not pause when character completes level.
+
+
+# 7. Deployment
+
+This game used Netflify for deployment and linked to github repository for continuous deployment.
 
 
 
-
-# 7. Citation of Sources
+# 8. Citation of Sources
 
 ## Content
 
@@ -201,7 +207,5 @@ Music from [https://uppbeat.io](Uppbeat) and editied by Dan Morriss:
 - Pokemon theme music was recorded by Dan Morriss
 
 - Intro text was written by Debbie Bergstrom
-
-# 8. Acknowledgements
 - 
 

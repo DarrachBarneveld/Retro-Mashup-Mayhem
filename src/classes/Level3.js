@@ -3,6 +3,8 @@ import { Boss, Enemy, HomingEnemy } from "./Enemy";
 
 // Sprite imports Level 3
 import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png";
+import pacman from "../../assets/images/sprites/pacman/pacman.png";
+import music from "../../assets/audio/music/pacman-level-music.mp3";
 
 import { level3 } from "../levels/layouts";
 import { Player } from "./Player";
@@ -24,8 +26,12 @@ export class Level3 {
     const background = document.getElementById("mycanvas");
     background.style.background = "black";
 
+    K.loadSound("music", music);
+    K.play("music", { loop: true });
+
     this.bossActive = false;
     K.loadSprite("mazebrick", mazebrick);
+    K.loadSprite("pacman", pacman);
 
     K.addLevel(level3, {
       tileWidth: 16,
@@ -34,6 +40,13 @@ export class Level3 {
         // mazebrick
         "=": () => [
           K.sprite("mazebrick"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "mazebrick",
+        ],
+
+        p: () => [
+          K.sprite("pacman"),
           K.area(),
           K.body({ isStatic: true }),
           "mazebrick",
@@ -52,7 +65,7 @@ export class Level3 {
   startLevel() {
     this.enemyLoop = K.loop(4, () => new Enemy(this.player));
     this.homingEnemyLoop = K.loop(
-      2,
+      1,
       () => new HomingEnemy(this.player, "ghost", 2)
     );
   }

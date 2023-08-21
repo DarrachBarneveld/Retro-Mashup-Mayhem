@@ -29,7 +29,7 @@ const bossObject = {
   arrives: "spaceshiparrives",
   win: "spaceshipwin",
   gameLevel: 4,
-  heath: 2000,
+  heath: 1200,
 };
 
 export class Level4 {

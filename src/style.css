@@ -186,19 +186,22 @@ body {
 
 .levels li:nth-child(1) {
   background-color: var(--clr-neon-green);
+  box-shadow: 0 0 17px var(--clr-neon-green);
 }
 .levels li:nth-child(2) {
   background-color: var(--clr-neon-yellow);
+  box-shadow: 0 0 17px var(--clr-neon-yellow);
 }
 .levels li:nth-child(3) {
   background-color: var(--clr-neon-blue);
+  box-shadow: 0 0 17px var(--clr-neon-blue);
 }
-.levels li:nth-child(3) h2 {
+/* .levels li:nth-child(3) h2 {
   color: white;
 }
 .levels li:nth-child(3) p {
   color: white;
-}
+} */
 .levels li:nth-child(4) {
   background-color: var(--clr-neon-pink);
 }
@@ -209,10 +212,11 @@ body {
 }
 
 .levels li h2 {
-  font-size: 1rem;
-  text-decoration: underline;
+  font-size: 1.1rem;
+  /* text-decoration: underline; */
   margin-bottom: 10px;
   color: black;
+  text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
 }
 
 .levels li p {

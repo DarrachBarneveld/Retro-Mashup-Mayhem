@@ -136,6 +136,7 @@ body {
 
 .nav-background li:hover {
   transform: scale(1.1) rotate(-4deg);
+  cursor: pointer;
 }
 
 /* ---------------------------------------Rules*/
@@ -166,7 +167,7 @@ body {
   overflow: hidden;
 }
 
-.levels ul {
+.levels {
   border-radius: 5px;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
@@ -177,45 +178,60 @@ body {
   display: grid;
 }
 
-.levels li {
+.levels button {
+  padding: 0.5rem;
   background-color: var(--clr-neon-pink);
   text-align: center;
   border-radius: 1px;
   box-shadow: 0 0 17px var(--clr-neon-pink);
+  font-family: "Press Start 2P", cursive;
+  color: var(--clr-neon-purple) !important;
 }
 
-.levels li:nth-child(1) {
+.levels button:disabled {
+  background-color: rgba(206, 204, 204) !important;
+}
+
+.levels button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.levels button:hover:not(:disabled) {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.levels button:nth-child(1) {
   background-color: var(--clr-neon-green);
 }
-.levels li:nth-child(2) {
+.levels button:nth-child(2) {
   background-color: var(--clr-neon-yellow);
 }
-.levels li:nth-child(3) {
+.levels button:nth-child(3) {
   background-color: var(--clr-neon-blue);
 }
-.levels li:nth-child(3) h2 {
+.levels button:nth-child(3) h2 {
+  color: white !important;
+}
+.levels button:nth-child(3) p {
   color: white;
 }
-.levels li:nth-child(3) p {
-  color: white;
-}
-.levels li:nth-child(4) {
+.levels button:nth-child(4) {
   background-color: var(--clr-neon-pink);
 }
 
-.levels li a {
+.levels button a {
   text-decoration: none;
   padding: 0.5rem;
 }
 
-.levels li h2 {
-  font-size: 1rem;
+.levels button h2 {
+  font-size: 1.2rem;
   text-decoration: underline;
   margin-bottom: 10px;
-  color: black;
+  color: var(--clr-neon-purple);
 }
 
-.levels li p {
+.levels button p {
   font-size: 0.7rem;
   color: var(--clr-primary-dark);
 }
@@ -388,7 +404,6 @@ body {
 }
 
 .trophy-case-line {
-
   display: flex;
 }
 

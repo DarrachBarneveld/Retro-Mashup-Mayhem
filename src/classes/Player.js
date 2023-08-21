@@ -54,16 +54,6 @@ export class Player {
       K.camPos(this.sprite.pos.x, K.camPos().y);
     });
 
-    this.sprite.onCollide("pika", () => {
-      K.play("pikachu");
-      console.log("Game win");
-    });
-
-    this.sprite.onCollide("mario", () => {
-      K.play("mario");
-      console.log("Game win");
-    });
-
     this.health = 6;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());

@@ -25,6 +25,7 @@ import arbokbullet from "../../assets/images/sprites/pokemon/pokemon-bullet.png"
 import invaderBullet from "../../assets/images/sprites/space-invaders/space-bullet.png";
 
 import { delayTimer, getRandomNumber } from "../helpers/math";
+import { loadFromLocalStorage } from "../home";
 
 // Bosses
 K.loadSprite("bowser", bowser);
@@ -289,6 +290,8 @@ export class Boss {
     this.direction = -1;
     this.sprite.add([moveEnemyUpAndDown(this)]);
 
+    console.log(spriteObject);
+    this.gameLevel = spriteObject.gameLevel;
     this.homingEnemyLoop = homingEnemyLoop;
     this.fireLoop = K.loop(2, () => this.shoot());
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
@@ -319,7 +322,10 @@ export class Boss {
       image.style.display = "block";
       gameOverModal.style.display = "flex";
       gameOverModal.style.opacity = 1;
-      K.paus;
+      const levels = loadFromLocalStorage("levels");
+      console.log(this.gameLevel);
+      levels.push(this.gameLevel);
+      localStorage.setItem("levels", JSON.stringify(levels));
     }
   }
 

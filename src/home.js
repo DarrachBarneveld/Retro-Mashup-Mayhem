@@ -3,13 +3,12 @@ const soundOnButton = document.getElementById("sound-on");
 const soundOffButton = document.getElementById("sound-off");
 const backgroundMusic = document.getElementById("backgroundMusic");
 
-let GLOBAL_LEVELS;
-
 document.addEventListener("DOMContentLoaded", () => {
-  GLOBAL_LEVELS = loadFromLocalStorage("levels");
+  const levels = loadFromLocalStorage("levels");
+  undisableLevels(levels);
 });
 
-function loadFromLocalStorage(key) {
+export function loadFromLocalStorage(key) {
   const storedData = localStorage.getItem(key);
 
   if (!storedData) {
@@ -113,3 +112,15 @@ level3Btn.addEventListener("click", () => {
 level4Btn.addEventListener("click", () => {
   window.location.href = "src/levels/game4.html";
 });
+
+function undisableLevels(levels) {
+  if (levels.includes(1)) {
+    level2Btn.disabled = false;
+  }
+  if (levels.includes(2)) {
+    level3Btn.disabled = false;
+  }
+  if (levels.includes(3)) {
+    level4Btn.disabled = false;
+  }
+}

@@ -31,6 +31,7 @@ const bossObject = {
   shot: "bowsershoot",
   arrives: "bowserarrives",
   win: "mariowin",
+  gameLevel: 1,
 };
 
 export class Level1 {

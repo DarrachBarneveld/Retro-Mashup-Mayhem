@@ -26,6 +26,7 @@ const bossObject = {
   shot: "mewtwoshoot",
   arrives: "mewtwoarrives",
   win: "pokemonwin",
+  gameLevel: 2,
 };
 
 export class Level2 {

@@ -1,16 +1,30 @@
 import K from "../kaboom";
-import { BowserAudio } from "../audioImports";
+import { BowserAudio, PokemonAudio } from "../audioImports";
 import bowser from "../../assets/images/sprites/mario/bowser.png";
+import mewtwo from "../../assets/images/sprites/pokemon/mewtwo.png";
 import ghosts from "../../assets/images/sprites/pacman/pac-man-ghosts-blue.png";
 import bullet from "../../assets/images/sprites/mario/sm-flying-bullet.png";
 import ghostDeath from "../../assets/audio/effects/pacman/ghost-dead.mp3";
 import bowserShot from "../../assets/images/sprites/mario/sm-bowser-shot.png";
 import koopashot from "../../assets/images/sprites/mario/koopa-bullet.png";
 import koopa from "../../assets/images/sprites/mario/koopa.png";
-import { getRandomNumber } from "../helpers/math";
+import koffing from "../../assets/images/sprites/pokemon/koffing.png";
+import invader from "../../assets/images/invader.png";
 
-K.loadSprite("enemy", bowser);
-K.loadSprite("invader", bullet);
+// Level2
+import arbok from "../../assets/images/sprites/pokemon/arbok.png";
+import arbokbullet from "../../assets/images/sprites/pokemon/pokemon-bullet.png";
+
+import { delayTimer, getRandomNumber } from "../helpers/math";
+
+// Bosses
+K.loadSprite("bowser", bowser);
+K.loadSprite("mewtwo", mewtwo);
+
+//
+K.loadSprite("invader", invader);
+K.loadSprite("bullet", bullet);
+K.loadSprite("koffing", koffing);
 K.loadSprite("ghost", ghosts, { sliceX: 4, sliceY: 1 });
 K.loadSprite("bowserbullet", bowserShot, {
   sliceX: 4,
@@ -27,21 +41,41 @@ K.loadSprite("koopa", koopa, {
   sliceY: 1,
   anims: { idle: { from: 1, to: 5, loop: true } },
 });
+K.loadSprite("arbok", arbok, {
+  sliceX: 2,
+  sliceY: 1,
+  anims: { idle: { from: 1, to: 1, loop: true } },
+});
+K.loadSprite("arbokbullet", arbokbullet, {
+  sliceX: 2,
+  sliceY: 1,
+  anims: { shot: { from: 1, to: 1, loop: true } },
+});
 
+// Sounds
 K.loadSound("ghost-dead", ghostDeath);
 K.loadSound("bowserarrives", BowserAudio.arrives);
 K.loadSound("bowserdies", BowserAudio.dies);
 K.loadSound("bowsershoot", BowserAudio.shoot);
 K.loadSound("bowserhurt", BowserAudio.hurt);
 K.loadSound("koopashoot", BowserAudio.staticShooter);
+K.loadSound("mariowin", BowserAudio.win);
+
+K.loadSound("mewtwoarrives", PokemonAudio.arrives);
+K.loadSound("mewtwodies", PokemonAudio.dies);
+K.loadSound("mewtwoshoot", PokemonAudio.shoot);
+K.loadSound("mewtwohurt", PokemonAudio.hurt);
+K.loadSound("arbokdead", PokemonAudio.staticDie);
+K.loadSound("arbokshoot", PokemonAudio.staticShooter);
+K.loadSound("pokemonwin", PokemonAudio.win);
 
 export class Enemy {
   constructor(player) {
     this.sprite = K.add([
-      K.sprite("ghost", { frame: 1 }),
+      K.sprite("invader"),
       K.pos(),
       K.area(),
-      K.scale(1),
+      K.scale(0.5),
       K.body(),
       K.color(),
       "enemy",
@@ -78,9 +112,10 @@ export class Enemy {
 }
 
 export class StaticEnemy {
-  constructor(player, coords) {
+  constructor(player, coords, spriteObject) {
+    console.log(spriteObject);
     this.sprite = K.add([
-      K.sprite("koopa", { flipX: true }),
+      K.sprite(spriteObject.sprite, { flipX: true }),
       K.pos(coords),
       K.area(),
       K.scale(1),
@@ -89,6 +124,7 @@ export class StaticEnemy {
       "enemy",
     ]);
     this.health = 100;
+    this.spriteObject = spriteObject;
 
     this.sprite.play("idle");
     this.player = player;
@@ -106,7 +142,7 @@ export class StaticEnemy {
     }
 
     if (this.health <= 0) {
-      K.play("ghost-dead");
+      K.play(this.spriteObject.die);
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       explosion.play("boom");
@@ -119,11 +155,10 @@ export class StaticEnemy {
   shoot() {
     const playerPos = this.player.sprite.pos;
     const spritePos = this.sprite.pos;
-    console.log(spritePos);
 
-    K.play("koopashoot");
+    K.play(this.spriteObject.shot);
     const bullet = K.add([
-      K.sprite("koopabullet"),
+      K.sprite(this.spriteObject.bullet),
       K.pos(this.sprite.pos.x, this.sprite.pos.y),
       K.scale(0.5),
       K.body(),
@@ -153,12 +188,12 @@ export class StaticEnemy {
 }
 
 export class HomingEnemy {
-  constructor(player) {
+  constructor(player, name = "invader", scale = 1) {
     this.sprite = K.add([
-      K.sprite("invader"),
+      K.sprite(name),
       K.pos(),
       K.area(),
-      K.scale(1),
+      K.scale(scale),
       K.body(),
       K.color(),
       "enemy",
@@ -195,9 +230,9 @@ export class HomingEnemy {
 }
 
 export class Boss {
-  constructor(player, homingEnemyLoop) {
+  constructor(player, homingEnemyLoop, spriteObject) {
     this.sprite = K.add([
-      K.sprite("enemy"),
+      K.sprite(spriteObject.sprite),
       K.pos(),
       K.area(),
       K.scale(0.5),
@@ -205,12 +240,13 @@ export class Boss {
       K.color(),
       "enemy",
     ]);
-    K.play("bowserarrives");
+    K.play(spriteObject.arrives);
     const posY = K.height() / 2;
     const posX = player.sprite.pos.x + 150;
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
+    this.spriteObject = spriteObject;
     this.health = 600;
     this.speed = 0.5;
     this.player = player;
@@ -223,14 +259,14 @@ export class Boss {
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
 
-  takeDamage(damage) {
-    K.play("bowserhurt");
+  async takeDamage(damage) {
+    K.play(this.spriteObject.hurt);
     this.health -= damage;
     if (this.health <= 50) {
       this.sprite.color = { r: 255, g: 100, b: 100 };
     }
     if (this.health <= 0) {
-      K.play("bowserdies");
+      K.play(this.spriteObject.die);
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       this.fireLoop.cancel();
@@ -239,6 +275,8 @@ export class Boss {
       }
       explosion.play("boom");
 
+      await delayTimer(500);
+      K.play(this.spriteObject.win);
       const gameOverModal = document.getElementById("testmodal");
       const heading = document.getElementById("modal-heading");
       heading.textContent = "Victory";
@@ -252,9 +290,9 @@ export class Boss {
   shoot() {
     const playerPos = this.player.sprite.pos;
     const spritePos = this.sprite.pos;
-    K.play("bowsershoot");
+    K.play(this.spriteObject.shot);
     const bullet = K.add([
-      K.sprite("bowserbullet"),
+      K.sprite(this.spriteObject.bullet),
       K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
       K.scale(0.5),
       K.body(),

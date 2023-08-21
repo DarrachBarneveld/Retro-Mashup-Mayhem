@@ -10,9 +10,10 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
+import marioMusic from "../../assets/audio/music/mario-level-music.mp3";
 
 // Sprite imports Level 3
-import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png"
+import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png";
 
 // Sprite imports Level 4
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
@@ -25,8 +26,29 @@ import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
 
+const staticObject = {
+  sprite: "koopa",
+  die: "ghost-dead",
+  bullet: "koopabullet",
+  shot: "koopashoot",
+};
+
+const bossObject = {
+  sprite: "bowser",
+  die: "bowserdies",
+  hurt: "bowserhurt",
+  bullet: "bowserbullet",
+  shot: "bowsershoot",
+  arrives: "bowserarrives",
+  win: "mariowin",
+};
+
 export class Level1 {
   constructor() {
+    const background = document.getElementById("mycanvas");
+    background.style.background = "var(--clr-mario-sky)";
+    K.loadSound("mario-music", marioMusic);
+    K.play("mario-music", { loop: true });
     this.bossActive = false;
     this.staticEnemyCoords = [];
     K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
@@ -159,18 +181,21 @@ export class Level1 {
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
-    this.staticEnemy = new StaticEnemy(this.player, this.staticEnemyCoords);
     this.renderStaticEnemies();
   }
 
   startLevel() {
-    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(
+      4,
+      () => new HomingEnemy(this.player, "bullet", 1)
+    );
   }
 
   renderStaticEnemies() {
+    console.log(console.log(staticObject));
     this.staticEnemyCoords.forEach(
-      (coords) => new StaticEnemy(this.player, coords)
+      (coords) => new StaticEnemy(this.player, coords, staticObject)
     );
   }
 
@@ -180,7 +205,7 @@ export class Level1 {
       this.enemyLoop.cancel();
     }
 
-    const boss = new Boss(this.player, this.homingEnemyLoop);
+    const boss = new Boss(this.player, this.homingEnemyLoop, bossObject);
   }
 }
 
@@ -202,9 +227,9 @@ export class Level3 {
         ],
 
         "*": () => {
-        this.player = new Player("dino", 0, 150, 1);
-        this.startLevel(this.player);
-        return [this.player];
+          this.player = new Player("dino", 0, 150, 1);
+          this.startLevel(this.player);
+          return [this.player];
         },
       },
     });
@@ -326,11 +351,11 @@ export class Level4 {
   }
 }
 
-function logPlayerPosition(level, player) {
+export function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 1100 && !level.bossActive) {
+      if (player.sprite.pos.x > 1200 && !level.bossActive) {
         level.activateBoss();
       }
     },

@@ -1,6 +1,6 @@
 #testmodal {
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 682px;
   height: 544px;
   border: 2px solid black;
@@ -28,7 +28,13 @@ h1 {
   text-transform: uppercase;
 }
 
-button {
+.btn-container {
+  display: flex;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
   background-color: var(--clr-neon-green);
   width: 100px;
   margin: 1rem;
@@ -37,7 +43,16 @@ button {
   border-radius: 10px;
 }
 
-button i {
+.btn i {
   font-size: 2rem;
   color: white;
+}
+
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+  filter: brightness(1.1);
+  background-color: rgb(35, 184, 35);
+  transform: scale(1.1);
+  transition: 250ms;
 }

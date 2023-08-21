@@ -63,7 +63,7 @@ export class Player {
       console.log("Game win");
     });
 
-    this.health = 6;
+    this.health = 20;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());
   }
@@ -152,7 +152,7 @@ export class Player {
     ]);
 
     // Destroys bullet after certain time, acts as range
-    K.wait(0.5, () => bullet.destroy());
+    K.wait(0.75, () => bullet.destroy());
     bullet.damage = 50;
 
     bullet.onCollide("enemy", (enemy) => {
@@ -166,17 +166,6 @@ export class Player {
     });
   }
 }
-
-// function logPlayerPosition() {
-//   return {
-//     add() {},
-//     update() {
-//       if (this.pos.x > 1000) {
-//         console.log("boss fight");
-//       }
-//     },
-//   };
-// }
 
 export function bulletMovement(x, y) {
   return {

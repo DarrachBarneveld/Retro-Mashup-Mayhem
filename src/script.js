@@ -4,6 +4,13 @@ import { Enemy, HomingEnemy } from "./classes/Enemy";
 import { Level1, Level3, Level4 } from "./classes/Level";
 import explosion from "../assets/images/sprites/explosion.png";
 import { delayTimer } from "./helpers/math";
+import { Level2 } from "./classes/Level2";
+
+const replayBtn = document.getElementById("replay");
+
+replayBtn.addEventListener("click", () => {
+  location.reload();
+});
 
 // When pages loads change background url
 
@@ -24,7 +31,7 @@ K.scene("demo", async () => {
     const level = new Level1();
   }
   if (url[0] == "/src/levels/game2") {
-    const level = new Level1();
+    const level = new Level2();
   }
   if (url[0] == "/src/levels/game3") {
     const level = new Level3();
@@ -32,6 +39,7 @@ K.scene("demo", async () => {
   if (url[0] == "/src/levels/game4") {
     const level = new Level4();
   }
+
   // console.log("run ani");
   // await delayTimer(3000);
   // const level = new Level3();

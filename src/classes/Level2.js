@@ -1,0 +1,148 @@
+import K from "../kaboom";
+import pokemonTileset from "../../assets/images/tileset/pokemon-tileset.png";
+import house from "../../assets/images/tileset/pokemon-house.png";
+import center from "../../assets/images/tileset/pokemon-center.png";
+import music from "../../assets/audio/music/pokemon-win-music.mp3";
+import winmusic from "../../assets/audio/music/pokemon-win.mp3";
+
+import { level2 } from "../levels/layouts";
+
+import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
+import { Player } from "./Player";
+import { logPlayerPosition } from "./Level";
+
+const staticObject = {
+  sprite: "arbok",
+  die: "arbokdead",
+  bullet: "arbokbullet",
+  shot: "arbokshoot",
+};
+
+const bossObject = {
+  sprite: "mewtwo",
+  die: "mewtwodies",
+  hurt: "mewtwohurt",
+  bullet: "arbokbullet",
+  shot: "mewtwoshoot",
+  arrives: "mewtwoarrives",
+  win: "pokemonwin",
+};
+
+export class Level2 {
+  constructor() {
+    K.loadSound("music", music);
+    K.play("music", { loop: true });
+    this.bossActive = false;
+    this.staticEnemyCoords = [];
+    K.loadSprite("tiles", pokemonTileset, { sliceX: 8, sliceY: 8 });
+    K.loadSprite("house", house);
+    K.loadSprite("center", center);
+
+    K.addLevel(level2, {
+      tileWidth: 16,
+      tileHeight: 16,
+      tiles: {
+        // Ground tile
+        "=": () => [
+          K.sprite("tiles", { frame: 42 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        // mountain grass dirt
+        "+": () => [
+          K.sprite("tiles", { frame: 34 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        // grass
+        "<": () => [
+          K.sprite("tiles", { frame: 14 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+
+        // road
+        ">": () => [K.sprite("tiles", { frame: 7 }), "tiles"],
+
+        // Tree
+        a: () => [
+          K.sprite("tiles", { frame: 1 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        b: () => [
+          K.sprite("tiles", { frame: 2 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        c: () => [
+          K.sprite("tiles", { frame: 9 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        d: () => [
+          K.sprite("tiles", { frame: 10 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        f: () => [
+          K.sprite("house"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        g: () => [
+          K.sprite("center"),
+          K.area(),
+          K.body({ isStatic: true }),
+          "tiles",
+        ],
+        // Player placement
+        "*": () => {
+          this.player = new Player("dino", 0, 150, 1);
+          this.startLevel(this.player);
+          return [this.player];
+        },
+        // Static Enemy placement
+        e: (coords) => {
+          coords.x = coords.x * 16;
+          coords.y = coords.y * 16;
+          this.staticEnemyCoords.push(coords);
+          return [this.staticEnemyCoords];
+        },
+      },
+    });
+    this.level = K.add([logPlayerPosition(this, this.player)]);
+    this.renderStaticEnemies();
+  }
+
+  startLevel() {
+    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(
+      4,
+      () => new HomingEnemy(this.player, "koffing", 0.75)
+    );
+  }
+
+  renderStaticEnemies() {
+    this.staticEnemyCoords.forEach(
+      (coords) => new StaticEnemy(this.player, coords, staticObject)
+    );
+  }
+
+  activateBoss() {
+    this.bossActive = true;
+    if (this.enemyLoop) {
+      this.enemyLoop.cancel();
+    }
+
+    const boss = new Boss(this.player, this.homingEnemyLoop, bossObject);
+  }
+}

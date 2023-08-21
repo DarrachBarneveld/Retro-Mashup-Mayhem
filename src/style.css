@@ -12,6 +12,7 @@
   --clr-neon-green: rgb(39, 239, 16);
   --clr-neon-purple: rgb(136, 1, 243);
   --clr-mario-sky: rgb(92, 148, 252);
+  --clr-pokemon-color: #afd07c;
 }
 
 *,
@@ -79,8 +80,9 @@ body {
   height: 544px;
   border: 2px solid black;
   border-radius: 16px;
+  background: var(--clr-pokemon-color);
   /* background-color: var(--clr-mario-sky);  Background for Marios level */
-  background: url(../assets/images/backgrounds/space-background.png);
+  /* background: url(../assets/images/backgrounds/space-background.png); */
 }
 
 .tv-screen {

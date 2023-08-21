@@ -236,7 +236,7 @@ export class HomingEnemy {
     ]);
     const value1 = K.height() - this.sprite.height - 10;
     const posY = getRandomNumber(value1, 10);
-    const posX = player.sprite.pos.x + 300;
+    const posX = player.sprite.pos.x + 175;
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 

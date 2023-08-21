@@ -27,6 +27,7 @@ const bossObject = {
   arrives: "mewtwoarrives",
   win: "pokemonwin",
   gameLevel: 2,
+  heath: 800,
 };
 
 export class Level2 {

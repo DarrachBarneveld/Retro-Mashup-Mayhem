@@ -1,6 +1,6 @@
 import K from "../kaboom";
 import { level4 } from "../levels/layouts";
-import { Boss } from "./Enemy";
+import { Boss, Enemy, HomingEnemy } from "./Enemy";
 import { Player } from "./Player";
 
 import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
@@ -30,6 +30,7 @@ const bossObject = {
   arrives: "spaceshiparrives",
   win: "spaceshipwin",
   gameLevel: 4,
+  heath: 2000,
 };
 
 export class Level4 {
@@ -90,27 +91,55 @@ export class Level4 {
         a: () => [
           K.sprite("shattered_planet", { frame: 0 }),
           "shattered_planet",
+          K.area(),
+          K.body({ isStatic: true }),
         ],
         b: () => [
           K.sprite("shattered_planet", { frame: 1 }),
           "shattered_planet",
+          K.area(),
+          K.body({ isStatic: true }),
         ],
 
         c: () => [
           K.sprite("shattered_planet", { frame: 2 }),
           "shattered_planet",
+          K.area(),
+          K.body({ isStatic: true }),
         ],
         d: () => [
           K.sprite("shattered_planet", { frame: 3 }),
           "shattered_planet",
+          K.area(),
+          K.body({ isStatic: true }),
         ],
 
         // sphereplanet
-        e: () => [K.sprite("sphereplanet", { frame: 0 }), "sphereplanet"],
-        f: () => [K.sprite("sphereplanet", { frame: 1 }), "sphereplanet"],
+        e: () => [
+          K.sprite("sphereplanet", { frame: 0 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "sphereplanet",
+        ],
+        f: () => [
+          K.sprite("sphereplanet", { frame: 1 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "sphereplanet",
+        ],
 
-        g: () => [K.sprite("sphereplanet", { frame: 2 }), "sphereplanet"],
-        h: () => [K.sprite("sphereplanet", { frame: 3 }), "sphereplanet"],
+        g: () => [
+          K.sprite("sphereplanet", { frame: 2 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "sphereplanet",
+        ],
+        h: () => [
+          K.sprite("sphereplanet", { frame: 3 }),
+          K.area(),
+          K.body({ isStatic: true }),
+          "sphereplanet",
+        ],
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);

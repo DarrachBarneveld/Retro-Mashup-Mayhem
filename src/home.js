@@ -114,12 +114,15 @@ level4Btn.addEventListener("click", () => {
 
 function undisableLevels(levels) {
   if (levels.includes(1)) {
+    if (!level2Btn) return;
     level2Btn.disabled = false;
   }
   if (levels.includes(2)) {
+    if (!level3Btn) return;
     level3Btn.disabled = false;
   }
   if (levels.includes(3)) {
+    if (!level4Btn) return;
     level4Btn.disabled = false;
   }
 }

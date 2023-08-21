@@ -113,11 +113,8 @@ h1 {
   top: 10px;
   right: 10px;
   display: flex;
-  align-items: center;
-  background-color: var(--clr-neon-yellow);
   padding: 5px 10px;
   border-radius: 5px;
-  box-shadow: 0 0 17px var(--clr-neon-yellow);
   z-index: 10;
 }
 
@@ -127,9 +124,9 @@ h1 {
 }
 
 .timer-value {
-  color: var(--clr-neon-red);
-  text-shadow: 0 0 1px var(--clr-neon-red), 0 0 20px var(--clr-neon-red), 0 0 30px var(--clr-neon-red);
+  color: var(--clr-primary-light);
+  text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
   font-family: VT323, monospace;
-  font-size: 32px;
+  font-size: 46px;
   font-weight: 800;
 }

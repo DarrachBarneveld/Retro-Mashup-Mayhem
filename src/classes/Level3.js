@@ -57,6 +57,7 @@ export class Level3 {
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
+    this.startLevel();
   }
 
   startLevel() {

@@ -171,14 +171,15 @@ export class Level1 {
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();
+    this.startLevel();
   }
 
   startLevel() {
-    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(
-    //   4,
-    //   () => new HomingEnemy(this.player, "bullet", 1)
-    // );
+    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(
+      4,
+      () => new HomingEnemy(this.player, "bullet", 1)
+    );
   }
 
   renderStaticEnemies() {

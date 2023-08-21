@@ -114,11 +114,12 @@ export class Level4 {
       },
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
+    this.startLevel();
   }
 
   startLevel() {
-    // this.enemyLoop = K.loop(2, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
+    this.enemyLoop = K.loop(2, () => new Enemy(this.player));
+    this.homingEnemyLoop = K.loop(4, () => new HomingEnemy(this.player));
   }
 
   activateBoss() {

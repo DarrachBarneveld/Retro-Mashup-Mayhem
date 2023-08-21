@@ -136,6 +136,7 @@ export class Level2 {
     });
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();
+    this.startLevel();
   }
 
   startLevel() {

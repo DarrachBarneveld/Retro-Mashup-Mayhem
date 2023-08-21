@@ -25,8 +25,6 @@ K.loadSprite("explosion", explosion, {
   },
 });
 
-console.log(url[0]);
-
 K.scene("demo", async () => {
   if (url[0] == "/src/levels/game") {
     const player = new Player("dino", 0, 150, 1);

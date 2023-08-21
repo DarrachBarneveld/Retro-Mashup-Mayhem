@@ -3,17 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="./src/style.css" />
     <link rel="stylesheet" type="text/css" href="./src/intro.css" />
-    <link
-      rel="icon"
-      href="assets/images/favicon_green.ico"
-      type="image/x-icon"
-    />
+    <link rel="icon" href="assets/images/favicon_green.ico" type="image/x-icon"/>
     <title>Retro Mashup Mayhem</title>
   </head>
   <body>
@@ -34,7 +27,7 @@
           <img src="assets/images/gamelogo.gif" alt="game logo" id="gamelogo" />
           <nav>
             <ul class="menu-btn">
-              <li><a href="levels.html">Start Game</a></li>
+              <li class="levels-button"><a href="#">Start Game</a></li>
               <li class="rules-button"><a href="#">How to play</a></li>
               <li class="trophies-button"><a href="#">Trophies</a></li>
               <li class="about-us-button"><a href="#">About Us</a></li>
@@ -45,6 +38,51 @@
           </nav>
         </div>
         <!-- / Home Screen -->
+
+        <!-- Level Select -->
+        <div id="levels-modal" class="about-background tv-screen hide-modal modal levels-modal">
+          <!-- Close -->
+          <a id="close-levels-button" href="#"
+            ><i class="fa-solid fa-square-xmark close-button"></i
+          ></a>
+          
+          <nav class="levels nav-background">
+            <ul>
+         
+              <li>
+                <a href="src/levels/game.html">
+                  <h2>Mario Matrix</h2>
+                  <p>
+                    Venture into Mario's world to free him and Princess Peach.
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a href="src/levels/game2.html">
+                  <h2>Pikachu Paradox</h2>
+                  <p>
+                    Dive into the Pikachu Paradox and ensure our hero's return.
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a href="src/levels/game3.html">
+                  <h2>Pacman Prowess</h2>
+                  <p>Delve into Pacman's world to guide him to freedom.</p>
+                </a>
+              </li>
+              <li>
+                <a href="src/levels/game4.html">
+                  <h2>Invader Invasion</h2>
+                  <p>
+                    Defend our realm from Invader Invasion with cosmic combat.
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- / Level Select -->
 
         <!-- Trophies Modal -->
         <div class="about-background tv-screen hide-modal modal" id="trophies-modal">

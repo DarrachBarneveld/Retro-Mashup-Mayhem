@@ -53,9 +53,9 @@ export class Player {
       K.camPos(this.sprite.pos.x, K.camPos().y);
     });
 
-    this.health = 100;
+    this.health = 6;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
-    this.sprite.onCollide("enemy", () => this.takeDamage());
+    // this.sprite.onCollide("enemy", () => this.takeDamage());
   }
 
   takeDamage() {

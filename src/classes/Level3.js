@@ -7,7 +7,6 @@ import pacman from "../../assets/images/sprites/pacman/pacman.png";
 import music from "../../assets/audio/music/pacman-level-music.mp3";
 
 import { level3 } from "../levels/layouts";
-import { Player } from "./Player";
 import { logPlayerPosition } from "./Level";
 
 const bossObject = {

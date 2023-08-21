@@ -360,7 +360,6 @@ export class Boss {
 
     this.spriteObject = spriteObject;
     this.health = spriteObject.health;
-    console.log(spriteObject);
     this.speed = 0.5;
     this.player = player;
     this.sprite.move();

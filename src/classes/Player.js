@@ -30,7 +30,6 @@ export class Player {
       K.area(),
       K.scale(scale),
       K.body(),
-      // logPlayerPosition(),
       "player",
     ]);
     this.running = false;

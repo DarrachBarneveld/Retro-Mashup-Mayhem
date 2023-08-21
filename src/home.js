@@ -121,6 +121,8 @@ function undisableLevels(levels) {
   if (levels.includes(1)) {
     const html = `<img id="mario-trophy" src=${marioTrophy} alt="Mario trophy"><h3>Mario Matrix</h3>`;
     const element = document.getElementById("mario-trophy");
+    if (!element) return;
+
     element.innerHTML = html;
 
     if (!level2Btn) return;
@@ -129,6 +131,7 @@ function undisableLevels(levels) {
   if (levels.includes(2)) {
     const html = `<img id="pikachu-trophy" src=${pikatrophy} alt="Pikachu trophy"><h3>Pikachu Paradox</h3>`;
     const element = document.getElementById("pikachu-trophy");
+    if (!element) return;
     element.innerHTML == html;
     if (!level3Btn) return;
     level3Btn.disabled = false;
@@ -137,6 +140,9 @@ function undisableLevels(levels) {
     const html = `<img id="pacman-trophy" src=${pactropy} alt="Pacman trophy">
     <h3>Pacman Prowess</h3>`;
     const element = document.getElementById("pacman-trophy");
+    if (!element) return;
+    element.innerHTML = html;
+
     if (!level4Btn) return;
     level4Btn.disabled = false;
   }
@@ -144,6 +150,8 @@ function undisableLevels(levels) {
     const html = `<img id="invaders-trophy" ssrc=${spacetrophy} alt="Invaders trophy">
     <h3>Invader Invasion</h3>`;
     const element = document.getElementById("invaders-trophy");
+    if (!element) return;
+
     element.innerHTML == html;
   }
 }

@@ -46,10 +46,6 @@ K.scene("demo", async () => {
     const level = new Level4(player);
     timerCountdown(120, player);
   }
-
-  // console.log("run ani");
-  // await delayTimer(3000);
-  // const level = new Level3();
 });
 
 K.go("demo");

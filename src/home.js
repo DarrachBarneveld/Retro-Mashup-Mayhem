@@ -19,16 +19,19 @@ soundOnButton.addEventListener("click", () => {
 const rulesModal = document.querySelector("#rules-modal");
 const aboutUsModal = document.querySelector("#about-us-modal");
 const trophiesModal = document.querySelector('#trophies-modal')
+const levelsModal = document.querySelector('#levels-modal');
 
 /* Open Modal Buttons */
 const rulesButton = document.querySelector(".rules-button");
 const aboutUsButton = document.querySelector(".about-us-button");
 const trophiesButton = document.querySelector('.trophies-button')
+const levelsButton = document.querySelector('.levels-button');
 
 /* Close Modal Buttons */
 const closeRulesButton = document.querySelector("#close-rules-modal-button");
 const closeAboutUsButton = document.querySelector("#close-about-us-modal-button");
 const closeTrophiesButton = document.querySelector("#close-trophies-modal-button");
+const closeLevelsButton = document.querySelector('#close-levels-button');
 
 /* Open rules modal */
 rulesButton.addEventListener("click", () => {
@@ -58,4 +61,14 @@ trophiesButton.addEventListener("click", () => {
 /* Close Trophies Modal */
 closeTrophiesButton.addEventListener("click", () => {
   trophiesModal.classList.add("hide-modal");
+});
+
+/* Open Levels Modal */
+levelsButton.addEventListener('click',() => {
+  levelsModal.classList.remove('hide-modal');
+});
+
+/* Close Levels Modal */
+closeLevelsButton.addEventListener('click', () => {
+  levelsModal.classList.add('hide-modal');
 });

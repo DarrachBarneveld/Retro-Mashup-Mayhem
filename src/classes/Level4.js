@@ -29,6 +29,7 @@ const bossObject = {
   shot: "spaceshipshoot",
   arrives: "spaceshiparrives",
   win: "spaceshipwin",
+  gameLevel: 4,
 };
 
 export class Level4 {

@@ -18,6 +18,7 @@ const bossObject = {
   shot: "redghostshoot",
   arrives: "redghostarrives",
   win: "pacmanwin",
+  gameLevel: 3,
 };
 
 export class Level3 {

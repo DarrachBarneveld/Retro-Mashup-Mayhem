@@ -55,7 +55,7 @@ export class Player {
 
     this.health = 6;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
-    // this.sprite.onCollide("enemy", () => this.takeDamage());
+    this.sprite.onCollide("enemy", () => this.takeDamage());
   }
 
   takeDamage() {

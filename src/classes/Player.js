@@ -37,6 +37,7 @@ export class Player {
     this.position = position;
     this.moveSpeed = moveSpeed;
     this.sprite.play("idle");
+    this.sprite.direction = "right";
 
     K.onKeyDown("left", () => this.moveLeft());
     K.onKeyDown("right", () => this.moveRight());
@@ -95,6 +96,7 @@ export class Player {
       this.running = true;
     }
     this.sprite.move(0, -this.moveSpeed);
+    this.sprite.direction = "up";
   }
 
   moveDown() {
@@ -106,6 +108,7 @@ export class Player {
     }
 
     this.sprite.move(0, this.moveSpeed);
+    this.sprite.direction = "down";
   }
 
   moveLeft() {
@@ -117,6 +120,7 @@ export class Player {
     }
     this.sprite.move(-this.moveSpeed, 0);
     this.sprite.flipX = true;
+    this.sprite.direction = "left";
   }
 
   moveRight() {
@@ -128,6 +132,7 @@ export class Player {
     }
     this.sprite.flipX = false;
     this.sprite.move(this.moveSpeed, 0);
+    this.sprite.direction = "right";
   }
 
   idle() {
@@ -138,17 +143,31 @@ export class Player {
   }
 
   shoot() {
-    const direction = this.sprite.flipX ? -10 : 10;
+    let direction;
+
+    if (this.sprite.direction === "right") {
+      direction = { x: 10, y: 0 };
+    }
+    if (this.sprite.direction === "left") {
+      direction = { x: -10, y: 0 };
+    }
+    if (this.sprite.direction === "up") {
+      direction = { x: 0, y: -10 };
+    }
+    if (this.sprite.direction === "down") {
+      direction = { x: 0, y: 10 };
+    }
     K.play("shoot");
 
+    const bulletPositionY = this.sprite.direction === "down" ? 20 : 10;
     const bullet = K.add([
       K.circle(4),
-      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
+      K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + bulletPositionY),
       K.scale(0.5),
       K.body(),
       K.area(),
       K.offscreen({ destroy: true }),
-      bulletMovement(direction, 0),
+      bulletMovement(direction),
       "bullet",
     ]);
 
@@ -168,12 +187,12 @@ export class Player {
   }
 }
 
-export function bulletMovement(x, y) {
+export function bulletMovement(direction) {
   return {
     add() {},
     update() {
-      this.pos.x += x;
-      this.pos.y += y;
+      this.pos.x += direction.x;
+      this.pos.y += direction.y;
     },
   };
 }

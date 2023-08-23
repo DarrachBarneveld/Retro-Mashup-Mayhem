@@ -1,7 +1,6 @@
 import K from "./kaboom";
 import { Level1 } from "./classes/Level";
 import explosion from "../assets/images/sprites/explosion.png";
-import { delayTimer } from "./helpers/math";
 import { Level2 } from "./classes/Level2";
 import { Level3 } from "./classes/Level3";
 import { Level4 } from "./classes/Level4";

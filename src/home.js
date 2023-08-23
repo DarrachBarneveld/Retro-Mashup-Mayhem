@@ -132,7 +132,7 @@ function undisableLevels(levels) {
     const html = `<img id="pikachu-trophy" src=${pikatrophy} alt="Pikachu trophy"><h3>Pikachu Paradox</h3>`;
     const element = document.getElementById("pikachu-trophy");
     if (!element) return;
-    element.innerHTML == html;
+    element.innerHTML = html;
     if (!level3Btn) return;
     level3Btn.disabled = false;
   }
@@ -147,7 +147,7 @@ function undisableLevels(levels) {
     level4Btn.disabled = false;
   }
   if (levels.includes(4)) {
-    const html = `<img id="invaders-trophy" ssrc=${spacetrophy} alt="Invaders trophy">
+    const html = `<img id="invaders-trophy" src=${spacetrophy} alt="Invaders trophy">
     <h3>Invader Invasion</h3>`;
     const element = document.getElementById("invaders-trophy");
     if (!element) return;

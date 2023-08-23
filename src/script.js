@@ -25,26 +25,30 @@ K.loadSprite("explosion", explosion, {
 });
 
 K.scene("demo", async () => {
-  if (url[0] == "/src/levels/game") {
-    const player = new Player("dino", 0, 150, 1);
-    const level = new Level1(player);
-    timerCountdown(120, player);
-  }
-  if (url[0] == "/src/levels/game2") {
-    const player = new Player("dino", 0, 150, 1);
-    const level = new Level2(player);
-    timerCountdown(120, player);
-  }
-  if (url[0] == "/src/levels/game3") {
-    const player = new Player("dino", 0, 150, 1);
-    const level = new Level3(player);
-    timerCountdown(120, player);
-  }
-  if (url[0] == "/src/levels/game4") {
-    const player = new Player("dino", 0, 150, 1);
-    const level = new Level4(player);
-    timerCountdown(120, player);
-  }
+  const player = new Player("dino", 0, 150, 1);
+  const level = new Level1(player);
+  timerCountdown(120, player);
+
+  // if (url[0] == "/src/levels/game") {
+  //   const player = new Player("dino", 0, 150, 1);
+  //   const level = new Level1(player);
+  //   timerCountdown(120, player);
+  // }
+  // if (url[0] == "/src/levels/game2") {
+  //   const player = new Player("dino", 0, 150, 1);
+  //   const level = new Level2(player);
+  //   timerCountdown(120, player);
+  // }
+  // if (url[0] == "/src/levels/game3") {
+  //   const player = new Player("dino", 0, 150, 1);
+  //   const level = new Level3(player);
+  //   timerCountdown(120, player);
+  // }
+  // if (url[0] == "/src/levels/game4") {
+  //   const player = new Player("dino", 0, 150, 1);
+  //   const level = new Level4(player);
+  //   timerCountdown(120, player);
+  // }
 });
 
 K.go("demo");

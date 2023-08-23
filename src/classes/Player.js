@@ -3,7 +3,7 @@ import dinoSpriteTest from "../../assets/images/sprites/dino.png";
 import bulletAudio from "../../assets/audio/effects/bullet.mp3";
 import pikachuAudio from "../../assets/audio/effects/pikachu.mp3";
 import lossLife from "../../assets/audio/effects/loss-life.mp3";
-import gameOver from "../../assets/audio/effects/game-over.mp3";
+import gameOverSound from "../../assets/audio/effects/game-over.mp3";
 import gameOverGif from "../../assets/images/gameoverfateofuniverse.gif";
 import { delayTimer } from "../helpers/math";
 const healthElement = document.getElementById("health");
@@ -14,13 +14,14 @@ K.loadSprite("dino", dinoSpriteTest, {
   anims: {
     idle: { from: 1, to: 9, loop: true },
     run: { from: 17, to: 23, loop: true },
+    death: { from: 14, to: 16, loop: true },
   },
 });
 
 K.loadSound("shoot", bulletAudio);
 K.loadSound("pikachu", pikachuAudio);
 K.loadSound("loss-life", lossLife);
-K.loadSound("game-over", gameOver);
+K.loadSound("game-over", gameOverSound);
 
 export class Player {
   constructor(spriteName, position = 0, moveSpeed, scale) {
@@ -44,6 +45,8 @@ export class Player {
     K.onKeyPress("space", () => this.shoot());
     K.onKeyRelease("left", () => this.idle());
     K.onKeyRelease("right", () => this.idle());
+    K.onKeyRelease("down", () => this.idle());
+    K.onKeyRelease("up", () => this.idle());
 
     this.sprite.onCollide("wall", () => {
       this.sprite.destroy();
@@ -54,7 +57,7 @@ export class Player {
     });
 
     this.health = 6;
-    this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
+    // this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());
   }
 
@@ -75,10 +78,9 @@ export class Player {
 
   async death() {
     K.play("game-over");
-    this.sprite.destroy();
-    const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
-    explosion.play("boom");
-    await delayTimer(1000);
+    this.sprite.play("death");
+    this.gameOver = true;
+    await delayTimer(2000);
     const gameOverModal = document.getElementById("testmodal");
     gameOverModal.style.display = "flex";
     gameOverModal.style.opacity = 1;
@@ -87,6 +89,7 @@ export class Player {
   }
 
   moveUp() {
+    if (this.gameOver) return;
     if (!this.running) {
       this.sprite.play("run");
       this.running = true;
@@ -95,6 +98,8 @@ export class Player {
   }
 
   moveDown() {
+    if (this.gameOver) return;
+
     if (!this.running) {
       this.sprite.play("run");
       this.running = true;
@@ -104,6 +109,8 @@ export class Player {
   }
 
   moveLeft() {
+    if (this.gameOver) return;
+
     if (!this.running) {
       this.sprite.play("run");
       this.running = true;
@@ -113,6 +120,8 @@ export class Player {
   }
 
   moveRight() {
+    if (this.gameOver) return;
+
     if (!this.running) {
       this.sprite.play("run");
       this.running = true;
@@ -122,6 +131,8 @@ export class Player {
   }
 
   idle() {
+    if (this.gameOver) return;
+
     this.running = false;
     this.sprite.play("idle");
   }

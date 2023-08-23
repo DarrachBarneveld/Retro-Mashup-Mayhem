@@ -58,7 +58,7 @@ export class Player {
     });
 
     this.health = 6;
-    // this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
+    this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());
   }
 
@@ -139,6 +139,9 @@ export class Player {
     if (this.gameOver) return;
 
     this.running = false;
+    this.sprite.flipX
+      ? (this.sprite.direction = "left")
+      : (this.sprite.direction = "right");
     this.sprite.play("idle");
   }
 

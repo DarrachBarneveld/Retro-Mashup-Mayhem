@@ -352,7 +352,6 @@ export class Boss {
   constructor(scene) {
     const { player, homingEnemyLoop, gameObject } = scene;
 
-    console.log(gameObject);
     const { boss } = gameObject;
     this.sprite = K.add([
       K.sprite(boss.sprite),
@@ -393,6 +392,7 @@ export class Boss {
     if (this.health <= 0) {
       updateScore(200);
       K.play(this.boss.die);
+      this.mapScene.music.paused = true;
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       this.fireLoop.cancel();

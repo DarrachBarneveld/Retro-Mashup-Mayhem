@@ -38,6 +38,8 @@ export class Level2 {
 
     K.loadSound("music", music);
     K.play("music", { loop: true });
+    this.player = player;
+
     this.bossActive = false;
     this.staticEnemyCoords = [];
     K.loadSprite("tiles", pokemonTileset, { sliceX: 8, sliceY: 8 });
@@ -48,7 +50,6 @@ export class Level2 {
       sliceY: 1,
       anims: { idle: { from: 1, to: 3 } },
     });
-    this.player = player;
 
     K.addLevel(level2, {
       tileWidth: 16,

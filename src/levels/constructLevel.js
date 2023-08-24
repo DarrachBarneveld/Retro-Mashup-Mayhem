@@ -1,6 +1,6 @@
 import K from "../kaboom";
-import { level1 } from "./layouts";
-import { level1Config } from "./levelConfig";
+import { level1, level2 } from "./layouts";
+import { level1Config, level2Config } from "./levelConfig";
 
 export function constructLevel1() {
   const { tileset, mario, princess, cloud, pipe, castle, hill } =
@@ -131,5 +131,106 @@ export function constructLevel1() {
     },
   });
 
+  return staticEnemyCoords;
+}
+
+export function constructLevel2() {
+  const { tileset, house, center, pika } = level2Config.sprites;
+  const staticEnemyCoords = [];
+
+  K.loadSprite("tiles", tileset, { sliceX: 8, sliceY: 8 });
+  K.loadSprite("house", house);
+  K.loadSprite("center", center);
+  K.loadSprite("pika", pika, {
+    sliceX: 3,
+    sliceY: 1,
+    anims: { idle: { from: 1, to: 3 } },
+  });
+
+  K.addLevel(level2, {
+    tileWidth: 16,
+    tileHeight: 16,
+    tiles: {
+      // Ground tile
+      "=": () => [
+        K.sprite("tiles", { frame: 42 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // mountain grass dirt
+      "+": () => [
+        K.sprite("tiles", { frame: 34 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // grass
+      "<": () => [
+        K.sprite("tiles", { frame: 14 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+
+      // road
+      ">": () => [K.sprite("tiles", { frame: 7 }), "tiles"],
+
+      // Tree
+      a: () => [
+        K.sprite("tiles", { frame: 1 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      b: () => [
+        K.sprite("tiles", { frame: 2 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      c: () => [
+        K.sprite("tiles", { frame: 9 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      d: () => [
+        K.sprite("tiles", { frame: 10 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      f: () => [
+        K.sprite("house"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      g: () => [
+        K.sprite("center"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // Player placement
+
+      // Static Enemy placement
+      e: (coords) => {
+        coords.x = coords.x * 16;
+        coords.y = coords.y * 16;
+        staticEnemyCoords.push(coords);
+        return [staticEnemyCoords];
+      },
+      // Pikachu
+      p: () => [
+        K.sprite("pika"),
+        K.area(),
+        K.body({ isStatic: true }),
+        K.scale(1),
+        "tiles",
+      ],
+    },
+  });
   return staticEnemyCoords;
 }

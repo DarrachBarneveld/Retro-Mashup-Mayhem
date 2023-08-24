@@ -7,6 +7,14 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
+import { constructLevel1, constructLevel2 } from "./constructLevel";
+
+// POKEMON IMPORTS
+import pokemonTileset from "../../assets/images/tileset/pokemon-tileset.png";
+import house from "../../assets/images/tileset/pokemon-house.png";
+import center from "../../assets/images/tileset/pokemon-center.png";
+import pika from "../../assets/images/sprites/pokemon/pikasprite.png";
+import pokemonMusic from "../../assets/audio/music/pokemon-win-music.mp3";
 
 export const level1Config = {
   boss: {
@@ -42,4 +50,39 @@ export const level1Config = {
     main: marioMusic,
   },
   background: "var(--clr-mario-sky)",
+  constructLevel: constructLevel1,
+};
+
+export const level2Config = {
+  boss: {
+    sprite: "mewtwo",
+    die: "mewtwodies",
+    hurt: "mewtwohurt",
+    bullet: "arbokbullet",
+    shot: "mewtwoshoot",
+    arrives: "mewtwoarrives",
+    win: "pokemonwin",
+    gameLevel: 2,
+    health: 800,
+  },
+
+  staticEnemy: {
+    sprite: "arbok",
+    die: "arbokdead",
+    bullet: "arbokbullet",
+    shot: "arbokshoot",
+  },
+
+  sprites: {
+    tileset: pokemonTileset,
+    house,
+    center,
+    pika,
+  },
+
+  music: {
+    main: pokemonMusic,
+  },
+  background: "var(--clr-pokemon-color)",
+  constructLevel: constructLevel2,
 };

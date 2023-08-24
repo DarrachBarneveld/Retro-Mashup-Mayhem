@@ -1,9 +1,8 @@
 import K from "../kaboom";
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
-import { constructLevel1 } from "../levels/constructLevel";
 
-export class Level1 {
+export class Level {
   constructor(gameObject) {
     const background = document.getElementById("mycanvas");
     background.style.background = gameObject.background;
@@ -11,7 +10,7 @@ export class Level1 {
     this.music = K.play("music", { loop: true });
     this.bossActive = false;
     this.gameObject = gameObject;
-    this.staticEnemyCoords = constructLevel1();
+    this.staticEnemyCoords = gameObject.constructLevel();
     this.player = new Player(this, "dino", 0, 150, 1);
 
     this.level = K.add([logPlayerPosition(this, this.player)]);
@@ -22,7 +21,6 @@ export class Level1 {
   }
 
   isGameOver() {
-    console.log("fire");
     return this.gameOver;
   }
 

@@ -17,6 +17,7 @@ export class Level {
     this.bossActive = false;
     this.gameObject = gameObject;
     this.staticEnemyCoords = gameObject.constructLevel();
+    this.homingEnemy = gameObject.homingEnemy;
     this.player = new Player(this, "dino", 0, 150, 1);
     this.homingEnemyShoot = gameObject.homingEnemyShoot;
 
@@ -43,7 +44,12 @@ export class Level {
     } else {
       this.homingEnemyLoop = K.loop(
         4,
-        () => new HomingEnemy(this.player, "bullet", 1)
+        () =>
+          new HomingEnemy(
+            this.player,
+            this.homingEnemy.sprite,
+            this.homingEnemy.scale
+          )
       );
     }
   }

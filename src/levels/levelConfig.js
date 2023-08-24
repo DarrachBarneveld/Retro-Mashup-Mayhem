@@ -46,7 +46,12 @@ export const level1Config = {
     arrives: "bowserarrives",
     win: "mariowin",
     gameLevel: 1,
-    health: 100,
+    health: 600,
+  },
+
+  homingEnemy: {
+    sprite: "bullet",
+    scale: 1,
   },
 
   staticEnemy: {
@@ -84,6 +89,11 @@ export const level2Config = {
     win: "pokemonwin",
     gameLevel: 2,
     health: 800,
+  },
+
+  homingEnemy: {
+    sprite: "koffing",
+    scale: 0.75,
   },
 
   staticEnemy: {

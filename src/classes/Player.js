@@ -58,13 +58,13 @@ export class Player {
       K.camPos(this.sprite.pos.x, K.camPos().y);
     });
 
-    this.health = 6;
+    this.health = 1;
     this.sprite.onCollide("enemy-bullet", () => this.takeDamage());
     this.sprite.onCollide("enemy", () => this.takeDamage());
   }
 
   takeDamage() {
-    if (this.isDead) return;
+    if (this.mapScene.gameOver) return;
     this.health--;
     const currentHeight = healthElement.clientHeight;
     healthElement.style.height = currentHeight - 50 + "px";
@@ -80,7 +80,7 @@ export class Player {
   }
 
   async death() {
-    this.isDead = true;
+    this.mapScene.gameOver = true;
     K.play("game-over");
     this.mapScene.music.paused = true;
     this.sprite.play("death");

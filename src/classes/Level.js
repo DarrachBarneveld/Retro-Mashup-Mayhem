@@ -11,17 +11,22 @@ export class Level1 {
     this.music = K.play("music", { loop: true });
     this.bossActive = false;
     this.gameObject = gameObject;
-
     this.staticEnemyCoords = constructLevel1();
     this.player = new Player(this, "dino", 0, 150, 1);
 
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();
+    this.gameOver = false;
+
     this.startLevel();
   }
 
+  isGameOver() {
+    return this.gameOver;
+  }
+
   startLevel() {
-    timerCountdown(120, this.player);
+    this.timer = timerCountdown(120, this.player, this.isGameOver.bind(this));
     this.enemyLoop = K.loop(4, () => new Enemy(this.player));
     this.homingEnemyLoop = K.loop(
       4,
@@ -57,11 +62,16 @@ export function logPlayerPosition(level, player) {
   };
 }
 
-function timerCountdown(duration = 120, player) {
+function timerCountdown(duration = 120, player, condition) {
   return new Promise((resolve) => {
     let remainingTime = duration;
 
     const intervalId = setInterval(() => {
+      if (condition()) {
+        clearInterval(intervalId);
+        resolve("Condition fulfilled!");
+      }
+
       const minutes = Math.floor(remainingTime / 60);
       const seconds = remainingTime % 60;
 

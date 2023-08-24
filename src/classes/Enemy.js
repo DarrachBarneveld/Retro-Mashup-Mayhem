@@ -472,21 +472,14 @@ function findDirectionRelationship(player, enemy) {
 
   return direction;
 }
-function addRandomRangeToNum(number) {
-  const range = Math.floor(Math.random() * 201) - 100;
-
-  // Add the range to the input number
-
-  return number + range;
-}
 
 function moveEnemyTowardsPosition(player, enemy) {
   return {
     add() {},
     update() {
       const speed = enemy.speed;
-      const direction = findDirectionRelationship(player, enemy);
-      enemy.sprite.move(direction.scale(speed));
+      const dir = player.sprite.pos.sub(enemy.sprite.pos).unit();
+      enemy.sprite.move(dir.scale(speed * 100));
     },
   };
 }

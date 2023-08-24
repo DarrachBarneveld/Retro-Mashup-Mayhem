@@ -133,6 +133,11 @@ export const level3Config = {
     health: 1000,
   },
 
+  homingEnemy: {
+    sprite: "ghost",
+    scale: 2,
+  },
+
   sprites: {
     mazebrick,
     pacman,

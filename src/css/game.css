@@ -109,13 +109,14 @@ h1 {
 
 /* Timer */
 .timer-container {
-  position: absolute; 
+  position: absolute;
   top: 10px;
   right: 10px;
   display: flex;
   padding: 5px 10px;
   border-radius: 5px;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .timer-label {
@@ -125,7 +126,8 @@ h1 {
 
 .timer-value {
   color: var(--clr-primary-light);
-  text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
+  text-shadow: 0 0 1px var(--clr-primary-light),
+    0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
   font-family: VT323, monospace;
   font-size: 32px;
   font-weight: 800;
@@ -133,13 +135,14 @@ h1 {
 
 /* Score */
 .score-container {
-  position: absolute; 
+  position: absolute;
   top: 10px;
   left: 10px;
   display: flex;
   padding: 5px 10px;
   border-radius: 5px;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .score-label {
@@ -149,10 +152,9 @@ h1 {
 
 .score-value {
   color: var(--clr-primary-light);
-  text-shadow: 0 0 1px var(--clr-primary-light), 0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
+  text-shadow: 0 0 1px var(--clr-primary-light),
+    0 0 20px var(--clr-primary-light), 0 0 30px var(--clr-primary-light);
   font-family: VT323, monospace;
   font-size: 32px;
   font-weight: 800;
 }
-
-

@@ -1,10 +1,12 @@
 import K from "./kaboom";
-import { Level, Level1 } from "./classes/Level";
+import { Level } from "./classes/Level";
 import explosion from "../assets/images/sprites/explosion.png";
-import { Level3 } from "./classes/Level3";
-import { Level4 } from "./classes/Level4";
-import { Player } from "./classes/Player";
-import { level1Config, level2Config, level3Config } from "./levels/levelConfig";
+import {
+  level1Config,
+  level2Config,
+  level3Config,
+  level4Config,
+} from "./levels/levelConfig";
 
 const replayBtn = document.getElementById("replay");
 
@@ -40,9 +42,7 @@ K.scene("demo", async () => {
     const level = new Level(level3Config);
   }
   if (url[0] == "/src/levels/game4") {
-    const player = new Player("dino", 0, 150, 1);
-    const level = new Level4(player);
-    timerCountdown(120, player);
+    const level = new Level(level4Config);
   }
 });
 

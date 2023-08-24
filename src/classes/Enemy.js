@@ -273,7 +273,7 @@ export class HomingEnemy {
 export class HomingEnemyShoot {
   constructor(player, spriteObject) {
     this.sprite = K.add([
-      K.sprite(spriteObject.name),
+      K.sprite(spriteObject.sprite),
       K.pos(),
       K.area(),
       K.scale(1),

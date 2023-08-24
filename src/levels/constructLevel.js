@@ -1,6 +1,11 @@
 import K from "../kaboom";
-import { level1, level2, level3 } from "./layouts";
-import { level1Config, level2Config, level3Config } from "./levelConfig";
+import { level1, level2, level3, level4 } from "./layouts";
+import {
+  level1Config,
+  level2Config,
+  level3Config,
+  level4Config,
+} from "./levelConfig";
 
 export function constructLevel1() {
   const { tileset, mario, princess, cloud, pipe, castle, hill } =
@@ -258,6 +263,105 @@ export function constructLevel3() {
         K.area(),
         K.body({ isStatic: true }),
         "mazebrick",
+      ],
+    },
+  });
+
+  return null;
+}
+
+export function constructLevel4() {
+  const { iceplanet, redplanet, shattered_planet, sphereplanet, asteroid } =
+    level4Config.sprites;
+
+  K.loadSprite("iceplanet", iceplanet);
+  K.loadSprite("redplanet", redplanet);
+  K.loadSprite("shattered_planet", shattered_planet, {
+    sliceX: 2,
+    sliceY: 2,
+  });
+  K.loadSprite("sphereplanet", sphereplanet, { sliceX: 2, sliceY: 2 });
+  K.loadSprite("asteroid", asteroid);
+
+  K.addLevel(level4, {
+    tileWidth: 16,
+    tileHeight: 16,
+    tiles: {
+      // Iceplanet
+      "+": () => [
+        K.sprite("iceplanet"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "iceplanet",
+      ],
+
+      // Red planet
+      "<": () => [
+        K.sprite("redplanet"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "redplanet",
+      ],
+      // Asteroid
+      "=": () => [
+        K.sprite("asteroid"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+      ],
+
+      //  Shattered_planet
+      a: () => [
+        K.sprite("shattered_planet", { frame: 0 }),
+        "shattered_planet",
+        K.area(),
+        K.body({ isStatic: true }),
+      ],
+      b: () => [
+        K.sprite("shattered_planet", { frame: 1 }),
+        "shattered_planet",
+        K.area(),
+        K.body({ isStatic: true }),
+      ],
+
+      c: () => [
+        K.sprite("shattered_planet", { frame: 2 }),
+        "shattered_planet",
+        K.area(),
+        K.body({ isStatic: true }),
+      ],
+      d: () => [
+        K.sprite("shattered_planet", { frame: 3 }),
+        "shattered_planet",
+        K.area(),
+        K.body({ isStatic: true }),
+      ],
+
+      // sphereplanet
+      e: () => [
+        K.sprite("sphereplanet", { frame: 0 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "sphereplanet",
+      ],
+      f: () => [
+        K.sprite("sphereplanet", { frame: 1 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "sphereplanet",
+      ],
+
+      g: () => [
+        K.sprite("sphereplanet", { frame: 2 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "sphereplanet",
+      ],
+      h: () => [
+        K.sprite("sphereplanet", { frame: 3 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "sphereplanet",
       ],
     },
   });

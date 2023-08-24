@@ -11,6 +11,7 @@ import {
   constructLevel1,
   constructLevel2,
   constructLevel3,
+  constructLevel4,
 } from "./constructLevel";
 
 // POKEMON IMPORTS
@@ -24,6 +25,16 @@ import pokemonMusic from "../../assets/audio/music/pokemon-win-music.mp3";
 import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png";
 import pacman from "../../assets/images/sprites/pacman/pacman.png";
 import pacmanMusic from "../../assets/audio/music/pacman-level-music.mp3";
+
+// SPACE INVADERS IMPORTS
+
+import iceplanet from "../../assets/images/sprites/space-invaders/iceplanet.png";
+import shattered_planet from "../../assets/images/sprites/space-invaders/shattered_planet.png";
+import redplanet from "../../assets/images/sprites/space-invaders/redplanet.png";
+import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplanet.png";
+import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
+import spaceInvaderMusic from "../../assets/audio/music/space-invaders-level-music.mp3";
+import spaceBackground from "../../assets/images/backgrounds/space-background.png";
 
 export const level1Config = {
   boss: {
@@ -119,4 +130,38 @@ export const level3Config = {
   },
   background: "black",
   constructLevel: constructLevel3,
+};
+
+export const level4Config = {
+  boss: {
+    sprite: "spaceship",
+    die: "spaceshipdie",
+    hurt: "spaceshiphurt",
+    bullet: "invaderbullet",
+    shot: "spaceshipshoot",
+    arrives: "spaceshiparrives",
+    win: "spaceshipwin",
+    gameLevel: 4,
+    health: 1200,
+  },
+
+  homingEnemyShoot: {
+    sprite: "invader",
+    bullet: "invaderbullet",
+    shot: "spaceshipshoot",
+  },
+
+  sprites: {
+    iceplanet,
+    shattered_planet,
+    redplanet,
+    sphereplanet,
+    asteroid,
+  },
+
+  music: {
+    main: spaceInvaderMusic,
+  },
+  background: spaceBackground,
+  constructLevel: constructLevel4,
 };

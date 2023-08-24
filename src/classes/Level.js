@@ -1,5 +1,11 @@
 import K from "../kaboom";
-import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
+import {
+  Boss,
+  Enemy,
+  HomingEnemy,
+  HomingEnemyShoot,
+  StaticEnemy,
+} from "./Enemy";
 import { Player } from "./Player";
 
 export class Level {
@@ -12,6 +18,7 @@ export class Level {
     this.gameObject = gameObject;
     this.staticEnemyCoords = gameObject.constructLevel();
     this.player = new Player(this, "dino", 0, 150, 1);
+    this.homingEnemyShoot = gameObject.homingEnemyShoot;
 
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();
@@ -26,16 +33,23 @@ export class Level {
 
   startLevel() {
     this.timer = timerCountdown(120, this.player, this.isGameOver.bind(this));
-    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    // this.homingEnemyLoop = K.loop(
-    //   4,
-    //   () => new HomingEnemy(this.player, "bullet", 1)
-    // );
+    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+
+    if (this.homingEnemyShoot) {
+      this.homingEnemyLoop = K.loop(
+        4,
+        () => new HomingEnemyShoot(this.player, this.homingEnemyShoot)
+      );
+    } else {
+      this.homingEnemyLoop = K.loop(
+        4,
+        () => new HomingEnemy(this.player, "bullet", 1)
+      );
+    }
   }
 
   renderStaticEnemies() {
     if (!this.staticEnemyCoords) return;
-    console.log(this.staticEnemyCoords);
     this.staticEnemyCoords.forEach(
       (coords) =>
         new StaticEnemy(this.player, coords, this.gameObject.staticEnemy)

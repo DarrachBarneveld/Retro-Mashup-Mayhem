@@ -70,7 +70,7 @@ export function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 100 && !level.bossActive) {
+      if (player.sprite.pos.x > 1200 && !level.bossActive) {
         level.activateBoss();
       }
     },

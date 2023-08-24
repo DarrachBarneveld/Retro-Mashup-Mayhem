@@ -1,7 +1,4 @@
 import K from "../kaboom";
-
-import marioMusic from "../../assets/audio/music/mario-level-music.mp3";
-
 import { Boss, Enemy, HomingEnemy, StaticEnemy } from "./Enemy";
 import { Player } from "./Player";
 import { constructLevel1 } from "../levels/constructLevel";
@@ -9,15 +6,14 @@ import { constructLevel1 } from "../levels/constructLevel";
 export class Level1 {
   constructor(gameObject) {
     const background = document.getElementById("mycanvas");
-    background.style.background = "var(--clr-mario-sky)";
-    K.loadSound("mario-music", marioMusic);
-    K.play("mario-music", { loop: true });
+    background.style.background = gameObject.background;
+    K.loadSound("music", gameObject.music.main);
+    this.music = K.play("music", { loop: true });
     this.bossActive = false;
-    // this.player = player;
     this.gameObject = gameObject;
 
     this.staticEnemyCoords = constructLevel1();
-    this.player = new Player("dino", 0, 150, 1);
+    this.player = new Player(this, "dino", 0, 150, 1);
 
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();

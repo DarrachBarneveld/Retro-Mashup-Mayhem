@@ -24,7 +24,7 @@ K.loadSound("loss-life", lossLife);
 K.loadSound("game-over", gameOverSound);
 
 export class Player {
-  constructor(spriteName, position = 0, moveSpeed, scale) {
+  constructor(scene, spriteName, position = 0, moveSpeed, scale) {
     this.sprite = K.add([
       K.sprite(spriteName, { animSpeed: 0.6, flipX: false }),
       K.pos(100, K.height() / 2),
@@ -33,6 +33,7 @@ export class Player {
       K.body(),
       "player",
     ]);
+    this.mapScene = scene;
     this.running = false;
     this.position = position;
     this.moveSpeed = moveSpeed;
@@ -63,6 +64,7 @@ export class Player {
   }
 
   takeDamage() {
+    if (this.isDead) return;
     this.health--;
     const currentHeight = healthElement.clientHeight;
     healthElement.style.height = currentHeight - 50 + "px";
@@ -78,7 +80,9 @@ export class Player {
   }
 
   async death() {
+    this.isDead = true;
     K.play("game-over");
+    this.mapScene.music.paused = true;
     this.sprite.play("death");
     this.gameOver = true;
     await delayTimer(2000);

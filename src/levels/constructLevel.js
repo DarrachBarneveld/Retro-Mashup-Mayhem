@@ -1,16 +1,12 @@
-import { level1 } from "./layouts";
-import marioTileset from "../../assets/images/tileset/mario_tileset.png";
-import mario from "../../assets/images/sprites/mario/sm-mario-one.png";
-import princess from "../../assets/images/sprites/mario/sm-princess.png";
-import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
-import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
-import castle from "../../assets/images/sprites/mario/sm-castle.png";
-import hill from "../../assets/images/sprites/mario/sm-hill.png";
 import K from "../kaboom";
+import { level1 } from "./layouts";
+import { level1Config } from "./levelConfig";
 
 export function constructLevel1() {
+  const { tileset, mario, princess, cloud, pipe, castle, hill } =
+    level1Config.sprites;
   const staticEnemyCoords = [];
-  K.loadSprite("tiles", marioTileset, { sliceX: 8, sliceY: 8 });
+  K.loadSprite("tiles", tileset, { sliceX: 8, sliceY: 8 });
   K.loadSprite("mario", mario, { sliceX: 1, sliceY: 2 });
   K.loadSprite("princess", princess, { sliceX: 1, sliceY: 2 });
   K.loadSprite("cloud", cloud);

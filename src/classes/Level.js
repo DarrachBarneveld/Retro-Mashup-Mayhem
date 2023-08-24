@@ -34,6 +34,8 @@ export class Level {
   }
 
   renderStaticEnemies() {
+    if (!this.staticEnemyCoords) return;
+    console.log(this.staticEnemyCoords);
     this.staticEnemyCoords.forEach(
       (coords) =>
         new StaticEnemy(this.player, coords, this.gameObject.staticEnemy)

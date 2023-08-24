@@ -1,6 +1,6 @@
 import K from "../kaboom";
-import { level1, level2 } from "./layouts";
-import { level1Config, level2Config } from "./levelConfig";
+import { level1, level2, level3 } from "./layouts";
+import { level1Config, level2Config, level3Config } from "./levelConfig";
 
 export function constructLevel1() {
   const { tileset, mario, princess, cloud, pipe, castle, hill } =
@@ -233,4 +233,34 @@ export function constructLevel2() {
     },
   });
   return staticEnemyCoords;
+}
+
+export function constructLevel3() {
+  const { mazebrick, pacman } = level3Config.sprites;
+
+  K.loadSprite("mazebrick", mazebrick);
+  K.loadSprite("pacman", pacman);
+
+  K.addLevel(level3, {
+    tileWidth: 16,
+    tileHeight: 16,
+    tiles: {
+      // mazebrick
+      "=": () => [
+        K.sprite("mazebrick"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "mazebrick",
+      ],
+
+      p: () => [
+        K.sprite("pacman"),
+        K.area(),
+        K.body({ isStatic: true }),
+        "mazebrick",
+      ],
+    },
+  });
+
+  return null;
 }

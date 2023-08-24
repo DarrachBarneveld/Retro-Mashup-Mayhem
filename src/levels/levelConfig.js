@@ -7,7 +7,11 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
-import { constructLevel1, constructLevel2 } from "./constructLevel";
+import {
+  constructLevel1,
+  constructLevel2,
+  constructLevel3,
+} from "./constructLevel";
 
 // POKEMON IMPORTS
 import pokemonTileset from "../../assets/images/tileset/pokemon-tileset.png";
@@ -15,6 +19,11 @@ import house from "../../assets/images/tileset/pokemon-house.png";
 import center from "../../assets/images/tileset/pokemon-center.png";
 import pika from "../../assets/images/sprites/pokemon/pikasprite.png";
 import pokemonMusic from "../../assets/audio/music/pokemon-win-music.mp3";
+
+// PACMAN IMPORTS
+import mazebrick from "../../assets/images/sprites/pacman/mazebrick.png";
+import pacman from "../../assets/images/sprites/pacman/pacman.png";
+import pacmanMusic from "../../assets/audio/music/pacman-level-music.mp3";
 
 export const level1Config = {
   boss: {
@@ -85,4 +94,29 @@ export const level2Config = {
   },
   background: "var(--clr-pokemon-color)",
   constructLevel: constructLevel2,
+};
+
+export const level3Config = {
+  boss: {
+    sprite: "redghost",
+    die: "redghostdie",
+    hurt: "redghosthurt",
+    bullet: "arbokbullet",
+    shot: "redghostshoot",
+    arrives: "redghostarrives",
+    win: "pacmanwin",
+    gameLevel: 3,
+    health: 1000,
+  },
+
+  sprites: {
+    mazebrick,
+    pacman,
+  },
+
+  music: {
+    main: pacmanMusic,
+  },
+  background: "black",
+  constructLevel: constructLevel3,
 };

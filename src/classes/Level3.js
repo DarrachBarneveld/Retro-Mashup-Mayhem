@@ -30,11 +30,11 @@ export class Level3 {
     K.loadSound("music", music);
     K.play("music", { loop: true });
 
+    this.player = player;
+
     this.bossActive = false;
     K.loadSprite("mazebrick", mazebrick);
     K.loadSprite("pacman", pacman);
-
-    this.player = player;
 
     K.addLevel(level3, {
       tileWidth: 16,

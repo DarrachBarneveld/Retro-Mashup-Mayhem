@@ -35,6 +35,7 @@ import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplane
 import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
 import spaceInvaderMusic from "../../assets/audio/music/space-invaders-level-music.mp3";
 import spaceBackground from "../../assets/images/backgrounds/space-background.png";
+import { level1, level2, level3, level4 } from "./layouts";
 
 export const level1Config = {
   boss: {
@@ -76,6 +77,7 @@ export const level1Config = {
   },
   background: "var(--clr-mario-sky)",
   constructLevel: constructLevel1,
+  layout: level1,
 };
 
 export const level2Config = {
@@ -115,6 +117,7 @@ export const level2Config = {
   },
   background: "var(--clr-pokemon-color)",
   constructLevel: constructLevel2,
+  layout: level2,
 };
 
 export const level3Config = {
@@ -140,6 +143,7 @@ export const level3Config = {
   },
   background: "black",
   constructLevel: constructLevel3,
+  layout: level3,
 };
 
 export const level4Config = {
@@ -174,4 +178,5 @@ export const level4Config = {
   },
   background: spaceBackground,
   constructLevel: constructLevel4,
+  layout: level4,
 };

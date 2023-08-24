@@ -1,5 +1,4 @@
 import K from "../kaboom";
-import { level1, level2, level3, level4 } from "./layouts";
 import {
   level1Config,
   level2Config,
@@ -18,7 +17,7 @@ export function constructLevel1() {
   K.loadSprite("pipe", pipe, { sliceX: 1, sliceY: 2 });
   K.loadSprite("castle", castle, { sliceX: 4, sliceY: 4 });
   K.loadSprite("hill", hill, { sliceX: 4, sliceY: 2 });
-  K.addLevel(level1, {
+  K.addLevel(level1Config.layout, {
     tileWidth: 16,
     tileHeight: 16,
     tiles: {
@@ -152,7 +151,7 @@ export function constructLevel2() {
     anims: { idle: { from: 1, to: 3 } },
   });
 
-  K.addLevel(level2, {
+  K.addLevel(level2Config.layout, {
     tileWidth: 16,
     tileHeight: 16,
     tiles: {
@@ -246,7 +245,7 @@ export function constructLevel3() {
   K.loadSprite("mazebrick", mazebrick);
   K.loadSprite("pacman", pacman);
 
-  K.addLevel(level3, {
+  K.addLevel(level3Config.layout, {
     tileWidth: 16,
     tileHeight: 16,
     tiles: {
@@ -283,7 +282,7 @@ export function constructLevel4() {
   K.loadSprite("sphereplanet", sphereplanet, { sliceX: 2, sliceY: 2 });
   K.loadSprite("asteroid", asteroid);
 
-  K.addLevel(level4, {
+  K.addLevel(level4Config.layout, {
     tileWidth: 16,
     tileHeight: 16,
     tiles: {

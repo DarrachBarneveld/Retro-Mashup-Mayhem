@@ -349,9 +349,13 @@ export class HomingEnemyShoot {
 }
 
 export class Boss {
-  constructor(player, homingEnemyLoop, spriteObject) {
+  constructor(scene) {
+    const { player, homingEnemyLoop, gameObject } = scene;
+
+    console.log(gameObject);
+    const { boss } = gameObject;
     this.sprite = K.add([
-      K.sprite(spriteObject.sprite),
+      K.sprite(boss.sprite),
       K.pos(),
       K.area(),
       K.scale(0.5),
@@ -359,35 +363,36 @@ export class Boss {
       K.color(),
       "enemy",
     ]);
-    K.play(spriteObject.arrives);
+    K.play(boss.arrives);
     const posY = K.height() / 2;
     const posX = player.sprite.pos.x + 150;
     this.sprite.pos.x = posX;
     this.sprite.pos.y = posY;
 
-    this.spriteObject = spriteObject;
-    this.health = spriteObject.health;
+    this.mapScene = scene;
+    this.boss = boss;
+    this.health = boss.health;
     this.speed = 0.5;
     this.player = player;
     this.sprite.move();
     this.direction = -1;
     this.sprite.add([moveEnemyUpAndDown(this)]);
 
-    this.gameLevel = spriteObject.gameLevel;
+    this.gameLevel = boss.gameLevel;
     this.homingEnemyLoop = homingEnemyLoop;
     this.fireLoop = K.loop(2, () => this.shoot());
     this.sprite.onCollide("bullet", (bullet) => this.takeDamage(bullet.damage));
   }
 
   async takeDamage(damage) {
-    K.play(this.spriteObject.hurt);
+    K.play(this.boss.hurt);
     this.health -= damage;
     if (this.health <= 50) {
       this.sprite.color = { r: 255, g: 100, b: 100 };
     }
     if (this.health <= 0) {
       updateScore(200);
-      K.play(this.spriteObject.die);
+      K.play(this.boss.die);
       const explosion = K.add([K.sprite("explosion"), K.pos(this.sprite.pos)]);
       this.sprite.destroy();
       this.fireLoop.cancel();
@@ -396,8 +401,10 @@ export class Boss {
       }
       explosion.play("boom");
 
+      this.mapScene.gameOver = true;
       await delayTimer(1000);
-      K.play(this.spriteObject.win);
+      K.play(this.boss.win);
+      this.mapScene.isGameOver();
       const gameOverModal = document.getElementById("testmodal");
       const heading = document.getElementById("modal-heading");
       heading.textContent = "Victory";
@@ -414,9 +421,9 @@ export class Boss {
   shoot() {
     const playerPos = this.player.sprite.pos;
     const spritePos = this.sprite.pos;
-    K.play(this.spriteObject.shot);
+    K.play(this.boss.shot);
     const bullet = K.add([
-      K.sprite(this.spriteObject.bullet),
+      K.sprite(this.boss.bullet),
       K.pos(this.sprite.pos.x + 10, this.sprite.pos.y + 10),
       K.scale(0.5),
       K.body(),
@@ -424,8 +431,6 @@ export class Boss {
       K.offscreen({ destroy: true }),
       "enemy-bullet",
     ]);
-
-    bullet.play("shot");
     const angleRadians = Math.atan2(
       playerPos.y - spritePos.y,
       playerPos.x - spritePos.x

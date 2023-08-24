@@ -22,16 +22,17 @@ export class Level1 {
   }
 
   isGameOver() {
+    console.log("fire");
     return this.gameOver;
   }
 
   startLevel() {
     this.timer = timerCountdown(120, this.player, this.isGameOver.bind(this));
-    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
-    this.homingEnemyLoop = K.loop(
-      4,
-      () => new HomingEnemy(this.player, "bullet", 1)
-    );
+    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    // this.homingEnemyLoop = K.loop(
+    //   4,
+    //   () => new HomingEnemy(this.player, "bullet", 1)
+    // );
   }
 
   renderStaticEnemies() {
@@ -47,7 +48,7 @@ export class Level1 {
       this.enemyLoop.cancel();
     }
 
-    new Boss(this.player, this.homingEnemyLoop, this.gameObject.boss);
+    new Boss(this);
   }
 }
 
@@ -55,7 +56,7 @@ export function logPlayerPosition(level, player) {
   return {
     add() {},
     update() {
-      if (player.sprite.pos.x > 1200 && !level.bossActive) {
+      if (player.sprite.pos.x > 100 && !level.bossActive) {
         level.activateBoss();
       }
     },

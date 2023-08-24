@@ -18,7 +18,7 @@ export const level1Config = {
     arrives: "bowserarrives",
     win: "mariowin",
     gameLevel: 1,
-    health: 600,
+    health: 100,
   },
 
   staticEnemy: {

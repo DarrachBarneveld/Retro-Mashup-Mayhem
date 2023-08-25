@@ -30,8 +30,49 @@ import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
 import spaceInvaderMusic from "../../assets/audio/music/space-invaders-level-music.mp3";
 import spaceBackground from "../../assets/images/backgrounds/space-background.png";
 
+// SONIC IMPORTS
+import sonicTileset from "../../assets/images/tileset/sonic-tileset.png";
+
 // LEVEL DATA
 import * as Layouts from "../levels/layouts";
+
+export const levelTest = {
+  boss: {
+    sprite: "bowser",
+    die: "bowserdies",
+    hurt: "bowserhurt",
+    bullet: "bowserbullet",
+    shot: "bowsershoot",
+    arrives: "bowserarrives",
+    win: "mariowin",
+    gameLevel: 1,
+    health: 600,
+  },
+
+  homingEnemy: {
+    sprite: "bullet",
+    scale: 1,
+    loopSpeed: 4,
+  },
+
+  staticEnemy: {
+    sprite: "koopa",
+    die: "ghost-dead",
+    bullet: "koopabullet",
+    shot: "koopashoot",
+  },
+
+  sprites: {
+    tileset: sonicTileset,
+  },
+
+  music: {
+    main: marioMusic,
+  },
+  background: "var(--clr-mario-sky)",
+  constructLevel: Layouts.constructTest,
+  layout: Layouts.testLevel,
+};
 
 export const level1Config = {
   boss: {

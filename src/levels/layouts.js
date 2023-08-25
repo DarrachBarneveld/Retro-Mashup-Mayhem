@@ -4,7 +4,28 @@ import {
   level2Config,
   level3Config,
   level4Config,
+  levelTest,
 } from "../config/level";
+
+export const testLevel = [
+  "==============================================================================================",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=               1                                                                             =",
+  "=               2           +++++                                                             =",
+  "=               2         ++=====                                                             =",
+  "++++++++++++++++++++++++++=======++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+];
 
 export const level1 = [
   "==============================================================================================",
@@ -87,6 +108,52 @@ export const level4 = [
 ];
 
 // CONSTRUCT LAYOUTS
+
+export function constructTest() {
+  const { tileset } = levelTest.sprites;
+  const staticEnemyCoords = [];
+  K.loadSprite("tiles", tileset, { sliceX: 5, sliceY: 5 });
+  K.addLevel(levelTest.layout, {
+    tileWidth: 16,
+    tileHeight: 16,
+    tiles: {
+      // Grass tile
+      "+": () => [
+        K.sprite("tiles", { frame: 0 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        K.scale(0.5),
+        "tiles",
+      ],
+      // Ground tile
+      "=": () => [
+        K.sprite("tiles", { frame: 5 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        K.scale(0.5),
+        "tiles",
+      ],
+      // Pillar Top
+      1: () => [
+        K.sprite("tiles", { frame: 11 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        // K.scale(0.5),
+        "tiles",
+      ],
+      // Pillar bottom
+      2: () => [
+        K.sprite("tiles", { frame: 16 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        // K.scale(0.5),
+        "tiles",
+      ],
+    },
+  });
+
+  return staticEnemyCoords;
+}
 
 export function constructLayout1() {
   const { tileset, mario, princess, cloud, pipe, castle, hill } =

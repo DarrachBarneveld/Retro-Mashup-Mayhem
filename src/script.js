@@ -6,6 +6,7 @@ import {
   level2Config,
   level3Config,
   level4Config,
+  levelTest,
 } from "./config/level";
 
 const replayBtn = document.getElementById("replay");
@@ -27,18 +28,19 @@ K.loadSprite("explosion", explosion, {
 });
 
 K.scene("demo", async () => {
-  if (url[0] == "/src/levels/game") {
-    const level = new Level(level1Config);
-  }
-  if (url[0] == "/src/levels/game2") {
-    const level = new Level(level2Config);
-  }
-  if (url[0] == "/src/levels/game3") {
-    const level = new Level(level3Config);
-  }
-  if (url[0] == "/src/levels/game4") {
-    const level = new Level(level4Config);
-  }
+  const test = new Level(levelTest);
+  // if (url[0] == "/src/levels/game") {
+  //   const level = new Level(level1Config);
+  // }
+  // if (url[0] == "/src/levels/game2") {
+  //   const level = new Level(level2Config);
+  // }
+  // if (url[0] == "/src/levels/game3") {
+  //   const level = new Level(level3Config);
+  // }
+  // if (url[0] == "/src/levels/game4") {
+  //   const level = new Level(level4Config);
+  // }
 });
 
 K.go("demo");

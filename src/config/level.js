@@ -31,13 +31,16 @@ import spaceInvaderMusic from "../../assets/audio/music/space-invaders-level-mus
 import spaceBackground from "../../assets/images/backgrounds/space-background.png";
 
 // LEVEL DATA
-import { level1, level2, level3, level4 } from "../levels/layouts";
 import {
-  constructLevel1,
-  constructLevel2,
-  constructLevel3,
-  constructLevel4,
-} from "../levels/constructLevel";
+  level1,
+  level2,
+  level3,
+  level4,
+  constructLayout1,
+  constructLayout2,
+  constructLayout3,
+  constructLayout4,
+} from "../levels/layouts";
 
 export const level1Config = {
   boss: {
@@ -79,7 +82,7 @@ export const level1Config = {
     main: marioMusic,
   },
   background: "var(--clr-mario-sky)",
-  constructLevel: constructLevel1,
+  constructLevel: constructLayout1,
   layout: level1,
 };
 
@@ -120,7 +123,7 @@ export const level2Config = {
     main: pokemonMusic,
   },
   background: "var(--clr-pokemon-color)",
-  constructLevel: constructLevel2,
+  constructLevel: constructLayout2,
   layout: level2,
 };
 
@@ -152,7 +155,7 @@ export const level3Config = {
     main: pacmanMusic,
   },
   background: "black",
-  constructLevel: constructLevel3,
+  constructLevel: constructLayout3,
   layout: level3,
 };
 
@@ -188,6 +191,6 @@ export const level4Config = {
     main: spaceInvaderMusic,
   },
   background: spaceBackground,
-  constructLevel: constructLevel4,
+  constructLevel: constructLayout4,
   layout: level4,
 };

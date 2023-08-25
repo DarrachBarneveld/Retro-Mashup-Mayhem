@@ -27,11 +27,6 @@ K.loadSprite("explosion", explosion, {
 });
 
 K.scene("demo", async () => {
-  // FOR TESTING
-  // const player = new Player("dino", 0, 150, 1);
-  // const level = new Level1(player);
-  // timerCountdown(120, player);
-
   if (url[0] == "/src/levels/game") {
     const level = new Level(level1Config);
   }

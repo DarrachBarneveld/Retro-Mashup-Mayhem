@@ -2,40 +2,36 @@
 
 Welcome to Retro-Mashup-Mayhem game!
 
+![Retro-Mashup-Mayhem](docs/retro-mash.png)
 
- ![Retro-Mashup-Mayhem](READMEimages/retro-mash.png)
+Link to deploy site: https://retro-mashup-mayhem.netlify.app/
 
-
- Link to deploy site: https://retro-mashup-mayhem.netlify.app/   
-
-
- ***                                    
-
+---
 
 # Table of Contents
 
 1. [Overview](#overview)
 2. [User Experience](#user-experience)
-    - [Game Goals](#game-goals)
-    - [User Stories](#user-stories)
-    - [Design Structure](#design-structure)
-    - [Typography and Color Scheme](#typography-and-color-scheme)
-    - [Wireframes](#wireframes)
+   - [Game Goals](#game-goals)
+   - [User Stories](#user-stories)
+   - [Design Structure](#design-structure)
+   - [Typography and Color Scheme](#typography-and-color-scheme)
+   - [Wireframes](#wireframes)
 3. [Features](#features)
-    - [Existing Features](#existing-features)
+   - [Existing Features](#existing-features)
 4. [Technologies](#technologies)
 5. [Controls](#controls)
-   + [Game Controls](#game-controls)
+   - [Game Controls](#game-controls)
 6. [Bug](#bug)
-7. [Deployment](#deployment) 
-8. [Citation of Sources](#citation-of-sources) 
-   + [Content](#content)
+7. [Deployment](#deployment)
+8. [Citation of Sources](#citation-of-sources)
+   - [Content](#content)
 
-***
+---
 
 # Overview
 
-"Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history? 
+"Retro-Mashup-Mayhem - Blast Through Time" captures the essence of classic retro games while infusing it with modern flair. The pixel art style, synthesized sound effects, and challenging gameplay harken back to the golden age of arcade games, offering players an authentic and thrilling experience. With its engaging mechanics and a quest for high scores, this game invites players to embark on an unforgettable journey through time. Will you be the one to conquer the retro odyssey and etch your name into the annals of gaming history?
 Retro-Mashup-Mayhem is targeted at people with the love playing games especially classic retro inspired enthusiasts.
 
 Retro games can evoke feelings of nostalgia for those who grew up playing games from previous decades. They allow players to relive fond memories and experiences from their youth.
@@ -48,7 +44,7 @@ While different people play retro game for various reasons, retro offers the opp
 
 ## Game Goals
 
-- Problem Statement: A dreaded team of Space Invaders and Retro Worlds enemies have captured our beloved retro heroes. 
+- Problem Statement: A dreaded team of Space Invaders and Retro Worlds enemies have captured our beloved retro heroes.
 - You must overcome menacing foes, and face the formidable Bowser in a cosmic showdown.
 
 Defeat the Enemies: Players must navigate through various time periods, combating waves of enemies with precise shooting and evasive maneuvers. Each defeated enemy contributes to the player's score and progression.
@@ -67,29 +63,28 @@ Random Movement: Enemies exhibit unpredictable movement patterns, ensuring that 
 
 ## User Stories
 
--   I can intuitively navigate around the site so that I can find content.
--   I can see an intro animation so I can feel immersed in the retro experience.
--   I want to be greeted with a Homepage that displays a menu of options to easily access information about the game and have a seamless level selection experience so that I can understand the game's mechanics and progress through levels efficiently.
--   I can move and shoot so that I can avoid and kill enemies
--   I can press shoot so that I can fire projectiles at oncoming enemies.
--   I can see a victory or defeat screen so that I know when the level is over.
--   I want to find information about the developers so that I can request connections or give feedback.
+- I can intuitively navigate around the site so that I can find content.
+- I can see an intro animation so I can feel immersed in the retro experience.
+- I want to be greeted with a Homepage that displays a menu of options to easily access information about the game and have a seamless level selection experience so that I can understand the game's mechanics and progress through levels efficiently.
+- I can move and shoot so that I can avoid and kill enemies
+- I can press shoot so that I can fire projectiles at oncoming enemies.
+- I can see a victory or defeat screen so that I know when the level is over.
+- I want to find information about the developers so that I can request connections or give feedback.
 
 ## Design Structure
 
 The game was designed with a simplistic retro strucrure, with clear and easy to follow instruction, that will allow user easily navigate across the program.
 
-
 ## Typography and Color Scheme
 
--   Google Fonts was used for the following:
+- Google Fonts was used for the following:
 
--   Press Start 2P was used for the body.
--   VT323 was used for the intro.
+- Press Start 2P was used for the body.
+- VT323 was used for the intro.
 
-![Font](READMEimages/google-font.png)
+![Font](docs/google-font.png)
 
-![Color Palate](READMEimages/color-palate.png)
+![Color Palate](docs/color-palate.png)
 
 The chosen color palette is a vibrant tribute to the neon-lit arcades of the 80s. Drawing inspiration from an iconic image of Space Invaders from that era, the colors are a direct nod to the luminescent hues of the game's enemies. The palette includes:
 
@@ -102,15 +97,15 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 
 ## Wireframes
 
-![Index wireframe](READMEimages/index-wireframe.png)
+![Index wireframe](docs/index-wireframe.png)
 
-![How to play](READMEimages/how-to-play-wireframe.png)
+![How to play](docs/how-to-play-wireframe.png)
 
-![About Us](READMEimages/about-us-wireframe.png)
+![About Us](docs/about-us-wireframe.png)
 
-![Start Game](READMEimages/start-game.png)
+![Start Game](docs/start-game.png)
 
-![Game Stage](READMEimages/game-stage.png)
+![Game Stage](docs/game-stage.png)
 
 [Back to the Top](#contents)
 
@@ -122,34 +117,30 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 
 ### Title and Introductory Page
 
-+ The introductory page is displayed as soon as the program start to run
+- The introductory page is displayed as soon as the program start to run
 
-![Introductory Page](./READMEimages/k-game-intro.png)
-
+![Introductory Page](./docs/k-game-intro.png)
 
 ### Menu Page
 
-![Menu Page](./READMEimages/k-game.png)
+![Menu Page](./docs/k-game.png)
 
-+ Menu Page display the menu where user: 
+- Menu Page display the menu where user:
 
-  + Can click to display the game rules. 
-  + Prompted to displayed the game stage. 
-  + Can view the about us page, where the team information can be found.
-
-
+  - Can click to display the game rules.
+  - Prompted to displayed the game stage.
+  - Can view the about us page, where the team information can be found.
 
 # Technologies
 
 ## Language and Programs used is as follow:
 
--   Html
--   Css
--   JavaScript
-    -   Kaboom: A JavaScript Library
--   Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
--   GitHub - Was used to store the project code in a repository.
-
+- Html
+- Css
+- JavaScript
+  - Kaboom: A JavaScript Library
+- Git - Was used for version control, the Gitpod terminal to commit and push to GitHub.
+- GitHub - Was used to store the project code in a repository.
 
 # 5. Controls
 
@@ -164,17 +155,13 @@ These colors not only encapsulate the nostalgic retro feel but also infuse energ
 - Kill the boss to save the heroes and earn a reward.
 - Move up level after each victory.
 
-
 # 6. Bug
 
 GAME MUSIC - Game music does not pause when character completes level.
 
-
 # 7. Deployment
 
 This game used Netflify for deployment and linked to github repository for continuous deployment.
-
-
 
 # 8. Citation of Sources
 
@@ -190,6 +177,7 @@ This game used Netflify for deployment and linked to github repository for conti
 - All content have been by Team4 - Retro Riders.
 
 Music from [https://uppbeat.io](Uppbeat) and editied by Dan Morriss:
+
 - [https://uppbeat.io/t/kevin-macleod/pookatori-and-friends](Kevin Macleod - Pookatori and Friends) License code: GWISOMBPIZDPTGXF
 
 - [https://uppbeat.io/t/kevin-macleod/blockman](Kevin Macleodan - Blockman) License code: KBULYGVDWAXJPZCN
@@ -207,5 +195,4 @@ Music from [https://uppbeat.io](Uppbeat) and editied by Dan Morriss:
 - Pokemon theme music was recorded by Dan Morriss
 
 - Intro text was written by Debbie Bergstrom
-- 
-
+-

@@ -24,6 +24,9 @@ export class Level {
     this.level = K.add([logPlayerPosition(this, this.player)]);
     this.renderStaticEnemies();
     this.gameOver = false;
+    this.homingSpeed =
+      gameObject.homingEnemy?.loopSpeed ||
+      gameObject.homingEnemyShoot?.loopSpeed;
 
     this.startLevel();
   }
@@ -38,12 +41,12 @@ export class Level {
 
     if (this.homingEnemyShoot) {
       this.homingEnemyLoop = K.loop(
-        4,
+        this.homingSpeed,
         () => new HomingEnemyShoot(this.player, this.homingEnemyShoot)
       );
     } else {
       this.homingEnemyLoop = K.loop(
-        4,
+        this.homingSpeed,
         () =>
           new HomingEnemy(
             this.player,

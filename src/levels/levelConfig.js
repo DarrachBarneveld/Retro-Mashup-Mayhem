@@ -53,6 +53,7 @@ export const level1Config = {
   homingEnemy: {
     sprite: "bullet",
     scale: 1,
+    loopSpeed: 4,
   },
 
   staticEnemy: {
@@ -96,6 +97,7 @@ export const level2Config = {
   homingEnemy: {
     sprite: "koffing",
     scale: 0.75,
+    loopSpeed: 4,
   },
 
   staticEnemy: {
@@ -136,6 +138,7 @@ export const level3Config = {
   homingEnemy: {
     sprite: "ghost",
     scale: 2,
+    loopSpeed: 2,
   },
 
   sprites: {
@@ -168,6 +171,7 @@ export const level4Config = {
     sprite: "invader",
     bullet: "invaderbullet",
     shot: "spaceshipshoot",
+    loopSpeed: 4,
   },
 
   sprites: {

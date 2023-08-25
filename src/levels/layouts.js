@@ -13,17 +13,17 @@ export const testLevel = [
   "=                                                                                             =",
   "=                                                                                             =",
   "=                                                                                             =",
+  "=                       ab                                                                      =",
+  "=                                                                                             =",
+  "=                                                                                             =",
+  "=                                        ab                                                    =",
   "=                                                                                             =",
   "=                                                                                             =",
   "=                                                                                             =",
+  "=               1 2                                                                            =",
   "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=               1                                                                             =",
-  "=               2           +++++                                                             =",
-  "=               2         ++=====                                                             =",
+  "=               3 4         +++++                                                             =",
+  "=                         ++=====                                                             =",
   "++++++++++++++++++++++++++=======++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
 ];
 
@@ -122,31 +122,62 @@ export function constructTest() {
         K.sprite("tiles", { frame: 0 }),
         K.area(),
         K.body({ isStatic: true }),
-        K.scale(0.5),
         "tiles",
+        K.scale(0.5),
       ],
       // Ground tile
       "=": () => [
         K.sprite("tiles", { frame: 5 }),
         K.area(),
         K.body({ isStatic: true }),
+        "tiles",
         K.scale(0.5),
-        "tiles",
       ],
-      // Pillar Top
+
+      // Floating Left
+      a: () => [
+        K.sprite("tiles", { frame: 6 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+        K.scale(0.5),
+      ],
+      // Floating Right
+      b: () => [
+        K.sprite("tiles", { frame: 7 }),
+        K.area(),
+        K.body({ isStatic: true }),
+        "tiles",
+        K.scale(0.5),
+      ],
+
+      // Pillar Top Left
       1: () => [
-        K.sprite("tiles", { frame: 11 }),
-        K.area(),
-        K.body({ isStatic: true }),
-        // K.scale(0.5),
+        K.sprite("tiles", { frame: 18 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+
         "tiles",
       ],
-      // Pillar bottom
+      // Pillar Top Right
       2: () => [
-        K.sprite("tiles", { frame: 16 }),
-        K.area(),
-        K.body({ isStatic: true }),
-        // K.scale(0.5),
+        K.sprite("tiles", { frame: 19 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // Pillar Bottom Left
+      3: () => [
+        K.sprite("tiles", { frame: 23 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // Pillar Bottom Right
+      4: () => [
+        K.sprite("tiles", { frame: 24 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
         "tiles",
       ],
     },

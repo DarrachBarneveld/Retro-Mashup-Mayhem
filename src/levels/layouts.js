@@ -17,14 +17,14 @@ export const testLevel = [
   "=                                                                                             =",
   "=                                                                                             =",
   "=                                        ab                                                    =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=               1 2                                                                            =",
-  "=                                                                                             =",
-  "=               3 4         +++++                                                             =",
-  "=                         ++=====                                                             =",
-  "++++++++++++++++++++++++++=======++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+  "=                                                 q r                                         =",
+  "=     5                                                                                       =",
+  "=                                                 s t                                           =",
+  "=     6    8    1 2                                                                            =",
+  "=                                                  >                                          =",
+  "=     7    9    3 4         +++++                                                             =",
+  "=                         ++=====                  >                                           =",
+  "=+++++++++++++++++++++++++=======++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
 ];
 
 export const level1 = [
@@ -112,7 +112,7 @@ export const level4 = [
 export function constructTest() {
   const { tileset } = levelTest.sprites;
   const staticEnemyCoords = [];
-  K.loadSprite("tiles", tileset, { sliceX: 5, sliceY: 5 });
+  K.loadSprite("tiles", tileset, { sliceX: 10, sliceY: 10 });
   K.addLevel(levelTest.layout, {
     tileWidth: 16,
     tileHeight: 16,
@@ -123,15 +123,13 @@ export function constructTest() {
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
-        K.scale(0.5),
       ],
       // Ground tile
       "=": () => [
-        K.sprite("tiles", { frame: 5 }),
+        K.sprite("tiles", { frame: 20 }),
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
-        K.scale(0.5),
       ],
 
       // Floating Left
@@ -140,7 +138,6 @@ export function constructTest() {
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
-        K.scale(0.5),
       ],
       // Floating Right
       b: () => [
@@ -148,7 +145,6 @@ export function constructTest() {
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
-        K.scale(0.5),
       ],
 
       // Pillar Top Left
@@ -176,6 +172,73 @@ export function constructTest() {
       // Pillar Bottom Right
       4: () => [
         K.sprite("tiles", { frame: 24 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+
+      // SunFlower Top
+      5: () => [
+        K.sprite("tiles", { frame: 4 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // SunFlower Middle
+      6: () => [
+        K.sprite("tiles", { frame: 9 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      7: () => [
+        K.sprite("tiles", { frame: 14 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      // Purple Flower
+
+      8: () => [
+        K.sprite("tiles", { frame: 17 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      9: () => [
+        K.sprite("tiles", { frame: 22 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+
+      // PalmTree TopLeft
+      q: () => [
+        K.sprite("tiles", { frame: 15 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      r: () => [
+        K.sprite("tiles", { frame: 16 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      s: () => [
+        K.sprite("tiles", { frame: 20 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      t: () => [
+        K.sprite("tiles", { frame: 21 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      ">": () => [
+        K.sprite("tiles", { frame: 3 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",

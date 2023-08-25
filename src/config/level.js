@@ -7,12 +7,6 @@ import cloud from "../../assets/images/sprites/mario/sm-cloud.png";
 import pipe from "../../assets/images/sprites/mario/sm-pipe.png";
 import castle from "../../assets/images/sprites/mario/sm-castle.png";
 import hill from "../../assets/images/sprites/mario/sm-hill.png";
-import {
-  constructLevel1,
-  constructLevel2,
-  constructLevel3,
-  constructLevel4,
-} from "./constructLevel";
 
 // POKEMON IMPORTS
 import pokemonTileset from "../../assets/images/tileset/pokemon-tileset.png";
@@ -35,7 +29,15 @@ import sphereplanet from "../../assets/images/sprites/space-invaders/sphereplane
 import asteroid from "../../assets/images/sprites/space-invaders/asteroid.png";
 import spaceInvaderMusic from "../../assets/audio/music/space-invaders-level-music.mp3";
 import spaceBackground from "../../assets/images/backgrounds/space-background.png";
-import { level1, level2, level3, level4 } from "./layouts";
+
+// LEVEL DATA
+import { level1, level2, level3, level4 } from "../levels/layouts";
+import {
+  constructLevel1,
+  constructLevel2,
+  constructLevel3,
+  constructLevel4,
+} from "../levels/constructLevel";
 
 export const level1Config = {
   boss: {

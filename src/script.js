@@ -6,7 +6,7 @@ import {
   level2Config,
   level3Config,
   level4Config,
-} from "./levels/levelConfig";
+} from "./config/level";
 
 const replayBtn = document.getElementById("replay");
 

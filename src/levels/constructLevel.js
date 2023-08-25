@@ -4,7 +4,7 @@ import {
   level2Config,
   level3Config,
   level4Config,
-} from "./levelConfig";
+} from "../config/level";
 
 export function constructLevel1() {
   const { tileset, mario, princess, cloud, pipe, castle, hill } =

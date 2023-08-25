@@ -13,18 +13,18 @@ export const testLevel = [
   "=                                                                                             =",
   "=                                                                                             =",
   "=                                                                                             =",
-  "=                       ab                                                                      =",
+  "=                       aaa                                                                     =",
   "=                                                                                             =",
   "=                                                                                             =",
   "=                                        ab                                                    =",
   "=                                                 q r                                         =",
-  "=     5                                                                                       =",
-  "=                                                 s t                                           =",
-  "=     6    8    1 2                                                                            =",
-  "=                                                  >                                          =",
-  "=     7    9    3 4         +++++                                                             =",
-  "=                         ++=====                  >                                           =",
-  "=+++++++++++++++++++++++++=======++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+  "=                                                                                            =",
+  "=        1234                                       s t                                           =",
+  "=        5678             +++                                                         =",
+  "=        9^*&           ++===dd++                           >                                          =",
+  "=          >            =====ee==d+     +++++                                                             =",
+  "=          <          ++=====ee==e=++              >                                           =",
+  "=+++++++++++++++++++++=======ee==e===++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
 ];
 
 export const level1 = [
@@ -126,119 +126,169 @@ export function constructTest() {
       ],
       // Ground tile
       "=": () => [
-        K.sprite("tiles", { frame: 20 }),
+        K.sprite("tiles", { frame: 10 }),
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
       ],
-
-      // Floating Left
+      // Floating Green
       a: () => [
-        K.sprite("tiles", { frame: 6 }),
+        K.sprite("tiles", { frame: 2 }),
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
       ],
-      // Floating Right
+      // Floating Red
       b: () => [
-        K.sprite("tiles", { frame: 7 }),
+        K.sprite("tiles", { frame: 3 }),
         K.area(),
         K.body({ isStatic: true }),
         "tiles",
       ],
-
-      // Pillar Top Left
-      1: () => [
-        K.sprite("tiles", { frame: 18 }),
-        // K.area(),
-        // K.body({ isStatic: true }),
-
-        "tiles",
-      ],
-      // Pillar Top Right
-      2: () => [
-        K.sprite("tiles", { frame: 19 }),
-        // K.area(),
-        // K.body({ isStatic: true }),
-        "tiles",
-      ],
-      // Pillar Bottom Left
-      3: () => [
-        K.sprite("tiles", { frame: 23 }),
-        // K.area(),
-        // K.body({ isStatic: true }),
-        "tiles",
-      ],
-      // Pillar Bottom Right
-      4: () => [
-        K.sprite("tiles", { frame: 24 }),
-        // K.area(),
-        // K.body({ isStatic: true }),
-        "tiles",
-      ],
-
-      // SunFlower Top
-      5: () => [
+      // Floating Top Yellow
+      c: () => [
         K.sprite("tiles", { frame: 4 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+      // waterfall grass
+      d: () => [
+        K.sprite("tiles", { frame: 8 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+      e: () => [
+        K.sprite("tiles", { frame: 18 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+
+      // Statue Grey
+      f: () => [
+        K.sprite("tiles", { frame: 85 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+      g: () => [
+        K.sprite("tiles", { frame: 95 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+
+      // Statue Brown
+      h: () => [
+        K.sprite("tiles", { frame: 78 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+      i: () => [
+        K.sprite("tiles", { frame: 88 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+      j: () => [
+        K.sprite("tiles", { frame: 98 }),
+        K.area(),
+        K.body({ isStatic: true }),
+
+        "tiles",
+      ],
+
+      // Tree
+      1: () => [
+        K.sprite("tiles", { frame: 50 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
-      // SunFlower Middle
+      2: () => [
+        K.sprite("tiles", { frame: 51 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      3: () => [
+        K.sprite("tiles", { frame: 52 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      4: () => [
+        K.sprite("tiles", { frame: 53 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      5: () => [
+        K.sprite("tiles", { frame: 60 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
       6: () => [
-        K.sprite("tiles", { frame: 9 }),
+        K.sprite("tiles", { frame: 61 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
       7: () => [
-        K.sprite("tiles", { frame: 14 }),
+        K.sprite("tiles", { frame: 62 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
-      // Purple Flower
-
       8: () => [
-        K.sprite("tiles", { frame: 17 }),
+        K.sprite("tiles", { frame: 63 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
       9: () => [
-        K.sprite("tiles", { frame: 22 }),
+        K.sprite("tiles", { frame: 70 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
-
-      // PalmTree TopLeft
-      q: () => [
-        K.sprite("tiles", { frame: 15 }),
+      "^": () => [
+        K.sprite("tiles", { frame: 71 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
-      r: () => [
-        K.sprite("tiles", { frame: 16 }),
+      "*": () => [
+        K.sprite("tiles", { frame: 72 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
-      s: () => [
-        K.sprite("tiles", { frame: 20 }),
-        // K.area(),
-        // K.body({ isStatic: true }),
-        "tiles",
-      ],
-      t: () => [
-        K.sprite("tiles", { frame: 21 }),
+      "&": () => [
+        K.sprite("tiles", { frame: 73 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",
       ],
       ">": () => [
-        K.sprite("tiles", { frame: 3 }),
+        K.sprite("tiles", { frame: 82 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      "<": () => [
+        K.sprite("tiles", { frame: 92 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",

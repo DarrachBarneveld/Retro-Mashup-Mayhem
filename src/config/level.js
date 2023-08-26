@@ -56,7 +56,7 @@ export const levelTest = {
   },
 
   staticEnemy: {
-    sprite: "koopa",
+    sprite: "crab",
     die: "ghost-dead",
     bullet: "koopabullet",
     shot: "koopashoot",

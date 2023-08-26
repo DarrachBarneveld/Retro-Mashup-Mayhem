@@ -8,23 +8,23 @@ import {
 } from "../config/level";
 
 export const testLevel = [
-  "==============================================================================================",
+  "===============================================================================================",
   "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                       aaa                                                                     =",
-  "=                                                                                             =",
-  "=                                                                                             =",
-  "=                                        ab                                                    =",
-  "=                                                 q r                                         =",
-  "=                                                                                            =",
-  "=        1234                                       s t                                           =",
-  "=        5678             +++                                                         =",
-  "=        9^*&           ++===dd++                           >                                          =",
-  "=          >            =====ee==d+     +++++                                                             =",
-  "=          <          ++=====ee==e=++              >                                           =",
-  "=+++++++++++++++++++++=======ee==e===++++++++++++++++++++++++++++++++++++++++++++++++++++++++",
+  "=              E                                                                               =",
+  "=                                                 aaaaa                                       =",
+  "=              ccc                                    aaaaaa                                  =",
+  "=                                                                           bbb               =",
+  "=                                                            .,                               =",
+  "=                                                            kl                               =",
+  "=                                       cccc                 mn                               =",
+  "=                           h     1234                       op                               =",
+  "=        1234               i     5678                      +++                 bbb           =",
+  "=        5678               j     9^*&                     d===1234                           =",
+  "=        9^*&   .,          +++     >                     +e===5678            f              =",
+  "=          >    kl        ++===dd++ <          h         +=e===9^*&            g              =",
+  "=          <    mn        =====ee==d+          i         ==e===  >            +++             =",
+  "=         +++   op      ++=====ee==e=++        j        +==e===+ <           +===++           =",
+  "=+++++++++===+++++++++++=======ee==e===+++++++++++++++++===e====+++++++++++++======+++++++++++=",
 ];
 
 export const level1 = [
@@ -117,6 +117,12 @@ export function constructTest() {
     tileWidth: 16,
     tileHeight: 16,
     tiles: {
+      E: (coords) => {
+        coords.x = coords.x * 16;
+        coords.y = coords.y * 16;
+        staticEnemyCoords.push(coords);
+        return [staticEnemyCoords];
+      },
       // Grass tile
       "+": () => [
         K.sprite("tiles", { frame: 0 }),
@@ -289,6 +295,56 @@ export function constructTest() {
       ],
       "<": () => [
         K.sprite("tiles", { frame: 92 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+
+      // FLower
+      ".": () => [
+        K.sprite("tiles", { frame: 66 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      ",": () => [
+        K.sprite("tiles", { frame: 67 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      k: () => [
+        K.sprite("tiles", { frame: 76 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      l: () => [
+        K.sprite("tiles", { frame: 77 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      m: () => [
+        K.sprite("tiles", { frame: 86 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      n: () => [
+        K.sprite("tiles", { frame: 87 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      o: () => [
+        K.sprite("tiles", { frame: 96 }),
+        // K.area(),
+        // K.body({ isStatic: true }),
+        "tiles",
+      ],
+      p: () => [
+        K.sprite("tiles", { frame: 97 }),
         // K.area(),
         // K.body({ isStatic: true }),
         "tiles",

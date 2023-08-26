@@ -17,6 +17,7 @@ import koopashot from "../../assets/images/sprites/mario/koopa-bullet.png";
 import koopa from "../../assets/images/sprites/mario/koopa.png";
 import koffing from "../../assets/images/sprites/pokemon/koffing.png";
 import invader from "../../assets/images/invader.png";
+import crab from "../../assets/images/sprites/sonic/crab.png";
 
 // Level2
 import arbok from "../../assets/images/sprites/pokemon/arbok.png";
@@ -68,6 +69,11 @@ K.loadSprite("invaderbullet", invaderBullet, {
   sliceX: 2,
   sliceY: 1,
   anims: { shot: { from: 0, to: 1, loop: true } },
+});
+K.loadSprite("crab", crab, {
+  sliceX: 4,
+  sliceY: 1,
+  anims: { idle: { from: 0, to: 3, loop: true, speed: 3 } },
 });
 
 // Sounds

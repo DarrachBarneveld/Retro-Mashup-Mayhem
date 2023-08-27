@@ -25,8 +25,11 @@ import arbokbullet from "../../assets/images/sprites/pokemon/pokemon-bullet.png"
 
 import invaderBullet from "../../assets/images/sprites/space-invaders/space-bullet.png";
 
-import { delayTimer, getRandomNumber } from "../helpers/math";
-import { loadFromLocalStorage } from "../home";
+import {
+  delayTimer,
+  getRandomNumber,
+  loadFromLocalStorage,
+} from "../helpers/math";
 
 const score = document.getElementById("score");
 // Bosses

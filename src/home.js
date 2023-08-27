@@ -3,10 +3,12 @@ import marioTrophy from "../assets/images/triphies/trophy1.png";
 import pikatrophy from "../assets/images/triphies/trophy2.png";
 import pactropy from "../assets/images/triphies/trophy3.png";
 import spacetrophy from "../assets/images/triphies/trophy4.png";
+import { loadFromLocalStorage } from "./helpers/math";
 
 const soundOnButton = document.getElementById("sound-on");
 const soundOffButton = document.getElementById("sound-off");
 const backgroundMusic = document.getElementById("backgroundMusic");
+
 /* Modals Constants */
 const rulesModal = document.querySelector("#rules-modal");
 const aboutUsModal = document.querySelector("#about-us-modal");
@@ -28,19 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const levels = loadFromLocalStorage("levels");
   undisableLevels(levels);
 });
-
-export function loadFromLocalStorage(key) {
-  const storedData = localStorage.getItem(key);
-
-  if (!storedData) {
-    localStorage.setItem("levels", JSON.stringify([]));
-    return [];
-  }
-  if (storedData) {
-    return JSON.parse(storedData);
-  }
-  return null;
-}
 
 soundOffButton.addEventListener("click", () => {
   soundOffButton.classList.add("hide");
@@ -121,37 +110,26 @@ function undisableLevels(levels) {
   if (levels.includes(1)) {
     const html = `<img id="mario-trophy" src=${marioTrophy} alt="Mario trophy"><h3>Mario Matrix</h3>`;
     const element = document.getElementById("mario-trophy");
-    if (!element) return;
-
     element.innerHTML = html;
-
-    if (!level2Btn) return;
     level2Btn.disabled = false;
   }
   if (levels.includes(2)) {
     const html = `<img id="pikachu-trophy" src=${pikatrophy} alt="Pikachu trophy"><h3>Pikachu Paradox</h3>`;
     const element = document.getElementById("pikachu-trophy");
-    if (!element) return;
     element.innerHTML = html;
-    if (!level3Btn) return;
     level3Btn.disabled = false;
   }
   if (levels.includes(3)) {
     const html = `<img id="pacman-trophy" src=${pactropy} alt="Pacman trophy">
     <h3>Pacman Prowess</h3>`;
     const element = document.getElementById("pacman-trophy");
-    if (!element) return;
     element.innerHTML = html;
-
-    if (!level4Btn) return;
     level4Btn.disabled = false;
   }
   if (levels.includes(4)) {
     const html = `<img id="invaders-trophy" src=${spacetrophy} alt="Invaders trophy">
     <h3>Invader Invasion</h3>`;
     const element = document.getElementById("invaders-trophy");
-    if (!element) return;
-
-    element.innerHTML == html;
+    element.innerHTML = html;
   }
 }

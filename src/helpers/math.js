@@ -7,3 +7,16 @@ export function delayTimer(milliseconds) {
     setTimeout(resolve, milliseconds);
   });
 }
+
+export function loadFromLocalStorage(key) {
+  const storedData = localStorage.getItem(key);
+
+  if (!storedData) {
+    localStorage.setItem("levels", JSON.stringify([]));
+    return [];
+  }
+  if (storedData) {
+    return JSON.parse(storedData);
+  }
+  return null;
+}

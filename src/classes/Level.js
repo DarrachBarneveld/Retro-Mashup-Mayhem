@@ -37,24 +37,24 @@ export class Level {
 
   startLevel() {
     this.timer = timerCountdown(120, this.player, this.isGameOver.bind(this));
-    // this.enemyLoop = K.loop(4, () => new Enemy(this.player));
+    this.enemyLoop = K.loop(4, () => new Enemy(this.player));
 
-    // if (this.homingEnemyShoot) {
-    //   this.homingEnemyLoop = K.loop(
-    //     this.homingSpeed,
-    //     () => new HomingEnemyShoot(this.player, this.homingEnemyShoot)
-    //   );
-    // } else {
-    //   this.homingEnemyLoop = K.loop(
-    //     this.homingSpeed,
-    //     () =>
-    //       new HomingEnemy(
-    //         this.player,
-    //         this.homingEnemy.sprite,
-    //         this.homingEnemy.scale
-    //       )
-    //   );
-    // }
+    if (this.homingEnemyShoot) {
+      this.homingEnemyLoop = K.loop(
+        this.homingSpeed,
+        () => new HomingEnemyShoot(this.player, this.homingEnemyShoot)
+      );
+    } else {
+      this.homingEnemyLoop = K.loop(
+        this.homingSpeed,
+        () =>
+          new HomingEnemy(
+            this.player,
+            this.homingEnemy.sprite,
+            this.homingEnemy.scale
+          )
+      );
+    }
   }
 
   renderStaticEnemies() {
